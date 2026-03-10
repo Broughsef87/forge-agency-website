@@ -1,15 +1,15 @@
+import ForgeLogo from '../components/ForgeLogo';
+
 export default function Home() {
   return (
     <>
       {/* Navigation */}
       <nav className="border-b border-white/10 bg-forge-dark/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded bg-gradient-to-br from-forge-orange to-forge-red flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(255,87,34,0.5)]">
-              F
-            </div>
-            <span className="font-bold text-xl tracking-tight">
-              FORGE <span className="text-forge-orange">OS</span>
+          <div className="flex items-center gap-4">
+            <ForgeLogo className="w-10 h-10" />
+            <span className="font-bold text-xl tracking-widest uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              Forge <span className="text-forge-orange">OS</span>
             </span>
           </div>
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
@@ -24,15 +24,21 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <main className="max-w-7xl mx-auto px-6 pt-32 pb-24 text-center">
+      <main className="max-w-7xl mx-auto px-6 pt-32 pb-24 text-center flex flex-col items-center">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-forge-orange/30 bg-forge-orange/10 text-forge-orange text-xs font-mono font-bold uppercase tracking-wider mb-8">
           <span className="w-2 h-2 rounded-full bg-forge-orange animate-pulse"></span>
           System Online 24/7
         </div>
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 uppercase">
-          Build the <span className="forge-gradient">Legacy.</span>
-          <br />
-          Automate the Rest.
+
+        <div className="mb-10 w-full max-w-sm mx-auto flex flex-col items-center gap-6">
+           <ForgeLogo className="w-48 h-48 drop-shadow-2xl" />
+           <h2 className="text-5xl md:text-6xl font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-forge-orange to-forge-red" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+             FORGE OS
+           </h2>
+        </div>
+
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-6 text-gray-300">
+          Build the Legacy. Automate the Rest.
         </h1>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
           A fully autonomous ecosystem designed to produce value around the clock. Stop trading time for money. Start building systems that buy back your life.
