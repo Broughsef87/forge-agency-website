@@ -14,7 +14,7 @@ export default function Home() {
           </div>
           <div className="hidden md:flex gap-8 text-sm font-medium text-gray-400">
             <a href="#ecosystem" className="hover:text-white transition-colors">The Ecosystem</a>
-            <a href="#app" className="hover:text-white transition-colors">Dad Strength App</a>
+            <a href="https://dad-strength-app.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Dad Strength App</a>
             <a href="#youtube" className="hover:text-white transition-colors">The Channel</a>
           </div>
           <button className="px-5 py-2 rounded-md bg-white text-black font-bold text-sm hover:bg-gray-200 transition-colors">
@@ -64,13 +64,16 @@ export default function Home() {
           </div>
 
           {/* Pillar 2 */}
-          <div className="bg-forge-panel border border-white/5 rounded-xl p-8 hover:border-forge-orange/50 transition-colors group">
+          <div className="bg-forge-panel border border-white/5 rounded-xl p-8 hover:border-forge-orange/50 transition-colors group flex flex-col">
             <div className="text-forge-orange font-mono text-sm mb-4">02 // APP</div>
             <h3 className="text-2xl font-bold mb-4 group-hover:neon-text transition-all">Dad Strength</h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 flex-grow">
               Functional power for the guys who need to be heroes at home, not posers in the mirror. Built for the 'Newborn Phase' and beyond.
             </p>
-            <div className="font-mono text-xs text-gray-500 border-t border-white/10 pt-4">Status: In Beta (Next.js)</div>
+            <a href="https://dad-strength-app.vercel.app" target="_blank" rel="noopener noreferrer" className="inline-block w-full py-3 mb-6 rounded bg-white/5 hover:bg-forge-orange text-center font-bold text-sm transition-colors">
+              Launch Beta App
+            </a>
+            <div className="font-mono text-xs text-gray-500 border-t border-white/10 pt-4 mt-auto">Status: Live on Vercel</div>
           </div>
 
           {/* Pillar 3 */}
