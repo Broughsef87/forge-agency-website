@@ -4,18 +4,42 @@
   --color-forge-orange: #FF5722;
   --color-forge-red: #D84315;
   --color-forge-dark: #0A0A0A;
-  --color-forge-panel: #1A1A1A;
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --color-forge-panel: #111111;
+  --color-neon-blue: #00F3FF;
+  --color-neon-purple: #BC13FE;
+  
+  --font-orbitron: var(--font-orbitron);
+  --font-inter: var(--font-inter);
+  --font-mono: var(--font-mono);
+  
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glitch: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
 }
 
 body { 
   background-color: #0A0A0A; 
-  color: #f3f4f6; 
+  color: #f3f4f6;
+  font-family: var(--font-inter), sans-serif;
 }
 
-.neon-text {
-  text-shadow: 0 0 10px rgba(255, 87, 34, 0.7), 0 0 20px rgba(255, 87, 34, 0.5);
+.font-orbitron { font-family: var(--font-orbitron), sans-serif; }
+.font-mono { font-family: var(--font-mono), monospace; }
+
+.neon-border {
+  box-shadow: 0 0 5px var(--color-forge-orange), 0 0 15px rgba(255, 87, 34, 0.3);
+}
+
+.neon-text-orange {
+  text-shadow: 0 0 8px rgba(255, 87, 34, 0.8), 0 0 20px rgba(255, 87, 34, 0.4);
 }
 
 .forge-gradient {
@@ -26,8 +50,31 @@ body {
 
 .grid-bg {
   background-color: #0A0A0A;
-  background-size: 40px 40px;
+  background-size: 60px 60px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 87, 34, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 87, 34, 0.05) 1px, transparent 1px);
+}
+
+.scanline {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 87, 34, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: none;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { top: -2px; }
+  100% { top: 100%; }
+}
+
+.cyber-button {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
 }
