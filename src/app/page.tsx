@@ -1,6 +1,6 @@
 "use client";
 
-import AgencyLogo from '../components/AgencyLogo';
+import ForgeLogo from "../components/ForgeLogo";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-[#F9F9F9]/80 backdrop-blur-xl border-b border-zinc-200 px-8 py-5 flex justify-between items-center transition-all">
         <div className="flex items-center gap-3">
-          <AgencyLogo className="text-zinc-900 w-6 h-6" />
+          <ForgeLogo className="text-zinc-900 w-6 h-6" />
           <span className="font-medium tracking-wide text-sm text-zinc-900">FORGE AGENCY</span>
         </div>
         <div className="hidden md:flex gap-10 text-xs font-medium tracking-wide text-zinc-500">
