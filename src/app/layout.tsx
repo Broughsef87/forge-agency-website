@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import AnimationObserver from "@/components/AnimationObserver";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <body className="antialiased bg-[#F5F1EA] text-stone-900">
+        <AnimationObserver />
         {children}
       </body>
     </html>

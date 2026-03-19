@@ -25,17 +25,32 @@ export default function Home() {
 
         {/* Hero */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
-          <p className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-5">
+          <p
+            data-reveal
+            className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-5"
+          >
             AI Automation Agency
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-[0.95] mb-8 max-w-4xl text-stone-900">
+          <h1
+            data-reveal
+            data-delay="100"
+            className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-[0.95] mb-8 max-w-4xl text-stone-900"
+          >
             The ultimate intelligence layer for modern enterprises.
           </h1>
-          <p className="text-xl md:text-2xl text-stone-500 font-light leading-relaxed max-w-2xl mb-12">
+          <p
+            data-reveal
+            data-delay="200"
+            className="text-xl md:text-2xl text-stone-500 font-light leading-relaxed max-w-2xl mb-12"
+          >
             We build autonomous agent systems that scale your revenue without scaling your headcount.
             Your operations, producing value — 24/7.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div
+            data-reveal
+            data-delay="300"
+            className="flex flex-col sm:flex-row gap-4"
+          >
             <a
               href="#services"
               className="px-8 py-4 bg-stone-900 text-[#F5F1EA] rounded-full font-medium hover:bg-stone-800 transition-colors inline-flex items-center justify-center gap-2"
@@ -57,15 +72,15 @@ export default function Home() {
         {/* Stats bar */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
           <div className="border-t border-b border-stone-200 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 sm:divide-x sm:divide-stone-200">
-            <div className="sm:pr-8">
+            <div data-reveal className="sm:pr-8">
               <div className="text-4xl md:text-5xl font-medium tracking-tight text-stone-900 mb-2">10×</div>
               <div className="text-sm text-stone-500 font-medium">Operational throughput increase</div>
             </div>
-            <div className="sm:px-8">
+            <div data-reveal data-delay="150" className="sm:px-8">
               <div className="text-4xl md:text-5xl font-medium tracking-tight text-stone-900 mb-2">72h</div>
               <div className="text-sm text-stone-500 font-medium">Average deployment window</div>
             </div>
-            <div className="sm:pl-8">
+            <div data-reveal data-delay="300" className="sm:pl-8">
               <div className="text-4xl md:text-5xl font-medium tracking-tight text-stone-900 mb-2">0</div>
               <div className="text-sm text-stone-500 font-medium">Additional headcount required</div>
             </div>
@@ -74,14 +89,14 @@ export default function Home() {
 
         {/* Services */}
         <section id="services" className="max-w-6xl mx-auto px-6 mb-32">
-          <p className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">What We Build</p>
-          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-12">
+          <p data-reveal className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">What We Build</p>
+          <h2 data-reveal data-delay="100" className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-12">
             Systems that work while you sleep.
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
 
             {/* Card 1 */}
-            <div className="group p-8 md:p-12 bg-white rounded-3xl border border-stone-200 hover:border-stone-300 transition-colors">
+            <div data-reveal data-delay="100" className="group p-8 md:p-12 bg-white rounded-3xl border border-stone-200 hover:border-stone-300 transition-colors">
               <div className="w-12 h-12 bg-stone-100 rounded-2xl mb-8 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-all duration-200">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -108,7 +123,7 @@ export default function Home() {
             </div>
 
             {/* Card 2 */}
-            <div className="group p-8 md:p-12 bg-white rounded-3xl border border-stone-200 hover:border-stone-300 transition-colors">
+            <div data-reveal data-delay="200" className="group p-8 md:p-12 bg-white rounded-3xl border border-stone-200 hover:border-stone-300 transition-colors">
               <div className="w-12 h-12 bg-stone-100 rounded-2xl mb-8 flex items-center justify-center group-hover:bg-stone-900 group-hover:text-white transition-all duration-200">
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -140,7 +155,7 @@ export default function Home() {
         {/* About / Process */}
         <section id="about" className="max-w-6xl mx-auto px-6 mb-32">
           <div className="grid md:grid-cols-2 gap-16 items-start">
-            <div>
+            <div data-reveal>
               <p className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">Our Approach</p>
               <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-6">
                 Built for enterprises who think in systems.
@@ -154,11 +169,16 @@ export default function Home() {
             </div>
             <div className="space-y-4">
               {[
-                { num: '01', title: 'Audit', desc: 'Map your current operations and identify the highest-leverage automation opportunities.' },
-                { num: '02', title: 'Architect', desc: 'Design the exact agent systems and workflows tailored to your tech stack and business model.' },
-                { num: '03', title: 'Deploy', desc: 'Build, integrate, and hand over a fully autonomous system — typically within 72 hours.' },
+                { num: '01', title: 'Audit', desc: 'Map your current operations and identify the highest-leverage automation opportunities.', delay: '100' },
+                { num: '02', title: 'Architect', desc: 'Design the exact agent systems and workflows tailored to your tech stack and business model.', delay: '200' },
+                { num: '03', title: 'Deploy', desc: 'Build, integrate, and hand over a fully autonomous system — typically within 72 hours.', delay: '300' },
               ].map((step) => (
-                <div key={step.num} className="flex gap-5 p-6 bg-white rounded-2xl border border-stone-200">
+                <div
+                  key={step.num}
+                  data-reveal
+                  data-delay={step.delay}
+                  className="flex gap-5 p-6 bg-white rounded-2xl border border-stone-200"
+                >
                   <span className="text-xs font-semibold text-stone-400 font-mono pt-0.5 shrink-0">{step.num}</span>
                   <div>
                     <div className="font-medium tracking-tight text-stone-900 mb-1">{step.title}</div>
@@ -172,7 +192,7 @@ export default function Home() {
 
         {/* CTA Block */}
         <section id="contact" className="max-w-6xl mx-auto px-6">
-          <div className="bg-stone-900 rounded-3xl p-12 md:p-20 text-center">
+          <div data-reveal className="bg-stone-900 rounded-3xl p-12 md:p-20 text-center">
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
               Your competition is already automating.
             </h2>
