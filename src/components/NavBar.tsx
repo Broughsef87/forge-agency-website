@@ -2,11 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import ForgeLogo from './ForgeLogo';
-import LeadQualificationModal from './LeadQualificationModal';
 
 export default function NavBar() {
   const [overVideo, setOverVideo] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const check = () => {
@@ -48,16 +46,6 @@ export default function NavBar() {
             <a href="#about" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>About Us</a>
           </div>
           <div className="hidden md:flex items-center gap-4">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-500 ${
-                overVideo
-                  ? 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
-                  : 'bg-stone-900 text-[#F5F1EA] hover:bg-stone-800 shadow-sm'
-              }`}
-            >
-              Qualified Leads?
-            </button>
             <a
               href="#contact"
               className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-500 ${
@@ -72,10 +60,6 @@ export default function NavBar() {
         </div>
       </nav>
 
-      <LeadQualificationModal 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
-      />
     </>
   );
 }
