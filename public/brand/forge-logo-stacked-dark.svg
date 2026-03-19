@@ -1,0 +1,37 @@
+<svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="180" fill="#050505"/>
+  <defs>
+    <radialGradient id="glow-sd" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8572A" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#E8572A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Icon centered, 80x80 -->
+  <g transform="translate(60,14) scale(0.8)">
+    <circle cx="50" cy="50" r="22" fill="url(#glow-sd)"/>
+    <path d="M50 10L80 40V80L50 90L20 80V40L50 10Z"
+          stroke="#E8572A" stroke-width="4" stroke-linejoin="bevel"/>
+    <path d="M35 50H65L70 65H30L35 50Z" fill="#ffffff" opacity="0.15"/>
+    <path d="M35 50H65L70 65H30L35 50Z" stroke="#E8572A" stroke-width="1.5"/>
+    <line x1="45" y1="38" x2="45" y2="50" stroke="#E8572A" stroke-width="3" stroke-linecap="round"/>
+    <line x1="55" y1="38" x2="55" y2="50" stroke="#E8572A" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="50" y1="108" x2="150" y2="108" stroke="#E8572A" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Wordmark stacked -->
+  <text x="100" y="130"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="8" font-weight="600" letter-spacing="0.22em"
+        fill="#ffffff" opacity="0.45" text-anchor="middle">THE</text>
+  <text x="100" y="152"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="16" font-weight="700" letter-spacing="0.06em"
+        fill="#ffffff" text-anchor="middle">FORGE</text>
+  <text x="100" y="170"
+        font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="16" font-weight="700" letter-spacing="0.06em"
+        fill="#ffffff" text-anchor="middle">AGENCY</text>
+</svg>
