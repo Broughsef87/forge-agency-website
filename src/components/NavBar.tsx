@@ -44,16 +44,30 @@ export default function NavBar() {
           <a href="#services" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>Services</a>
           <a href="#about" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>About Us</a>
         </div>
-        <a
-          href="#contact"
-          className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-500 ${
-            overVideo
-              ? 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
-              : 'bg-stone-900 text-[#F5F1EA] hover:bg-stone-800'
-          }`}
-        >
-          Book a Call
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="https://lead-qualifier-nine.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-500 ${
+              overVideo
+                ? 'bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm'
+                : 'bg-stone-900 text-[#F5F1EA] hover:bg-stone-800 shadow-sm'
+            }`}
+          >
+            Qualified Leads?
+          </a>
+          <a
+            href="#contact"
+            className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-500 ${
+              overVideo
+                ? 'text-white/60 hover:text-white'
+                : 'text-stone-600 hover:text-stone-900'
+            }`}
+          >
+            Book a Call
+          </a>
+        </div>
       </div>
     </nav>
   );
