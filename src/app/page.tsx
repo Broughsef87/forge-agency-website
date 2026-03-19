@@ -158,7 +158,7 @@ export default function Home() {
             <div data-reveal data-delay="300" className="group p-10 bg-white rounded-3xl border border-stone-200 hover:border-stone-300 transition-all">
               <div className="flex items-center gap-6 mb-8">
                 <div className="w-20 h-20 bg-stone-100 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
-                  <div className="w-full h-full flex items-center justify-center text-3xl">🏗️</div>
+                  <div className="w-full h-full bg-[url('/images/lisa.jpeg')] bg-cover bg-center" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-medium tracking-tight text-stone-900">Lisa</h3>
