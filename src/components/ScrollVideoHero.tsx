@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import ForgeLogo from './ForgeLogo';
 
 export default function ScrollVideoHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,14 +49,6 @@ export default function ScrollVideoHero() {
         {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-transparent to-stone-900/70" />
         <div className="absolute inset-0 bg-stone-900/20" />
-
-        {/* Top nav brand mark */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-2.5">
-          <ForgeLogo className="w-5 h-5" />
-          <span className="text-xs font-semibold tracking-[0.25em] text-white/80 uppercase">
-            The Forge Agency
-          </span>
-        </div>
 
         {/* Center content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
