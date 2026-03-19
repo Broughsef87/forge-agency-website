@@ -1,106 +1,48 @@
 @import "tailwindcss";
 
 @theme {
-  --color-forge-orange: #FF5722;
-  --color-forge-red: #D84315;
+  --color-forge-orange: #E8572A;
+  --color-forge-red: #C94020;
   --color-forge-dark: #050505;
   --color-forge-panel: #0a0a0a;
-  --color-neon-blue: #00F3FF;
-  --color-neon-purple: #BC13FE;
-  
-  --font-orbitron: var(--font-orbitron);
+
   --font-inter: var(--font-inter);
   --font-mono: var(--font-mono);
-  
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-glitch: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-@keyframes glitch {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 2px); }
-  40% { transform: translate(-2px, -2px); }
-  60% { transform: translate(2px, 2px); }
-  80% { transform: translate(2px, -2px); }
-  100% { transform: translate(0); }
-}
-
-body { 
-  background-color: #050505; 
-  color: #f3f4f6;
-  font-family: var(--font-inter), sans-serif;
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+body {
+  background-color: #F8F8F6;
+  color: #18181b;
+  font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
-}
-
-.font-orbitron { font-family: var(--font-orbitron), sans-serif; }
-.font-mono { font-family: var(--font-mono), monospace; }
-
-.neon-border {
-  box-shadow: 0 0 5px var(--color-forge-orange), 0 0 15px rgba(255, 87, 34, 0.3);
-}
-
-.neon-text-orange {
-  text-shadow: 0 0 8px rgba(255, 87, 34, 0.8), 0 0 20px rgba(255, 87, 34, 0.4);
-}
-
-.forge-gradient {
-  background: linear-gradient(135deg, #FF5722 0%, #D84315 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.grid-bg {
-  background-color: #050505;
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 87, 34, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 87, 34, 0.03) 1px, transparent 1px);
-}
-
-.scanline {
-  width: 100%;
-  height: 10px;
-  background: linear-gradient(to bottom, transparent, rgba(255, 87, 34, 0.05), transparent);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  pointer-events: none;
-  animation: scanline 10s linear infinite;
-}
-
-@keyframes scanline {
-  0% { transform: translateY(-100px); }
-  100% { transform: translateY(100vh); }
-}
-
-.cyber-button {
-  position: relative;
-  overflow: hidden;
-  clip-path: polygon(8% 0, 100% 0, 100% 70%, 92% 100%, 0 100%, 0 30%);
-}
-
-.cyber-panel {
-  clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
-}
-
-.crt-overlay::after {
-  content: " ";
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(18, 16, 16, 0.1);
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-  background-size: 100% 4px, 3px 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background: #FF5722;
+  background: #E8572A;
   color: white;
 }
+
+/* ── Scroll reveal ─────────────────────────────────────────────────────────── */
+/*
+ * Elements with .reveal start hidden.
+ * JavaScript (IntersectionObserver) adds .in-view when they enter the viewport,
+ * triggering the transition.
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Utilities (kept for legacy compatibility) ─────────────────────────────── */
+.font-mono { font-family: var(--font-mono), monospace; }
