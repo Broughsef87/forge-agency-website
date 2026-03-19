@@ -1,73 +1,17 @@
+import NavBar from '@/components/NavBar';
+import ScrollVideoHero from '@/components/ScrollVideoHero';
 import ForgeLogo from '@/components/ForgeLogo';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#F5F1EA] text-stone-900 font-sans selection:bg-stone-200">
 
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-[#F5F1EA]/80 backdrop-blur-md z-50 border-b border-stone-200/60">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <ForgeLogo className="w-6 h-6" />
-            <span className="font-semibold tracking-tight text-stone-900 text-sm">THE FORGE AGENCY</span>
-          </div>
-          <div className="hidden md:flex gap-8 text-sm font-medium text-stone-500">
-            <a href="#services" className="hover:text-stone-900 transition-colors">Services</a>
-            <a href="#about" className="hover:text-stone-900 transition-colors">About Us</a>
-          </div>
-          <a href="#contact" className="text-sm font-medium px-4 py-2 bg-stone-900 text-[#F5F1EA] rounded-full hover:bg-stone-800 transition-colors">
-            Book a Call
-          </a>
-        </div>
-      </nav>
+      <NavBar />
 
-      <main className="pt-32 pb-24">
+      {/* Scroll-scrubbed video hero */}
+      <ScrollVideoHero />
 
-        {/* Hero */}
-        <section className="max-w-6xl mx-auto px-6 mb-32">
-          <p
-            data-reveal
-            className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-5"
-          >
-            AI Automation Agency
-          </p>
-          <h1
-            data-reveal
-            data-delay="100"
-            className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-[0.95] mb-8 max-w-4xl text-stone-900"
-          >
-            The ultimate intelligence layer for modern enterprises.
-          </h1>
-          <p
-            data-reveal
-            data-delay="200"
-            className="text-xl md:text-2xl text-stone-500 font-light leading-relaxed max-w-2xl mb-12"
-          >
-            We build autonomous agent systems that scale your revenue without scaling your headcount.
-            Your operations, producing value — 24/7.
-          </p>
-          <div
-            data-reveal
-            data-delay="300"
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <a
-              href="#services"
-              className="px-8 py-4 bg-stone-900 text-[#F5F1EA] rounded-full font-medium hover:bg-stone-800 transition-colors inline-flex items-center justify-center gap-2"
-            >
-              Explore Services
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-4 border border-stone-300 text-stone-700 rounded-full font-medium hover:border-stone-900 hover:text-stone-900 transition-colors inline-flex items-center justify-center"
-            >
-              Book a Strategy Call
-            </a>
-          </div>
-        </section>
+      <main className="pb-24">
 
         {/* Stats bar */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
