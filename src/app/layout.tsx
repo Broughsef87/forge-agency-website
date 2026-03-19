@@ -15,9 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FORGE AGENCY — Documenting the autonomous build.",
+  title: "Forge Agency — AI Automation for Modern Enterprises",
   description:
-    "The media layer of Forge. YouTube, the Skool community, and the Dad Strength App. Building a $1M/year autonomous business in public.",
+    "Forge Agency builds autonomous AI agent systems that scale enterprise revenue without scaling headcount. Bespoke AI workflows and productized automation, deployed in 72 hours.",
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="antialiased bg-[#F8F8F6] text-zinc-900">
+      <body className="antialiased bg-[#F5F1EA] text-stone-900">
         {children}
       </body>
     </html>
