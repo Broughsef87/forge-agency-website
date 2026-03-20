@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E8572A" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#E8572A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Glow -->
+  <circle cx="50" cy="50" r="22" fill="url(#glow)"/>
+  <!-- Outer flame / blade -->
+  <path d="M50 10L80 40V80L50 90L20 80V40L50 10Z"
+        stroke="#E8572A" stroke-width="4" stroke-linejoin="bevel"/>
+  <!-- Anvil fill -->
+  <path d="M35 50H65L70 65H30L35 50Z" fill="#E8572A" opacity="0.18"/>
+  <path d="M35 50H65L70 65H30L35 50Z" stroke="#E8572A" stroke-width="1.5"/>
+  <!-- Hammer handles -->
+  <line x1="45" y1="38" x2="45" y2="50" stroke="#E8572A" stroke-width="3" stroke-linecap="round"/>
+  <line x1="55" y1="38" x2="55" y2="50" stroke="#E8572A" stroke-width="3" stroke-linecap="round"/>
+</svg>

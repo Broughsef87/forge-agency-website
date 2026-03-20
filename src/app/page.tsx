@@ -134,6 +134,44 @@ export default function Home() {
           </div>
         </section>
 
+        {/* The Team */}
+        <section className="max-w-6xl mx-auto px-6 mb-32">
+          <p data-reveal className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">The Team</p>
+          <h2 data-reveal data-delay="100" className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-12">
+            The humans behind the machines.
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div data-reveal data-delay="150" className="group p-10 bg-white rounded-3xl border border-stone-200 hover:border-stone-300 transition-all">
+              <div className="flex items-center gap-6 mb-8">
+                <div className="w-20 h-20 bg-stone-100 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                  <div className="w-full h-full bg-[url('https://github.com/broughsef.png')] bg-cover bg-center" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-medium tracking-tight text-stone-900">Andrew</h3>
+                  <p className="text-sm font-semibold tracking-wider text-stone-400 uppercase">Founder & CEO</p>
+                </div>
+              </div>
+              <p className="text-stone-500 font-light leading-relaxed">
+                10-year Olympic weightlifter turned automation architect. Andrew bridges the gap between high-level business strategy and deep technical implementation. He ensures every system we build scales without friction.
+              </p>
+            </div>
+            <div data-reveal data-delay="300" className="group p-10 bg-white rounded-3xl border border-stone-200 hover:border-stone-300 transition-all">
+              <div className="flex items-center gap-6 mb-8">
+                <div className="w-20 h-20 bg-stone-100 rounded-2xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500">
+                  <div className="w-full h-full bg-[url('/images/Lisa-Wirth.jpeg')] bg-cover bg-center" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-medium tracking-tight text-stone-900">Lisa</h3>
+                  <p className="text-sm font-semibold tracking-wider text-stone-400 uppercase">Head of Growth</p>
+                </div>
+              </div>
+              <p className="text-stone-500 font-light leading-relaxed">
+                The strategic force behind Forge Agency's expansion. Lisa specializes in identifying high-ticket B2B opportunities and ensuring our productized workflows solve the most painful operational bottlenecks in the market.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Block */}
         <section id="contact" className="max-w-6xl mx-auto px-6">
           <div data-reveal className="bg-stone-900 rounded-3xl p-12 md:p-20 text-center">
