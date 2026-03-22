@@ -2,21 +2,27 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import ForgeLogo from './ForgeLogo';
 
 export default function NavBar() {
+  const pathname = usePathname();
+  const isHome = pathname === '/';
   const [overVideo, setOverVideo] = useState(true);
 
   useEffect(() => {
+    if (!isHome) {
+      setOverVideo(false);
+      return;
+    }
     const check = () => {
-      // 280vh is the video section height
       const threshold = window.innerHeight * 2.5;
       setOverVideo(window.scrollY < threshold);
     };
     check();
     window.addEventListener('scroll', check, { passive: true });
     return () => window.removeEventListener('scroll', check);
-  }, []);
+  }, [isHome]);
 
   return (
     <>
