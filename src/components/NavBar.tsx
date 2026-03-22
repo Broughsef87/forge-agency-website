@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import ForgeLogo from './ForgeLogo';
 
 export default function NavBar() {
@@ -27,7 +28,7 @@ export default function NavBar() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
+          <Link href="/" className="flex items-center gap-2.5">
             <ForgeLogo className="w-6 h-6" />
             <span
               className={`font-semibold tracking-tight text-sm transition-colors duration-500 ${
@@ -36,18 +37,18 @@ export default function NavBar() {
             >
               THE FORGE AGENCY
             </span>
-          </div>
+          </Link>
           <div
             className={`hidden md:flex gap-8 text-sm font-medium transition-colors duration-500 ${
               overVideo ? 'text-white/60' : 'text-stone-500'
             }`}
           >
-            <a href="#services" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>Services</a>
-            <a href="#about" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>About Us</a>
+            <Link href="/services" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>Services</Link>
+            <Link href="/about" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>About Us</Link>
           </div>
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="#contact"
+              href="mailto:hello@the-forge-agency.com"
               className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-500 ${
                 overVideo
                   ? 'text-white/60 hover:text-white'
