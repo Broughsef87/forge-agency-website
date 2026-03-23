@@ -55,7 +55,7 @@ export default function ChatDemo() {
   };
 
   return (
-    <section id="demo" className="max-w-6xl mx-auto px-6 mb-32">
+    <section id="demo" className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: '80px' }}>
       <p data-reveal className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">Live Demo</p>
       <h2 data-reveal data-delay="100" className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-4">
         Talk to the Lead-Gen Agent.
@@ -66,7 +66,7 @@ export default function ChatDemo() {
 
       <div data-reveal data-delay="200" className="grid md:grid-cols-2 gap-8 items-start">
         {/* Chat Widget */}
-        <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm flex flex-col" style={{ height: "480px" }}>
+        <div className="bg-white rounded-3xl border border-stone-200 overflow-hidden shadow-sm flex flex-col" style={{ minHeight: "420px", height: "480px", maxHeight: "80vh" }}>
           <div className="px-6 py-4 border-b border-stone-100 flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-2.5">
               <div className="w-2 h-2 bg-emerald-500 rounded-full" />

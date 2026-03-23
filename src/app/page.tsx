@@ -33,7 +33,7 @@ export default function Home() {
         </section>
 
         {/* Services */}
-        <section id="services" className="max-w-6xl mx-auto px-6 mb-32">
+        <section id="services" className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: '80px' }}>
           <p data-reveal className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">What We Build</p>
           <h2 data-reveal data-delay="100" className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-12">
             Systems that work while you sleep.
@@ -97,8 +97,11 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Lead-Gen Agent Demo */}
+        <ChatDemo />
+
         {/* About / Process */}
-        <section id="about" className="max-w-6xl mx-auto px-6 mb-32">
+        <section id="about" className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: '80px' }}>
           <div className="grid md:grid-cols-2 gap-16 items-start">
             <div data-reveal>
               <p className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">Our Approach</p>
@@ -134,9 +137,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* Lead-Gen Agent Demo */}
-        <ChatDemo />
 
         {/* The Team */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
