@@ -27,11 +27,14 @@ export async function POST(req: NextRequest) {
       systemInstruction: SYSTEM_PROMPT,
     });
 
-    // Build history from all but the last message
-    const history = messages.slice(0, -1).map((m: { role: string; text: string }) => ({
+    // Build history from all but the last message.
+    // Gemini requires history to start with a user turn — drop any leading model turns.
+    const allHistory = messages.slice(0, -1).map((m: { role: string; text: string }) => ({
       role: m.role === "assistant" ? "model" : "user",
       parts: [{ text: m.text }],
     }));
+    const firstUserIdx = allHistory.findIndex((m) => m.role === "user");
+    const history = firstUserIdx >= 0 ? allHistory.slice(firstUserIdx) : [];
 
     const chat = model.startChat({ history });
     const lastMessage = messages[messages.length - 1];
