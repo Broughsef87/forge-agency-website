@@ -33,7 +33,7 @@ export async function POST(req: NextRequest) {
       role: m.role === "assistant" ? "model" : "user",
       parts: [{ text: m.text }],
     }));
-    const firstUserIdx = allHistory.findIndex((m) => m.role === "user");
+    const firstUserIdx = allHistory.findIndex((m: { role: string }) => m.role === "user");
     const history = firstUserIdx >= 0 ? allHistory.slice(firstUserIdx) : [];
 
     const chat = model.startChat({ history });
