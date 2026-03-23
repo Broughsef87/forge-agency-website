@@ -167,7 +167,7 @@ export default function ServicesPage() {
             Book a free 30-minute strategy call. We&apos;ll identify exactly which system will move the needle fastest for your business.
           </p>
           <a
-            href="mailto:hello@the-forge-agency.com"
+            href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5F1EA] text-stone-900 rounded-full font-medium hover:bg-white transition-colors"
           >
             Book a Strategy Call

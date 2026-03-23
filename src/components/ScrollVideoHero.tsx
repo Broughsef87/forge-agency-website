@@ -53,11 +53,14 @@ export default function ScrollVideoHero() {
         {/* Center content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <p className="text-xs font-semibold tracking-[0.25em] text-white/50 uppercase mb-8">
-            AI Automation Agency
+            B2B AI Automation Agency
           </p>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-[0.92] text-white max-w-4xl">
-            The ultimate intelligence layer for modern enterprises.
+            Stop scaling with headcount.
           </h1>
+          <p className="text-xl text-white/60 font-light max-w-2xl mx-auto mt-6 leading-relaxed">
+            We build the AI systems that do the work your team shouldn&apos;t be doing — deployed in 72 hours.
+          </p>
         </div>
 
         {/* Scroll indicator */}

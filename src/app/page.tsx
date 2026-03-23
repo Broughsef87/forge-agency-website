@@ -4,6 +4,7 @@ import ForgeLogo from '@/components/ForgeLogo';
 import ChatDemo from '@/components/ChatDemo';
 import RevOpsDemo from '@/components/RevOpsDemo';
 import CSAgentDemo from '@/components/CSAgentDemo';
+import PricingSection from '@/components/PricingSection';
 
 export default function Home() {
   return (
@@ -189,6 +190,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <PricingSection />
 
         {/* CTA Block */}
         <section id="contact" className="max-w-6xl mx-auto px-6">
