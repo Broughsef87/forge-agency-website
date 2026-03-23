@@ -12,7 +12,7 @@ export default function ChatDemo() {
   const [isLoading, setIsLoading] = useState(false);
   const [isQualified, setIsQualified] = useState(false);
   const [showLeadForm, setShowLeadForm] = useState(false);
-  const chatBottomRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const isMounted = useRef(false);
 
   useEffect(() => {
@@ -20,7 +20,10 @@ export default function ChatDemo() {
       isMounted.current = true;
       return;
     }
-    chatBottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
   }, [chatMessages, showLeadForm]);
 
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -80,7 +83,7 @@ export default function ChatDemo() {
             <Bot size={16} className="text-stone-400" />
           </div>
 
-          <div className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
+          <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-6 py-5 space-y-4">
             {chatMessages.map((m, i) => (
               <div key={i} className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}>
                 <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm leading-relaxed ${
@@ -100,7 +103,6 @@ export default function ChatDemo() {
                 </div>
               </div>
             )}
-            <div ref={chatBottomRef} />
           </div>
 
           <form onSubmit={handleSendMessage} className="px-4 py-4 border-t border-stone-100 flex gap-2 flex-shrink-0">
