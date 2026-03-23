@@ -2,6 +2,8 @@ import NavBar from '@/components/NavBar';
 import ScrollVideoHero from '@/components/ScrollVideoHero';
 import ForgeLogo from '@/components/ForgeLogo';
 import ChatDemo from '@/components/ChatDemo';
+import RevOpsDemo from '@/components/RevOpsDemo';
+import CSAgentDemo from '@/components/CSAgentDemo';
 
 export default function Home() {
   return (
@@ -100,6 +102,12 @@ export default function Home() {
         {/* Lead-Gen Agent Demo */}
         <ChatDemo />
 
+        {/* RevOps Agent Demo */}
+        <RevOpsDemo />
+
+        {/* Customer Success Agent Demo */}
+        <CSAgentDemo />
+
         {/* About / Process */}
         <section id="about" className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: '80px' }}>
           <div className="grid md:grid-cols-2 gap-16 items-start">
@@ -137,6 +145,12 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* RevOps Agent Demo */}
+        <RevOpsDemo />
+
+        {/* CS Agent Demo */}
+        <CSAgentDemo />
 
         {/* The Team */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
