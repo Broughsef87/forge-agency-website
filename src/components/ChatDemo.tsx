@@ -126,7 +126,10 @@ export default function ChatDemo() {
 
         {/* Lead Form or Feature List */}
         {showLeadForm ? (
-          <LeadForm onClose={() => setShowLeadForm(false)} />
+          <LeadForm
+            onClose={() => setShowLeadForm(false)}
+            conversation={JSON.stringify(chatMessages)}
+          />
         ) : (
           <div className="space-y-6">
             {[

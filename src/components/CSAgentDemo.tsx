@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2, Mail } from "lucide-react";
 
 interface CSResult {
   healthScore: number;
@@ -47,6 +47,13 @@ export default function CSAgentDemo() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const buildMailtoLink = (interventions: string[]) => {
+    if (!interventions || interventions.length === 0) return "mailto:";
+    const firstAction = interventions[0];
+    const body = `Customer Intervention Required\n\nThe CS Agent has flagged a customer requiring immediate attention.\n\nRecommended first action:\n${firstAction}\n\nPlease review and take action as soon as possible.`;
+    return `mailto:?subject=Customer%20Intervention%20Required&body=${encodeURIComponent(body)}`;
   };
 
   const riskStyle = result ? (churnRiskStyles[result.churnRisk] ?? churnRiskStyles.High) : "";
@@ -142,7 +149,29 @@ export default function CSAgentDemo() {
                     </div>
                   ))}
                 </div>
+
+                {/* Send First Intervention Button */}
+                {result.interventions && result.interventions.length > 0 && (
+                  <a
+                    href={buildMailtoLink(result.interventions)}
+                    className="mt-4 inline-flex items-center gap-2 bg-stone-900 text-white px-5 py-2.5 rounded-full font-medium text-sm hover:bg-stone-700 transition-colors"
+                  >
+                    <Mail size={14} />
+                    Send First Intervention →
+                  </a>
+                )}
               </div>
+
+              {/* Deploy CTA */}
+              <p className="text-sm text-stone-400 border-t border-stone-100 pt-4">
+                Want this agent monitoring your customers?{" "}
+                <a
+                  href="#demo"
+                  className="text-stone-900 font-medium hover:underline"
+                >
+                  Talk to us →
+                </a>
+              </p>
             </div>
           )}
         </div>

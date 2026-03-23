@@ -6,9 +6,10 @@ import { getSupabase } from "@/lib/supabase";
 
 interface LeadFormProps {
   onClose?: () => void;
+  conversation?: string;
 }
 
-export default function LeadForm({ onClose }: LeadFormProps) {
+export default function LeadForm({ onClose, conversation }: LeadFormProps) {
   const [form, setForm] = useState({ name: "", email: "", company: "", useCase: "" });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,7 @@ export default function LeadForm({ onClose }: LeadFormProps) {
       company: form.company,
       use_case: form.useCase,
       source: "lead-gen-agent",
+      ...(conversation ? { conversation } : {}),
     });
 
     if (error) {
@@ -38,9 +40,17 @@ export default function LeadForm({ onClose }: LeadFormProps) {
       <div className="bg-white rounded-3xl border border-stone-200 p-10 text-center flex flex-col items-center justify-center" style={{ minHeight: "300px" }}>
         <CheckCircle size={40} className="mb-4 text-stone-900" />
         <h3 className="text-xl font-medium tracking-tight text-stone-900 mb-2">You&apos;re on the list.</h3>
-        <p className="text-stone-500 text-sm font-light leading-relaxed max-w-xs">
+        <p className="text-stone-500 text-sm font-light leading-relaxed max-w-xs mb-6">
           Andrew will reach out within one business day to confirm your strategy call.
         </p>
+        <a
+          href="https://calendly.com/broughsef/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 bg-stone-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-stone-700 transition-colors"
+        >
+          Book your strategy call now <ArrowRight size={15} />
+        </a>
       </div>
     );
   }

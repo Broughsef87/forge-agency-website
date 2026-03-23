@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2, Copy, Check, Pencil, CheckSquare } from "lucide-react";
 
 interface OutreachStep {
   subject: string;
@@ -15,11 +15,19 @@ interface RevOpsResult {
   justification: string;
 }
 
+interface EditableStep extends OutreachStep {
+  editing: boolean;
+  draftSubject: string;
+  draftBody: string;
+}
+
 export default function RevOpsDemo() {
   const [trigger, setTrigger] = useState("");
   const [result, setResult] = useState<RevOpsResult | null>(null);
+  const [editableSteps, setEditableSteps] = useState<EditableStep[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [copied, setCopied] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +35,7 @@ export default function RevOpsDemo() {
     setLoading(true);
     setError("");
     setResult(null);
+    setEditableSteps([]);
 
     try {
       const res = await fetch("/api/revops", {
@@ -37,10 +46,52 @@ export default function RevOpsDemo() {
       const data = await res.json();
       if (data.error) throw new Error(data.error);
       setResult(data);
+      setEditableSteps(
+        (data.sequence ?? []).map((step: OutreachStep) => ({
+          ...step,
+          editing: false,
+          draftSubject: step.subject,
+          draftBody: step.body,
+        }))
+      );
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const startEdit = (i: number) => {
+    setEditableSteps((prev) =>
+      prev.map((s, idx) =>
+        idx === i ? { ...s, editing: true, draftSubject: s.subject, draftBody: s.body } : s
+      )
+    );
+  };
+
+  const saveEdit = (i: number) => {
+    setEditableSteps((prev) =>
+      prev.map((s, idx) =>
+        idx === i
+          ? { ...s, editing: false, subject: s.draftSubject, body: s.draftBody }
+          : s
+      )
+    );
+  };
+
+  const handleCopySequence = async () => {
+    const text = editableSteps
+      .map(
+        (s, i) =>
+          `Step ${i + 1}:\nSubject: ${s.subject}\n\n${s.body}`
+      )
+      .join("\n\n---\n\n");
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // fallback silent fail
     }
   };
 
@@ -112,18 +163,79 @@ export default function RevOpsDemo() {
                 <p className="text-stone-800 text-sm leading-relaxed">{result.signal}</p>
               </div>
 
-              {/* Outreach Sequence */}
+              {/* Outreach Sequence — Editable */}
               <div className="space-y-3">
-                {result.sequence?.map((step, i) => (
+                {editableSteps.map((step, i) => (
                   <div key={i} className="bg-white rounded-2xl border border-stone-200 p-5">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="text-xs font-mono font-semibold text-stone-400">0{i + 1}</span>
-                      <p className="text-sm font-semibold text-stone-900 truncate">{step.subject}</p>
+                      {step.editing ? (
+                        <input
+                          type="text"
+                          value={step.draftSubject}
+                          onChange={(e) =>
+                            setEditableSteps((prev) =>
+                              prev.map((s, idx) =>
+                                idx === i ? { ...s, draftSubject: e.target.value } : s
+                              )
+                            )
+                          }
+                          className="flex-1 bg-stone-50 border border-stone-200 rounded-lg px-3 py-1.5 text-sm font-semibold text-stone-900 focus:outline-none focus:border-stone-400 transition-colors"
+                        />
+                      ) : (
+                        <p className="flex-1 text-sm font-semibold text-stone-900 truncate">{step.subject}</p>
+                      )}
+                      {step.editing ? (
+                        <button
+                          onClick={() => saveEdit(i)}
+                          className="flex items-center gap-1 text-xs font-medium text-stone-900 hover:text-stone-600 transition-colors shrink-0"
+                          title="Save"
+                        >
+                          <CheckSquare size={14} />
+                          <span>Done</span>
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => startEdit(i)}
+                          className="flex items-center gap-1 text-xs font-medium text-stone-400 hover:text-stone-900 transition-colors shrink-0"
+                          title="Edit"
+                        >
+                          <Pencil size={13} />
+                          <span>Edit</span>
+                        </button>
+                      )}
                     </div>
-                    <p className="text-sm text-stone-500 font-light leading-relaxed">{step.body}</p>
+                    {step.editing ? (
+                      <textarea
+                        rows={4}
+                        value={step.draftBody}
+                        onChange={(e) =>
+                          setEditableSteps((prev) =>
+                            prev.map((s, idx) =>
+                              idx === i ? { ...s, draftBody: e.target.value } : s
+                            )
+                          )
+                        }
+                        className="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-sm text-stone-700 focus:outline-none focus:border-stone-400 transition-colors resize-none"
+                      />
+                    ) : (
+                      <p className="text-sm text-stone-500 font-light leading-relaxed">{step.body}</p>
+                    )}
                   </div>
                 ))}
               </div>
+
+              {/* Copy Sequence Button */}
+              <button
+                onClick={handleCopySequence}
+                className="w-full flex items-center justify-center gap-2 border border-stone-200 rounded-full py-2.5 text-sm font-medium text-stone-500 hover:text-stone-900 hover:border-stone-400 transition-colors bg-white"
+              >
+                {copied ? (
+                  <><Check size={14} className="text-emerald-600" /> Copied!</>
+                ) : (
+                  <><Copy size={14} /> Copy Full Sequence</>
+                )}
+              </button>
 
               {/* Confidence Badge */}
               <div className="bg-white rounded-2xl border border-stone-200 p-5 flex items-center justify-between">
@@ -135,6 +247,17 @@ export default function RevOpsDemo() {
                   <span className="text-white font-bold text-lg">{result.confidence}</span>
                 </div>
               </div>
+
+              {/* Deploy CTA */}
+              <p className="text-sm text-stone-400 text-center">
+                Want this agent in your stack?{" "}
+                <a
+                  href="#demo"
+                  className="text-stone-900 font-medium hover:underline"
+                >
+                  Talk to us →
+                </a>
+              </p>
             </>
           )}
         </div>
