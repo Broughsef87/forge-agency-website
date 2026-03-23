@@ -55,11 +55,13 @@ export default function NavBar() {
           </div>
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="mailto:hello@the-forge-agency.com"
-              className={`text-sm font-medium px-4 py-2 rounded-full transition-all duration-500 ${
+              href="https://calendly.com/broughsef/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-sm font-medium px-4 py-2 rounded-full border transition-all duration-500 ${
                 overVideo
-                  ? 'text-white/60 hover:text-white'
-                  : 'text-stone-600 hover:text-stone-900'
+                  ? 'border-white/20 text-white/70 hover:border-white/50 hover:text-white'
+                  : 'border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900'
               }`}
             >
               Book a Call

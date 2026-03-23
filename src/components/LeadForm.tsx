@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import { getSupabase } from "@/lib/supabase";
 
 interface LeadFormProps {
   onClose?: () => void;
@@ -15,8 +16,19 @@ export default function LeadForm({ onClose }: LeadFormProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // In production: POST to Supabase or CRM endpoint
-    await new Promise((r) => setTimeout(r, 800));
+
+    const { error } = await getSupabase().from("leads").insert({
+      name: form.name,
+      email: form.email,
+      company: form.company,
+      use_case: form.useCase,
+      source: "lead-gen-agent",
+    });
+
+    if (error) {
+      console.error("Failed to save lead:", error.message);
+    }
+
     setSubmitted(true);
     setLoading(false);
   };
