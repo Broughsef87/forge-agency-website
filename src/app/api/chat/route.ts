@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-2.0-flash",
       systemInstruction: SYSTEM_PROMPT,
     });
 
@@ -46,8 +46,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ message, qualified });
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error("Chat API error:", msg);
-    return NextResponse.json({ error: msg }, { status: 500 });
+    console.error("Chat API error:", err);
+    return NextResponse.json({ error: "Failed to get response" }, { status: 500 });
   }
 }
