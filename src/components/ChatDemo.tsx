@@ -13,8 +13,13 @@ export default function ChatDemo() {
   const [isQualified, setIsQualified] = useState(false);
   const [showLeadForm, setShowLeadForm] = useState(false);
   const chatBottomRef = useRef<HTMLDivElement>(null);
+  const isMounted = useRef(false);
 
   useEffect(() => {
+    if (!isMounted.current) {
+      isMounted.current = true;
+      return;
+    }
     chatBottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [chatMessages, showLeadForm]);
 
