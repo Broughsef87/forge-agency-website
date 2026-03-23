@@ -1,6 +1,7 @@
 import NavBar from '@/components/NavBar';
 import ScrollVideoHero from '@/components/ScrollVideoHero';
 import ForgeLogo from '@/components/ForgeLogo';
+import ChatDemo from '@/components/ChatDemo';
 
 export default function Home() {
   return (
@@ -133,6 +134,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Lead-Gen Agent Demo */}
+        <ChatDemo />
 
         {/* The Team */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
