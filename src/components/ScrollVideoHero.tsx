@@ -13,23 +13,39 @@ export default function ScrollVideoHero() {
     const progressBar = progressRef.current;
     if (!video || !container) return;
 
-    const onScroll = () => {
+    let rafId: number | null = null;
+    const FRAME_THRESHOLD = 1 / 30; // skip seeks smaller than one 30fps frame
+
+    const update = () => {
+      rafId = null;
       const { top, height } = container.getBoundingClientRect();
       const scrolled = -top;
       const total = height - window.innerHeight;
       const progress = Math.max(0, Math.min(1, scrolled / total));
 
-      if (video.readyState >= 2 && video.duration) {
-        video.currentTime = progress * video.duration;
-      }
-
       if (progressBar) {
         progressBar.style.transform = `scaleX(${progress})`;
+      }
+
+      if (video.readyState >= 2 && video.duration) {
+        const target = progress * video.duration;
+        if (Math.abs(target - video.currentTime) > FRAME_THRESHOLD) {
+          video.currentTime = target;
+        }
+      }
+    };
+
+    const onScroll = () => {
+      if (rafId === null) {
+        rafId = requestAnimationFrame(update);
       }
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   return (
@@ -74,7 +90,7 @@ export default function ScrollVideoHero() {
           <div
             ref={progressRef}
             className="h-full bg-white/50 origin-left"
-            style={{ transform: 'scaleX(0)', transition: 'transform 0.05s linear' }}
+            style={{ transform: 'scaleX(0)' }}
           />
         </div>
 
