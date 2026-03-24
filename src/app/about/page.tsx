@@ -107,7 +107,12 @@ export default function AboutPage() {
               </div>
             </div>
             <p className="text-stone-500 font-light leading-relaxed mb-6">
-              The strategic force behind Forge Agency&apos;s expansion. Lisa specializes in identifying high-ticket B2B opportunities and ensuring our productized workflows solve the most painful operational bottlenecks in the market.
+              The strategic force behind Forge Agency&apos;s expansion. Lisa is also the co-founder of{' '}
+              <a href="https://roimetalbuildings.com/" target="_blank" rel="noopener noreferrer"
+                className="text-stone-700 underline underline-offset-2 hover:text-[#E8572A] transition-colors">
+                ROI Metal Buildings
+              </a>
+              , where she sharpened her expertise in high-ticket B2B sales and operational scale. She brings that same precision to identifying automation opportunities and ensuring our productized workflows solve the most painful bottlenecks in the market.
             </p>
             <p className="text-stone-500 font-light leading-relaxed">
               She owns the client relationship from first conversation through deployment — making sure every engagement is scoped correctly, delivered on time, and produces results the client can actually measure.
