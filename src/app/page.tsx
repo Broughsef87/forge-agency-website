@@ -147,12 +147,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* RevOps Agent Demo */}
-        <RevOpsDemo />
-
-        {/* CS Agent Demo */}
-        <CSAgentDemo />
-
         {/* The Team */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
           <p data-reveal className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">The Team</p>
