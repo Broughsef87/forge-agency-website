@@ -31,6 +31,19 @@ export default function LeadForm({ onClose, conversation }: LeadFormProps) {
       console.error("Failed to save lead:", error.message);
     }
 
+    // Fire-and-forget enrichment + Discord notification
+    fetch("/api/notify-lead", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        company: form.company,
+        use_case: form.useCase,
+        conversation,
+      }),
+    }).catch(() => {});
+
     setSubmitted(true);
     setLoading(false);
   };

@@ -17,9 +17,40 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Forge Agency — AI Automation for Modern Enterprises",
+  title: "Forge Agency — B2B AI Automation & Custom AI Agents",
   description:
-    "Forge Agency builds autonomous AI agent systems that scale enterprise revenue without scaling headcount. Bespoke AI workflows and productized automation, deployed in 72 hours.",
+    "Forge Agency builds bespoke AI automation systems for small and mid-size businesses. Custom AI agents, lead-gen automation, and workflow systems deployed in 72 hours. No Zapier — purpose-built software.",
+  keywords: [
+    "AI automation agency",
+    "B2B AI automation",
+    "custom AI agents",
+    "business process automation",
+    "AI workflow automation",
+    "lead generation automation",
+    "n8n automation",
+    "AI agent development",
+  ],
+  openGraph: {
+    title: "Forge Agency — B2B AI Automation & Custom AI Agents",
+    description:
+      "Bespoke AI automation systems for small and mid-size businesses. Custom agents deployed in 72 hours.",
+    url: "https://www.the-forge-agency.com",
+    siteName: "Forge Agency",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Forge Agency — B2B AI Automation",
+    description:
+      "Bespoke AI automation systems for small and mid-size businesses. Custom agents deployed in 72 hours.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://www.the-forge-agency.com",
+  },
 };
 
 export default function RootLayout({
