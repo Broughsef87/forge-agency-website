@@ -44,6 +44,15 @@ export const metadata: Metadata = {
     description:
       "Bespoke AI automation systems for small and mid-size businesses. Custom agents deployed in 72 hours.",
   },
+  icons: {
+    icon: [
+      { url: '/brand/png/forge-icon@32w.png', sizes: '32x32', type: 'image/png' },
+      { url: '/brand/png/forge-icon@64w.png', sizes: '64x64', type: 'image/png' },
+      { url: '/brand/png/forge-icon@512w.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/brand/png/forge-icon@32w.png',
+    apple: '/brand/png/forge-icon@512w.png',
+  },
   robots: {
     index: true,
     follow: true,
