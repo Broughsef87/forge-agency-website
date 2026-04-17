@@ -49,7 +49,7 @@ export default function ScrollVideoHero() {
   }, []);
 
   return (
-    <div ref={containerRef} style={{ height: '280vh' }} className="relative">
+    <div ref={containerRef} style={{ height: '240vh' }} className="relative">
       <div className="sticky top-0 h-screen overflow-hidden">
 
         {/* Video */}
@@ -68,28 +68,32 @@ export default function ScrollVideoHero() {
 
         {/* Center content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <p className="text-xs font-semibold tracking-[0.25em] text-white/50 uppercase mb-8">
+          <p className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase mb-8">
             B2B AI Automation Agency
           </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter leading-[0.92] text-white max-w-4xl">
-            Stop scaling with headcount.
+          <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[0.95] text-white max-w-5xl">
+            Stop scaling with{' '}
+            <span className="italic text-[#FF7A3F]" style={{ fontVariationSettings: '"SOFT" 50' }}>
+              headcount
+            </span>
+            .
           </h1>
-          <p className="text-xl text-white/60 font-light max-w-2xl mx-auto mt-6 leading-relaxed">
+          <p className="text-lg md:text-xl text-white/65 font-light max-w-2xl mx-auto mt-8 leading-relaxed">
             We build the AI systems that do the work your team shouldn&apos;t be doing — deployed in 72 hours.
           </p>
         </div>
 
         {/* Scroll indicator */}
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-          <span className="text-xs tracking-[0.2em] text-white/40 uppercase">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent" />
+          <span className="font-mono text-[10px] tracking-[0.3em] text-white/45 uppercase">Scroll</span>
+          <div className="w-px h-10 bg-gradient-to-b from-white/50 to-transparent" />
         </div>
 
-        {/* Progress bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10">
+        {/* Progress bar — thicker, orange */}
+        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/10">
           <div
             ref={progressRef}
-            className="h-full bg-white/50 origin-left"
+            className="h-full bg-[#E8572A] origin-left shadow-[0_0_12px_rgba(232,87,42,0.6)]"
             style={{ transform: 'scaleX(0)' }}
           />
         </div>

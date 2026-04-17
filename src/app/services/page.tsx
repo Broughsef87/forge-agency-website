@@ -82,38 +82,53 @@ export default function ServicesPage() {
 
       {/* Hero */}
       <section className="pt-40 pb-24 max-w-6xl mx-auto px-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-4">What We Build</p>
-        <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-stone-900 leading-[1.05] mb-8 max-w-3xl">
-          Systems that work<br className="hidden md:block" /> while you sleep.
+        <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">What We Build</p>
+        <h1 className="font-display text-5xl md:text-7xl font-medium tracking-tight text-stone-900 leading-[1.02] mb-8 max-w-3xl">
+          Systems that work<br className="hidden md:block" /> while you{' '}
+          <span className="italic text-[#E8572A]" style={{ fontVariationSettings: '"SOFT" 50' }}>sleep</span>.
         </h1>
         <p className="text-xl text-stone-500 font-light leading-relaxed max-w-2xl">
           We build three types of intelligent systems — each one designed to remove a specific class of operational drag from your business.
         </p>
       </section>
 
-      {/* Services */}
-      <main className="max-w-6xl mx-auto px-6 pb-32 space-y-8">
-        {services.map((s) => (
-          <div key={s.num} className="bg-white rounded-3xl border border-stone-200 p-10 md:p-16">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
+      {/* Services — alternating layouts, editorial numbers, orange outcome bands */}
+      <main className="max-w-6xl mx-auto px-6 pb-32 space-y-10">
+        {services.map((s, idx) => {
+          const flipped = idx % 2 === 1;
+          return (
+            <div
+              key={s.num}
+              className="relative bg-white rounded-3xl border border-stone-200 overflow-hidden transition-all duration-300 hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.15)]"
+            >
+              {/* Giant watermark number */}
+              <span
+                className={`pointer-events-none select-none absolute top-4 font-display font-light text-stone-200 leading-none text-[240px] md:text-[320px] ${
+                  flipped ? 'left-6' : 'right-6'
+                }`}
+                style={{ fontVariationSettings: '"opsz" 144' }}
+                aria-hidden="true"
+              >
+                {s.num}
+              </span>
 
-              {/* Left */}
-              <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-14 h-14 bg-stone-100 rounded-2xl flex items-center justify-center text-stone-600">
-                    {s.icon}
-                  </div>
-                  <span className="text-xs font-semibold font-mono text-stone-400">{s.num}</span>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-3">{s.title}</h2>
-                <p className="text-[#E8572A] font-medium mb-6">{s.tagline}</p>
-                <p className="text-stone-500 font-light leading-relaxed">{s.description}</p>
-              </div>
-
-              {/* Right */}
-              <div className="space-y-6">
+              <div className={`relative grid md:grid-cols-2 gap-12 items-start p-10 md:p-16 ${flipped ? 'md:[&>*:first-child]:order-2' : ''}`}>
+                {/* Left (or Right when flipped) — Description */}
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.15em] text-stone-400 uppercase mb-4">What&apos;s included</p>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 bg-[#FFF4EC] rounded-2xl flex items-center justify-center text-[#E8572A]">
+                      {s.icon}
+                    </div>
+                    <span className="font-mono text-xs font-semibold text-[#E8572A] tracking-wider">{s.num}</span>
+                  </div>
+                  <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-stone-900 mb-3 leading-[1.05]">{s.title}</h2>
+                  <p className="text-[#E8572A] font-medium italic mb-6 font-display" style={{ fontVariationSettings: '"SOFT" 50' }}>{s.tagline}</p>
+                  <p className="text-stone-500 font-light leading-relaxed">{s.description}</p>
+                </div>
+
+                {/* Right (or Left when flipped) — What's included */}
+                <div>
+                  <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">What&apos;s included</p>
                   <ul className="space-y-3">
                     {s.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-3 text-stone-700 font-light">
@@ -123,33 +138,46 @@ export default function ServicesPage() {
                     ))}
                   </ul>
                 </div>
-                <div className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
-                  <p className="text-xs font-semibold tracking-[0.15em] text-stone-400 uppercase mb-2">Outcome</p>
-                  <p className="text-stone-700 font-light leading-relaxed text-sm">{s.outcome}</p>
-                </div>
               </div>
 
+              {/* Orange outcome band — pulled out of the card */}
+              <div className="relative bg-[#E8572A] text-white px-10 md:px-16 py-6 flex items-center gap-6 flex-wrap">
+                <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-white/70 shrink-0">Outcome</span>
+                <p className="font-light leading-relaxed flex-1 min-w-[250px]">{s.outcome}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </main>
 
-      {/* How it works */}
-      <section className="bg-stone-900 py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-4">The Process</p>
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-16 max-w-xl">
-            From audit to autonomous in 72 hours.
+      {/* How it works — animated connector between 01 → 02 → 03 */}
+      <section className="relative bg-stone-900 py-24 overflow-hidden">
+        {/* Subtle orange glow */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-[#E8572A] opacity-[0.06] blur-3xl pointer-events-none" />
+        <div className="relative max-w-6xl mx-auto px-6">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-[#FF7A3F] uppercase mb-4">The Process</p>
+          <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-white mb-16 max-w-xl leading-[1.05]">
+            From audit to autonomous in{' '}
+            <span className="italic text-[#FF7A3F]" style={{ fontVariationSettings: '"SOFT" 50' }}>72 hours</span>.
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          {/* Horizontal connecting line (desktop) */}
+          <div className="hidden md:block absolute left-0 right-0 top-[58%] h-px bg-gradient-to-r from-transparent via-[#E8572A]/40 to-transparent mx-16 pointer-events-none" />
+
+          <div className="grid md:grid-cols-3 gap-6 relative">
             {[
               { num: '01', title: 'Audit', desc: 'We map your current operations in a 30-minute strategy call and identify the 2–3 highest-leverage automation opportunities.' },
               { num: '02', title: 'Architect', desc: 'We design the exact systems — agent swarms, workflow automations, or integrations — tailored to your tools and business model.' },
               { num: '03', title: 'Deploy', desc: 'We build, integrate, test, and hand over a fully working autonomous system. Typical turnaround: 72 hours.' },
             ].map((step) => (
-              <div key={step.num} className="p-8 bg-white/5 rounded-2xl border border-white/10">
-                <span className="text-xs font-semibold font-mono text-stone-500 block mb-4">{step.num}</span>
-                <h3 className="text-xl font-medium text-white mb-3">{step.title}</h3>
+              <div
+                key={step.num}
+                className="relative p-8 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-[#E8572A]/40 transition-colors duration-300"
+              >
+                {/* Numbered dot on the connector line */}
+                <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2 w-3 h-3 rounded-full bg-[#E8572A] shadow-[0_0_16px_rgba(232,87,42,0.7)]" />
+                <span className="font-mono text-xs font-semibold text-[#FF7A3F] block mb-4 tracking-wider">{step.num}</span>
+                <h3 className="font-display text-xl font-medium text-white mb-3">{step.title}</h3>
                 <p className="text-stone-400 font-light leading-relaxed text-sm">{step.desc}</p>
               </div>
             ))}
@@ -159,35 +187,60 @@ export default function ServicesPage() {
 
       {/* CTA */}
       <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="bg-stone-900 rounded-3xl p-12 md:p-20 text-center">
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
-            Ready to remove your biggest bottleneck?
-          </h2>
-          <p className="text-stone-400 font-light text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-            Book a free 30-minute strategy call. We&apos;ll identify exactly which system will move the needle fastest for your business.
-          </p>
-          <a
-            href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-[#F5F1EA] text-stone-900 rounded-full font-medium hover:bg-white transition-colors"
-          >
-            Book a Strategy Call
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+        <div className="relative overflow-hidden bg-stone-900 rounded-3xl p-12 md:p-20 text-center">
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#E8572A] opacity-[0.08] blur-3xl pointer-events-none" />
+          <div className="relative">
+            <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight">
+              Ready to remove your biggest bottleneck?
+            </h2>
+            <p className="text-stone-400 font-light text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+              Book a free 30-minute strategy call. We&apos;ll identify exactly which system will move the needle fastest for your business.
+            </p>
+            <a
+              href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#E8572A] text-white rounded-full font-medium hover:bg-[#FF7A3F] hover:shadow-[0_0_40px_-5px_rgba(232,87,42,0.6)] transition-all duration-300"
+            >
+              Book a Strategy Call
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-white">
-        <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500 font-medium">
-          <Link href="/" className="flex items-center gap-2.5 hover:text-stone-900 transition-colors">
-            <ForgeLogo className="w-4 h-4" />
-            <span>© 2026 THE FORGE AGENCY</span>
-          </Link>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-stone-900 transition-colors">Twitter</a>
-            <a href="#" className="hover:text-stone-900 transition-colors">LinkedIn</a>
+        <div className="max-w-6xl mx-auto px-6 py-14">
+          <div className="grid md:grid-cols-3 gap-10 mb-10">
+            <div>
+              <Link href="/" className="flex items-center gap-2.5 mb-4">
+                <ForgeLogo className="w-6 h-6" />
+                <span className="font-semibold tracking-tight text-sm text-stone-900">THE FORGE AGENCY</span>
+              </Link>
+              <p className="text-sm text-stone-500 font-light leading-relaxed max-w-xs">
+                A B2B AI automation firm. We architect and deploy the intelligence layer inside modern enterprises.
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Navigate</p>
+              <ul className="space-y-2 text-sm">
+                <li><Link href="/services" className="text-stone-600 hover:text-[#E8572A] transition-colors">Services</Link></li>
+                <li><Link href="/#demo" className="text-stone-600 hover:text-[#E8572A] transition-colors">Live Demo</Link></li>
+                <li><Link href="/about" className="text-stone-600 hover:text-[#E8572A] transition-colors">About Us</Link></li>
+                <li><a href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
+              </ul>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
+              <ul className="space-y-2 text-sm">
+                <li><a href="mailto:hello@the-forge-agency.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">hello@the-forge-agency.com</a></li>
+                <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
+              </ul>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400 font-light pt-8 border-t border-stone-100">
+            <span className="font-mono tracking-wider">© 2026 THE FORGE AGENCY · ALL RIGHTS RESERVED</span>
           </div>
         </div>
       </footer>

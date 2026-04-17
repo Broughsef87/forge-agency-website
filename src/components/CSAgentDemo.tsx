@@ -60,13 +60,27 @@ export default function CSAgentDemo() {
 
   return (
     <section className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: "80px" }}>
-      <p data-reveal className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">Autonomous Customer Success</p>
-      <h2 data-reveal data-delay="100" className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-4">
-        Your agent knows which customers are about to leave. Before they do.
-      </h2>
-      <p data-reveal data-delay="150" className="text-stone-500 font-light leading-relaxed mb-10 max-w-xl">
-        Paste in any customer&apos;s recent activity and watch the agent assess health, calculate churn risk, and generate an intervention plan — instantly.
-      </p>
+      <div className="flex items-start justify-between gap-8 mb-10 flex-wrap">
+        <div>
+          <div className="flex items-center gap-3 mb-3">
+            <span className="font-mono text-[11px] tracking-[0.2em] text-[#E8572A]">03 ·</span>
+            <p data-reveal className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase">Autonomous Customer Success</p>
+          </div>
+          <h2 data-reveal data-delay="100" className="font-display text-3xl md:text-5xl font-medium tracking-tight text-stone-900 mb-4 leading-[1.05]">
+            Your agent knows which customers are about to leave. Before they do.
+          </h2>
+          <p data-reveal data-delay="150" className="text-stone-500 font-light leading-relaxed max-w-xl">
+            Paste in any customer&apos;s recent activity and watch the agent assess health, calculate churn risk, and generate an intervention plan — instantly.
+          </p>
+        </div>
+        {/* Pseudo-activity log */}
+        <div data-reveal data-delay="200" className="font-mono text-[10px] leading-[1.8] bg-stone-900 text-stone-300 px-5 py-4 rounded-2xl min-w-[260px] max-w-xs">
+          <div className="text-emerald-400/80 mb-1.5">$ forge.agent.cs --monitor</div>
+          <div>→ accounts watched: <span className="text-[#FF7A3F]">247</span></div>
+          <div>→ churn model · v3.2</div>
+          <div>→ interventions <span className="text-emerald-400/80">ready</span></div>
+        </div>
+      </div>
 
       <div data-reveal data-delay="200" className="grid md:grid-cols-2 gap-8 items-start">
 

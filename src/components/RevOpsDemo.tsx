@@ -97,14 +97,28 @@ export default function RevOpsDemo() {
 
   return (
     <section className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: "80px" }}>
-      <p data-reveal className="text-xs font-semibold tracking-[0.2em] text-stone-400 uppercase mb-3">Autonomous RevOps</p>
-      <h2 data-reveal data-delay="100" className="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 mb-4">
-        Know exactly when to reach out. And what to say.
-      </h2>
-      <p data-reveal data-delay="150" className="text-stone-500 font-light leading-relaxed mb-2 max-w-xl">
-        This agent monitors market signals and builds personalized outreach sequences in seconds — without a human SDR.
-      </p>
-      <p data-reveal data-delay="160" className="text-xs text-stone-400 font-medium mb-10">This is your RevOps agent working.</p>
+      <div className="flex items-start justify-between gap-8 mb-10 flex-wrap">
+        <div>
+          <div className="flex items-center gap-3 mb-3">
+            <span className="font-mono text-[11px] tracking-[0.2em] text-[#E8572A]">02 ·</span>
+            <p data-reveal className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase">Autonomous RevOps</p>
+          </div>
+          <h2 data-reveal data-delay="100" className="font-display text-3xl md:text-5xl font-medium tracking-tight text-stone-900 mb-4 leading-[1.05]">
+            Know exactly when to reach out. And what to say.
+          </h2>
+          <p data-reveal data-delay="150" className="text-stone-500 font-light leading-relaxed mb-2 max-w-xl">
+            This agent monitors market signals and builds personalized outreach sequences in seconds — without a human SDR.
+          </p>
+          <p data-reveal data-delay="160" className="text-xs text-stone-400 font-medium">This is your RevOps agent working.</p>
+        </div>
+        {/* Pseudo-activity log */}
+        <div data-reveal data-delay="200" className="font-mono text-[10px] leading-[1.8] bg-stone-900 text-stone-300 px-5 py-4 rounded-2xl min-w-[260px] max-w-xs">
+          <div className="text-emerald-400/80 mb-1.5">$ forge.agent.revops --watch</div>
+          <div>→ signal feed: <span className="text-[#FF7A3F]">12 sources</span></div>
+          <div>→ drafting sequence · ~3.2s</div>
+          <div>→ confidence <span className="text-emerald-400/80">calibrated</span></div>
+        </div>
+      </div>
 
       <div data-reveal data-delay="200" className="grid md:grid-cols-2 gap-8 items-start">
 
