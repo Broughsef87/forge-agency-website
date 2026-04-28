@@ -30,8 +30,9 @@ export default function LeadForm({ onClose, conversation }: LeadFormProps) {
     if (error) {
       console.error("Failed to save lead:", error.message);
     } else {
-      if (typeof window !== 'undefined' && typeof (window as Window & { gtag?: (...args: unknown[]) => void }).gtag === 'function') {
-        (window as Window & { gtag: (...args: unknown[]) => void }).gtag('event', 'generate_lead', {
+      const w = window as unknown as { gtag?: (...args: unknown[]) => void }
+      if (typeof window !== 'undefined' && typeof w.gtag === 'function') {
+        w.gtag('event', 'generate_lead', {
           event_category: 'engagement',
           event_label: form.company,
         })
