@@ -43,7 +43,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(data);
   } catch (err) {
     console.error("CS Agent API error:", err);
-    const detail = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
-    return NextResponse.json({ error: "Failed to assess customer health", detail }, { status: 500 });
+    const msg = err instanceof Error ? err.message : String(err);
+    if (msg.includes("429") || msg.includes("quota") || msg.includes("403")) {
+      return NextResponse.json(
+        { error: "Demo agent is at capacity right now. Book a call to see it live, or try again in a few minutes." },
+        { status: 503 }
+      );
+    }
+    return NextResponse.json({ error: "Failed to assess customer health" }, { status: 500 });
   }
 }
