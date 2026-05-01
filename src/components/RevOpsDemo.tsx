@@ -26,6 +26,7 @@ export default function RevOpsDemo() {
   const [result, setResult] = useState<RevOpsResult | null>(null);
   const [editableSteps, setEditableSteps] = useState<EditableStep[]>([]);
   const [loading, setLoading] = useState(false);
+  const [streamPreview, setStreamPreview] = useState("");
   const [error, setError] = useState("");
   const [copied, setCopied] = useState(false);
 
@@ -36,6 +37,7 @@ export default function RevOpsDemo() {
     setError("");
     setResult(null);
     setEditableSteps([]);
+    setStreamPreview("");
 
     try {
       const res = await fetch("/api/revops", {
@@ -43,21 +45,61 @@ export default function RevOpsDemo() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ trigger }),
       });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      setResult(data);
+
+      // Non-streaming error (e.g. 503 quota)
+      if (!res.ok || !res.body || res.headers.get("Content-Type")?.includes("application/json")) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Something went wrong.");
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let parsed: RevOpsResult | null = null;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        setStreamPreview(buffer);
+        // Try to parse as we go — Gemini emits well-formed JSON in JSON mode
+        try {
+          const candidate = JSON.parse(buffer);
+          if (candidate?.signal && Array.isArray(candidate?.sequence) && candidate?.confidence) {
+            parsed = candidate;
+            break;
+          }
+        } catch {
+          // not yet complete — keep accumulating
+        }
+      }
+
+      if (!parsed) {
+        try {
+          parsed = JSON.parse(buffer);
+        } catch {
+          throw new Error("Agent returned a malformed response. Try again.");
+        }
+      }
+
+      if (!parsed?.signal || !Array.isArray(parsed?.sequence)) {
+        throw new Error("Agent returned an incomplete response. Try again.");
+      }
+
+      setResult(parsed);
       setEditableSteps(
-        (data.sequence ?? []).map((step: OutreachStep) => ({
+        (parsed.sequence ?? []).map((step: OutreachStep) => ({
           ...step,
           editing: false,
           draftSubject: step.subject,
           draftBody: step.body,
         }))
       );
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
+      setStreamPreview("");
     }
   };
 
@@ -160,12 +202,16 @@ export default function RevOpsDemo() {
             </div>
           )}
 
-          {loading && (
-            <div className="bg-stone-50 rounded-3xl border border-stone-200 p-8 flex items-center justify-center min-h-[200px]">
-              <div className="flex items-center gap-3 text-stone-400">
-                <Loader2 size={18} className="animate-spin" />
-                <span className="text-sm font-medium">Analyzing signal...</span>
+          {loading && !result && (
+            <div className="bg-stone-900 rounded-3xl border border-stone-800 p-6 min-h-[200px]">
+              <div className="flex items-center gap-3 text-stone-300 mb-3">
+                <Loader2 size={14} className="animate-spin text-[#FF7A3F]" />
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-stone-400">Agent · drafting sequence</span>
               </div>
+              <pre className="font-mono text-[11px] leading-[1.6] text-stone-300 whitespace-pre-wrap break-words max-h-[260px] overflow-y-auto">
+                {streamPreview || "→ analyzing trigger…"}
+                <span className="inline-block w-1.5 h-3 bg-[#FF7A3F] ml-0.5 align-middle animate-pulse" />
+              </pre>
             </div>
           )}
 

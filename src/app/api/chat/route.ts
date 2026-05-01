@@ -46,13 +46,31 @@ export async function POST(req: NextRequest) {
 
     const chat = model.startChat({ history });
     const lastMessage = messages[messages.length - 1];
-    const result = await chat.sendMessage(lastMessage.text);
-    const raw = result.response.text();
+    const result = await chat.sendMessageStream(lastMessage.text);
 
-    const qualified = raw.includes("[QUALIFIED]");
-    const message = raw.replace("[QUALIFIED]", "").trim();
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          for await (const chunk of result.stream) {
+            const text = chunk.text();
+            if (text) controller.enqueue(encoder.encode(text));
+          }
+          controller.close();
+        } catch (err) {
+          console.error("Chat stream error:", err);
+          controller.error(err);
+        }
+      },
+    });
 
-    return NextResponse.json({ message, qualified });
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache, no-transform",
+        "X-Accel-Buffering": "no",
+      },
+    });
   } catch (err) {
     console.error("Chat API error:", err);
     const msg = err instanceof Error ? err.message : String(err);

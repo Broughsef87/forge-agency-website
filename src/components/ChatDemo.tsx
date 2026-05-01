@@ -43,12 +43,45 @@ export default function ChatDemo() {
         body: JSON.stringify({ messages: updatedMessages }),
       });
 
-      const data = await res.json();
-
-      if (data.message) {
-        setChatMessages((prev) => [...prev, { role: "assistant", text: data.message }]);
+      // Non-streaming error response (e.g. 503 quota)
+      if (!res.ok || !res.body || res.headers.get("Content-Type")?.includes("application/json")) {
+        const data = await res.json().catch(() => ({}));
+        setChatMessages((prev) => [
+          ...prev,
+          { role: "assistant", text: data.error ?? "Something went wrong. Please try again." },
+        ]);
+        return;
       }
-      if (data.qualified && !isQualified) {
+
+      // Add empty assistant placeholder; streamed tokens fill it in
+      setChatMessages((prev) => [...prev, { role: "assistant", text: "" }]);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        const chunk = decoder.decode(value, { stream: true });
+        accumulated += chunk;
+        // Update last message live, with [QUALIFIED] stripped from display
+        const display = accumulated.replace(/\[QUALIFIED\]/g, "").trimEnd();
+        setChatMessages((prev) => {
+          const next = [...prev];
+          next[next.length - 1] = { role: "assistant", text: display };
+          return next;
+        });
+      }
+
+      // Final flush + qualification check
+      const finalText = accumulated.replace(/\[QUALIFIED\]/g, "").trim();
+      setChatMessages((prev) => {
+        const next = [...prev];
+        next[next.length - 1] = { role: "assistant", text: finalText };
+        return next;
+      });
+      if (accumulated.includes("[QUALIFIED]") && !isQualified) {
         setIsQualified(true);
         setShowLeadForm(true);
       }
@@ -109,7 +142,7 @@ export default function ChatDemo() {
                 </div>
               </div>
             ))}
-            {isLoading && (
+            {isLoading && chatMessages[chatMessages.length - 1]?.role === "user" && (
               <div className="flex justify-start">
                 <div className="bg-stone-100 px-4 py-3 rounded-2xl rounded-bl-sm flex items-center gap-2">
                   <Loader2 size={13} className="animate-spin text-stone-400" />

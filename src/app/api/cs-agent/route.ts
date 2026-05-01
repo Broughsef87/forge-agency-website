@@ -36,11 +36,31 @@ export async function POST(req: NextRequest) {
       generationConfig: { responseMimeType: "application/json" },
     });
 
-    const result = await model.generateContent(customerData);
-    const text = result.response.text();
-    const data = JSON.parse(text);
+    const result = await model.generateContentStream(customerData);
 
-    return NextResponse.json(data);
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          for await (const chunk of result.stream) {
+            const text = chunk.text();
+            if (text) controller.enqueue(encoder.encode(text));
+          }
+          controller.close();
+        } catch (err) {
+          console.error("CS Agent stream error:", err);
+          controller.error(err);
+        }
+      },
+    });
+
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "no-cache, no-transform",
+        "X-Accel-Buffering": "no",
+      },
+    });
   } catch (err) {
     console.error("CS Agent API error:", err);
     const msg = err instanceof Error ? err.message : String(err);

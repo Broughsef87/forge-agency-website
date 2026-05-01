@@ -24,6 +24,7 @@ export default function CSAgentDemo() {
   const [customerData, setCustomerData] = useState("");
   const [result, setResult] = useState<CSResult | null>(null);
   const [loading, setLoading] = useState(false);
+  const [streamPreview, setStreamPreview] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,6 +33,7 @@ export default function CSAgentDemo() {
     setLoading(true);
     setError("");
     setResult(null);
+    setStreamPreview("");
 
     try {
       const res = await fetch("/api/cs-agent", {
@@ -39,13 +41,56 @@ export default function CSAgentDemo() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ customerData }),
       });
-      const data = await res.json();
-      if (data.error) throw new Error(data.error);
-      setResult(data);
-    } catch {
-      setError("Something went wrong. Please try again.");
+
+      // Non-streaming error (e.g. 503 quota)
+      if (!res.ok || !res.body || res.headers.get("Content-Type")?.includes("application/json")) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Something went wrong.");
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let parsed: CSResult | null = null;
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        setStreamPreview(buffer);
+        try {
+          const candidate = JSON.parse(buffer);
+          if (
+            typeof candidate?.healthScore === "number" &&
+            candidate?.churnRisk &&
+            Array.isArray(candidate?.interventions)
+          ) {
+            parsed = candidate;
+            break;
+          }
+        } catch {
+          // not yet complete — keep accumulating
+        }
+      }
+
+      if (!parsed) {
+        try {
+          parsed = JSON.parse(buffer);
+        } catch {
+          throw new Error("Agent returned a malformed response. Try again.");
+        }
+      }
+
+      if (typeof parsed?.healthScore !== "number" || !Array.isArray(parsed?.interventions)) {
+        throw new Error("Agent returned an incomplete response. Try again.");
+      }
+
+      setResult(parsed);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
       setLoading(false);
+      setStreamPreview("");
     }
   };
 
@@ -122,12 +167,16 @@ export default function CSAgentDemo() {
             </div>
           )}
 
-          {loading && (
-            <div className="bg-stone-50 rounded-3xl border border-stone-200 p-8 flex items-center justify-center min-h-[200px]">
-              <div className="flex items-center gap-3 text-stone-400">
-                <Loader2 size={18} className="animate-spin" />
-                <span className="text-sm font-medium">Running health check...</span>
+          {loading && !result && (
+            <div className="bg-stone-900 rounded-3xl border border-stone-800 p-6 min-h-[200px]">
+              <div className="flex items-center gap-3 text-stone-300 mb-3">
+                <Loader2 size={14} className="animate-spin text-[#FF7A3F]" />
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-stone-400">Agent · running health check</span>
               </div>
+              <pre className="font-mono text-[11px] leading-[1.6] text-stone-300 whitespace-pre-wrap break-words max-h-[260px] overflow-y-auto">
+                {streamPreview || "→ scoring activity…"}
+                <span className="inline-block w-1.5 h-3 bg-[#FF7A3F] ml-0.5 align-middle animate-pulse" />
+              </pre>
             </div>
           )}
 
