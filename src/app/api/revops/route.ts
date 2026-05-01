@@ -42,6 +42,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(data);
   } catch (err) {
     console.error("RevOps API error:", err);
-    return NextResponse.json({ error: "Failed to generate sequence" }, { status: 500 });
+    const detail = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    return NextResponse.json({ error: "Failed to generate sequence", detail }, { status: 500 });
   }
 }

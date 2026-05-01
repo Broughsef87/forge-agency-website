@@ -43,6 +43,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(data);
   } catch (err) {
     console.error("CS Agent API error:", err);
-    return NextResponse.json({ error: "Failed to assess customer health" }, { status: 500 });
+    const detail = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    return NextResponse.json({ error: "Failed to assess customer health", detail }, { status: 500 });
   }
 }
