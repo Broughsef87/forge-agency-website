@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'GEO — Generative Engine Optimization | The Forge Agency',
   description:
-    'When buyers ask ChatGPT, Perplexity, Gemini, or Claude to recommend leading vendors in your category, we make sure your name comes back. Six-month engagements from $750/mo.',
+    'When buyers ask ChatGPT, Perplexity, Gemini, or Claude to recommend leading vendors in your category, we make sure your name comes back. Six-month engagements from $1,000/mo.',
 };
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
@@ -90,7 +90,7 @@ const tiers = [
     name: 'Spark',
     badge: null,
     subtitle: 'Foundation only. Stop bleeding attribution.',
-    price: '$750',
+    price: '$1,000',
     period: '/month',
     setup: '$1,500 setup',
     term: '3-month minimum',
@@ -113,7 +113,7 @@ const tiers = [
     name: 'Forge',
     badge: null,
     subtitle: 'Show up where it matters. Validate the channel.',
-    price: '$2,500',
+    price: '$3,000',
     period: '/month',
     setup: '$2,500 setup',
     term: '6-month minimum',
@@ -136,7 +136,7 @@ const tiers = [
     name: 'Foundry',
     badge: 'Recommended',
     subtitle: 'Win the category. Challenge the leaders.',
-    price: '$4,500',
+    price: '$5,000',
     period: '/month',
     setup: '$3,500 setup',
     term: '6-month minimum',
