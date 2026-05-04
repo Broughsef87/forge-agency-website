@@ -85,7 +85,7 @@ export default function ScrollVideoHero() {
           {/* Hero CTAs */}
           <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
             <a
-              href="https://calendly.com/broughsef/30min"
+              href="https://calendar.app.google/kmAtXQsU4zL9m6Z96"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E8572A] text-white rounded-full font-medium text-sm hover:bg-[#FF7A3F] hover:shadow-[0_0_40px_-5px_rgba(232,87,42,0.6)] transition-all duration-300"

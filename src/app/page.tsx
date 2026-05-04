@@ -289,7 +289,7 @@ export default function Home() {
                 Book a free 30-minute strategy call. We&apos;ll map out exactly where autonomous systems can remove your biggest operational bottlenecks.
               </p>
               <a
-                href="https://calendly.com/broughsef/30min"
+                href="https://calendar.app.google/kmAtXQsU4zL9m6Z96"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#E8572A] text-white rounded-full font-medium hover:bg-[#FF7A3F] hover:shadow-[0_0_40px_-5px_rgba(232,87,42,0.6)] transition-all duration-300"
@@ -338,7 +338,7 @@ export default function Home() {
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
               <ul className="space-y-2 text-sm">
                 <li><a href="mailto:hello@the-forge-agency.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">hello@the-forge-agency.com</a></li>
-                <li><a href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
+                <li><a href="https://calendar.app.google/kmAtXQsU4zL9m6Z96" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
                 <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
               </ul>
             </div>

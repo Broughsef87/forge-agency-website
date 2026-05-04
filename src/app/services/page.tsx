@@ -197,7 +197,7 @@ export default function ServicesPage() {
               Book a free 30-minute strategy call. We&apos;ll identify exactly which system will move the needle fastest for your business.
             </p>
             <a
-              href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer"
+              href="https://calendar.app.google/kmAtXQsU4zL9m6Z96" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#E8572A] text-white rounded-full font-medium hover:bg-[#FF7A3F] hover:shadow-[0_0_40px_-5px_rgba(232,87,42,0.6)] transition-all duration-300"
             >
               Book a Strategy Call
@@ -260,7 +260,7 @@ export default function ServicesPage() {
                 <li><Link href="/#demo" className="text-stone-600 hover:text-[#E8572A] transition-colors">Live Demo</Link></li>
                 <li><Link href="/about" className="text-stone-600 hover:text-[#E8572A] transition-colors">About Us</Link></li>
                 <li><a href="https://compass.the-forge-agency.com" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Forge Compass — Free Audit</a></li>
-                <li><a href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
+                <li><a href="https://calendar.app.google/kmAtXQsU4zL9m6Z96" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
               </ul>
             </div>
             <div>

@@ -14,7 +14,7 @@ export default function PricingSection() {
         '30-day support window',
       ],
       cta: 'Get Started →',
-      href: 'https://calendly.com/broughsef/30min',
+      href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
       highlight: true,
     },
     {
@@ -31,7 +31,7 @@ export default function PricingSection() {
         '60-day support + iteration window',
       ],
       cta: 'Book a Scoping Call →',
-      href: 'https://calendly.com/broughsef/30min',
+      href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
       highlight: false,
     },
     {
@@ -48,7 +48,7 @@ export default function PricingSection() {
         'Priority support + SLA',
       ],
       cta: 'Talk to Andrew →',
-      href: 'https://calendly.com/broughsef/30min',
+      href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
       highlight: false,
     },
   ];

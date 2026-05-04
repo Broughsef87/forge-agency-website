@@ -91,7 +91,7 @@ export default function NavBar() {
               </svg>
             </a>
             <a
-              href="https://calendly.com/broughsef/30min"
+              href="https://calendar.app.google/kmAtXQsU4zL9m6Z96"
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm font-medium px-4 py-2 rounded-full border transition-all duration-500 ${
@@ -219,7 +219,7 @@ export default function NavBar() {
         {/* Bottom CTA */}
         <div className="px-6 py-6 border-t border-stone-200/60 shrink-0 bg-white/40">
           <a
-            href="https://calendly.com/broughsef/30min"
+            href="https://calendar.app.google/kmAtXQsU4zL9m6Z96"
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMenu}

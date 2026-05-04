@@ -52,7 +52,7 @@ export default function LeadForm({ onClose, conversation }: LeadFormProps) {
           Andrew will reach out within one business day to confirm your strategy call.
         </p>
         <a
-          href="https://calendly.com/broughsef/30min"
+          href="https://calendar.app.google/kmAtXQsU4zL9m6Z96"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 bg-stone-900 text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-stone-700 transition-colors"
