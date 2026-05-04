@@ -450,7 +450,7 @@ export default function GeoServicePage() {
               See exactly how AI engines describe your business right now.
             </h3>
             <p className="text-stone-500 font-light leading-relaxed max-w-xl">
-              Forge Compass is our productized audit tool. Run a $500 self-serve scan against your domain and get a structured report — entity health, category visibility, attribution leaks, and the specific gaps a GEO engagement would close. The audit is the first deliverable in a Foundry engagement, so you&apos;re not paying for it twice.
+              Forge Compass is our free self-serve audit tool. Run a scan against your domain and get a structured report — entity health, category visibility, attribution leaks, and the specific gaps a GEO engagement would close. We follow up within 24 hours with a personalized walkthrough. The audit is the first deliverable in a Foundry engagement, so you start the engagement already a step ahead.
             </p>
           </div>
           <a

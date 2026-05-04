@@ -209,6 +209,35 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Compass cross-link */}
+      <section className="max-w-6xl mx-auto px-6 pb-32">
+        <div className="bg-white rounded-3xl border border-stone-200 p-10 md:p-14 grid md:grid-cols-[1fr_auto] gap-10 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-3">
+              <span className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase">Free top-of-funnel</span>
+              <span className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold bg-[#E8572A] text-white px-2 py-0.5 rounded-full">Free</span>
+            </div>
+            <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-stone-900 mb-4 leading-tight">
+              See exactly how AI engines describe your business — before you book.
+            </h3>
+            <p className="text-stone-500 font-light leading-relaxed max-w-xl">
+              Forge Compass is our free self-serve audit. Run a scan against your domain and get a structured report on entity health, category visibility, and attribution leaks. We follow up within 24 hours with a personalized walkthrough.
+            </p>
+          </div>
+          <a
+            href="https://compass.the-forge-agency.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-7 py-3.5 bg-stone-900 text-white rounded-full font-medium hover:bg-stone-700 transition-all duration-300 text-sm shrink-0"
+          >
+            Run Forge Compass
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-white">
         <div className="max-w-6xl mx-auto px-6 py-14">
@@ -225,9 +254,12 @@ export default function ServicesPage() {
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Navigate</p>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/services" className="text-stone-600 hover:text-[#E8572A] transition-colors">Services</Link></li>
+                <li><Link href="/services" className="text-stone-600 hover:text-[#E8572A] transition-colors">AI Agents</Link></li>
+                <li><Link href="/services/geo" className="text-stone-600 hover:text-[#E8572A] transition-colors">GEO</Link></li>
+                <li><Link href="/services/seo" className="text-stone-600 hover:text-[#E8572A] transition-colors">SEO</Link></li>
                 <li><Link href="/#demo" className="text-stone-600 hover:text-[#E8572A] transition-colors">Live Demo</Link></li>
                 <li><Link href="/about" className="text-stone-600 hover:text-[#E8572A] transition-colors">About Us</Link></li>
+                <li><a href="https://compass.the-forge-agency.com" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Forge Compass — Free Audit</a></li>
                 <li><a href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
               </ul>
             </div>

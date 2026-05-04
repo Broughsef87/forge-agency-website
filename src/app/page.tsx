@@ -319,18 +319,26 @@ export default function Home() {
               </p>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Navigate</p>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Practice Areas</p>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/services" className="text-stone-600 hover:text-[#E8572A] transition-colors">Services</Link></li>
+                <li><Link href="/services" className="text-stone-600 hover:text-[#E8572A] transition-colors">AI Agents</Link></li>
+                <li><Link href="/services/geo" className="text-stone-600 hover:text-[#E8572A] transition-colors">GEO</Link></li>
+                <li><Link href="/services/seo" className="text-stone-600 hover:text-[#E8572A] transition-colors">SEO</Link></li>
+                <li>
+                  <a href="https://compass.the-forge-agency.com" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors inline-flex items-center gap-2">
+                    Forge Compass
+                    <span className="font-mono text-[8px] tracking-[0.2em] uppercase font-semibold bg-[#E8572A] text-white px-1.5 py-0.5 rounded-full">Free</span>
+                  </a>
+                </li>
                 <li><Link href="/#demo" className="text-stone-600 hover:text-[#E8572A] transition-colors">Live Demo</Link></li>
                 <li><Link href="/about" className="text-stone-600 hover:text-[#E8572A] transition-colors">About Us</Link></li>
-                <li><a href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
               </ul>
             </div>
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
               <ul className="space-y-2 text-sm">
                 <li><a href="mailto:hello@the-forge-agency.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">hello@the-forge-agency.com</a></li>
+                <li><a href="https://calendly.com/broughsef/30min" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
                 <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
               </ul>
             </div>

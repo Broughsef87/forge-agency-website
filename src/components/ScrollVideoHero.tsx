@@ -81,6 +81,32 @@ export default function ScrollVideoHero() {
           <p className="text-lg md:text-xl text-white/65 font-light max-w-2xl mx-auto mt-8 leading-relaxed">
             We build the AI systems that do the work your team shouldn&apos;t be doing — deployed in 72 hours.
           </p>
+
+          {/* Hero CTAs */}
+          <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
+            <a
+              href="https://calendly.com/broughsef/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E8572A] text-white rounded-full font-medium text-sm hover:bg-[#FF7A3F] hover:shadow-[0_0_40px_-5px_rgba(232,87,42,0.6)] transition-all duration-300"
+            >
+              Book a Strategy Call
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a
+              href="https://compass.the-forge-agency.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/30 text-white/90 rounded-full font-medium text-sm hover:border-white hover:text-white transition-all duration-300"
+            >
+              Run a free AI visibility audit
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         {/* Scroll indicator */}

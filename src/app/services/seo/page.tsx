@@ -243,7 +243,7 @@ export default function SeoServicePage() {
               Not sure if SEO is actually what you need?
             </h3>
             <p className="text-stone-500 font-light leading-relaxed max-w-xl">
-              Forge Compass is our $500 self-serve audit. It scans your domain, identifies the specific gaps in your search foundations, and tells you whether SEO maintenance, GEO investment, or both is the right move for your business. Honest answer in under 24 hours.
+              Forge Compass is our free self-serve audit. It scans your domain, identifies the specific gaps in your search foundations, and tells you whether SEO maintenance, GEO investment, or both is the right move for your business. Honest answer plus a personalized walkthrough within 24 hours.
             </p>
           </div>
           <a

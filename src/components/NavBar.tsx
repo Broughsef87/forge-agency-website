@@ -78,6 +78,19 @@ export default function NavBar() {
           </div>
           <div className="hidden md:flex items-center gap-4">
             <a
+              href="https://compass.the-forge-agency.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-sm font-medium transition-colors duration-500 inline-flex items-center gap-1.5 ${
+                overVideo ? 'text-[#FF7A3F] hover:text-white' : 'text-[#E8572A] hover:text-stone-900'
+              }`}
+            >
+              Free Audit
+              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+            <a
               href="https://calendly.com/broughsef/30min"
               target="_blank"
               rel="noopener noreferrer"
@@ -192,8 +205,11 @@ export default function NavBar() {
               onClick={closeMenu}
               className="flex items-center justify-between py-5 border-b border-stone-200/60 group"
             >
-              <span className="font-display text-2xl font-medium tracking-tight text-stone-900 group-hover:text-[#E8572A] transition-colors">
+              <span className="font-display text-2xl font-medium tracking-tight text-stone-900 group-hover:text-[#E8572A] transition-colors flex items-center gap-3">
                 Forge Compass
+                <span className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold bg-[#E8572A] text-white px-2 py-0.5 rounded-full">
+                  Free
+                </span>
               </span>
               <span className="font-mono text-[11px] tracking-wider text-stone-400">↗</span>
             </a>
