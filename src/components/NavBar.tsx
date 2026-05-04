@@ -49,7 +49,9 @@ export default function NavBar() {
               overVideo ? 'text-white/60' : 'text-stone-500'
             }`}
           >
-            <Link href="/services" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>Services</Link>
+            <Link href="/services" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>AI Agents</Link>
+            <Link href="/services/geo" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>GEO</Link>
+            <Link href="/services/seo" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>SEO</Link>
             <a href={isHome ? '#demo' : '/#demo'} className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>Demo</a>
             <Link href="/about" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>About Us</Link>
           </div>
