@@ -110,44 +110,44 @@ export default function NavBar() {
                 <ChevronDown size={14} strokeWidth={2} className="opacity-70 group-hover:opacity-100 transition-opacity" />
               </Link>
 
-              {/* Dropdown panel — uses pt-3 buffer instead of mt-3 so hover stays continuous */}
+              {/* Dropdown panel — dark, on-brand. pt-3 buffer keeps hover continuous. */}
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[340px] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
-                <div className="bg-white rounded-2xl border border-stone-200 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] p-2">
+                <div className="bg-[#0a0a0a] rounded-2xl border border-white/10 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] p-2 backdrop-blur-sm">
                   {SERVICES.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors group/item"
+                      className="block px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group/item"
                     >
-                      <div className="text-sm font-medium text-stone-900 group-hover/item:text-[#E8572A] transition-colors">
+                      <div className="text-sm font-medium text-white group-hover/item:text-[#FF7A3F] transition-colors">
                         {s.name}
                       </div>
-                      <div className="text-xs text-stone-500 font-light leading-snug mt-0.5">
+                      <div className="text-xs text-stone-400 font-light leading-snug mt-0.5">
                         {s.desc}
                       </div>
                     </Link>
                   ))}
 
                   {/* Divider */}
-                  <div className="h-px bg-stone-100 my-2 mx-3" />
+                  <div className="h-px bg-white/10 my-2 mx-3" />
 
                   {/* Forge Compass — external */}
                   <a
                     href={COMPASS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors group/item"
+                    className="block px-4 py-3 rounded-xl hover:bg-white/5 transition-colors group/item"
                   >
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium text-stone-900 group-hover/item:text-[#E8572A] transition-colors">
+                      <span className="text-sm font-medium text-white group-hover/item:text-[#FF7A3F] transition-colors">
                         Forge Compass
                       </span>
                       <span className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold bg-[#E8572A] text-white px-2 py-0.5 rounded-full">Free</span>
-                      <svg className="w-3 h-3 text-stone-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 text-stone-500 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </div>
-                    <div className="text-xs text-stone-500 font-light leading-snug mt-0.5">
+                    <div className="text-xs text-stone-400 font-light leading-snug mt-0.5">
                       Free AI visibility audit
                     </div>
                   </a>
