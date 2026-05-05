@@ -3,8 +3,34 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import ForgeLogo from './ForgeLogo';
+
+const COMPASS_URL = 'https://compass.the-forge-agency.com';
+const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
+
+const SERVICES = [
+  {
+    name: 'Website Design',
+    href: '/services/web',
+    desc: 'Conversion-engineered builds, $1,500–$15k+',
+  },
+  {
+    name: 'AI Agents',
+    href: '/services',
+    desc: 'Bespoke automation, deployed in 72h',
+  },
+  {
+    name: 'GEO',
+    href: '/services/geo',
+    desc: 'Get cited by ChatGPT, Perplexity, Gemini, Claude',
+  },
+  {
+    name: 'SEO',
+    href: '/services/seo',
+    desc: 'Technical foundations done right',
+  },
+];
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -65,33 +91,88 @@ export default function NavBar() {
               THE FORGE AGENCY
             </span>
           </Link>
+
+          {/* Desktop nav */}
           <div
             className={`hidden md:flex gap-8 text-sm font-medium transition-colors duration-500 ${
               overVideo ? 'text-white/60' : 'text-stone-500'
             }`}
           >
-            <Link href="/services" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>AI Agents</Link>
-            <Link href="/services/geo" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>GEO</Link>
-            <Link href="/services/seo" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>SEO</Link>
-            <a href={isHome ? '#demo' : '/#demo'} className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>Demo</a>
-            <Link href="/about" className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}>About Us</Link>
+            {/* Services dropdown — clickable parent + hover panel */}
+            <div className="relative group">
+              <Link
+                href="/services"
+                className={`inline-flex items-center gap-1 transition-colors ${
+                  overVideo ? 'hover:text-white' : 'hover:text-stone-900'
+                }`}
+              >
+                Services
+                <ChevronDown size={14} strokeWidth={2} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+              </Link>
+
+              {/* Dropdown panel — uses pt-3 buffer instead of mt-3 so hover stays continuous */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[340px] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
+                <div className="bg-white rounded-2xl border border-stone-200 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] p-2">
+                  {SERVICES.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="block px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors group/item"
+                    >
+                      <div className="text-sm font-medium text-stone-900 group-hover/item:text-[#E8572A] transition-colors">
+                        {s.name}
+                      </div>
+                      <div className="text-xs text-stone-500 font-light leading-snug mt-0.5">
+                        {s.desc}
+                      </div>
+                    </Link>
+                  ))}
+
+                  {/* Divider */}
+                  <div className="h-px bg-stone-100 my-2 mx-3" />
+
+                  {/* Forge Compass — external */}
+                  <a
+                    href={COMPASS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-3 rounded-xl hover:bg-stone-50 transition-colors group/item"
+                  >
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-stone-900 group-hover/item:text-[#E8572A] transition-colors">
+                        Forge Compass
+                      </span>
+                      <span className="font-mono text-[9px] tracking-[0.2em] uppercase font-semibold bg-[#E8572A] text-white px-2 py-0.5 rounded-full">Free</span>
+                      <svg className="w-3 h-3 text-stone-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </div>
+                    <div className="text-xs text-stone-500 font-light leading-snug mt-0.5">
+                      Free AI visibility audit
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href={isHome ? '#demo' : '/#demo'}
+              className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}
+            >
+              Demo
+            </a>
+            <Link
+              href="/about"
+              className={`transition-colors ${overVideo ? 'hover:text-white' : 'hover:text-stone-900'}`}
+            >
+              About
+            </Link>
           </div>
+
+          {/* Right CTAs */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="https://compass.the-forge-agency.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`text-sm font-medium transition-colors duration-500 inline-flex items-center gap-1.5 ${
-                overVideo ? 'text-[#FF7A3F] hover:text-white' : 'text-[#E8572A] hover:text-stone-900'
-              }`}
-            >
-              Free Audit
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-            <a
-              href="https://calendar.app.google/kmAtXQsU4zL9m6Z96"
+              href={BOOKING_URL}
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm font-medium px-4 py-2 rounded-full border transition-all duration-500 ${
@@ -144,36 +225,19 @@ export default function NavBar() {
         <nav className="flex-1 overflow-y-auto px-6 py-8">
           <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-6">Practice</p>
           <div className="space-y-0">
-            <Link
-              href="/services"
-              onClick={closeMenu}
-              className="flex items-center justify-between py-5 border-b border-stone-200/60 group"
-            >
-              <span className="font-display text-3xl font-medium tracking-tight text-stone-900 group-hover:text-[#E8572A] transition-colors">
-                AI Agents
-              </span>
-              <span className="font-mono text-[11px] tracking-wider text-stone-400">→</span>
-            </Link>
-            <Link
-              href="/services/geo"
-              onClick={closeMenu}
-              className="flex items-center justify-between py-5 border-b border-stone-200/60 group"
-            >
-              <span className="font-display text-3xl font-medium tracking-tight text-stone-900 group-hover:text-[#E8572A] transition-colors">
-                GEO
-              </span>
-              <span className="font-mono text-[11px] tracking-wider text-stone-400">→</span>
-            </Link>
-            <Link
-              href="/services/seo"
-              onClick={closeMenu}
-              className="flex items-center justify-between py-5 border-b border-stone-200/60 group"
-            >
-              <span className="font-display text-3xl font-medium tracking-tight text-stone-900 group-hover:text-[#E8572A] transition-colors">
-                SEO
-              </span>
-              <span className="font-mono text-[11px] tracking-wider text-stone-400">→</span>
-            </Link>
+            {SERVICES.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                onClick={closeMenu}
+                className="flex items-center justify-between py-5 border-b border-stone-200/60 group"
+              >
+                <span className="font-display text-3xl font-medium tracking-tight text-stone-900 group-hover:text-[#E8572A] transition-colors">
+                  {s.name}
+                </span>
+                <span className="font-mono text-[11px] tracking-wider text-stone-400">→</span>
+              </Link>
+            ))}
           </div>
 
           <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mt-10 mb-6">More</p>
@@ -199,7 +263,7 @@ export default function NavBar() {
               <span className="font-mono text-[11px] tracking-wider text-stone-400">→</span>
             </Link>
             <a
-              href="https://compass.the-forge-agency.com"
+              href={COMPASS_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={closeMenu}
@@ -219,7 +283,7 @@ export default function NavBar() {
         {/* Bottom CTA */}
         <div className="px-6 py-6 border-t border-stone-200/60 shrink-0 bg-white/40">
           <a
-            href="https://calendar.app.google/kmAtXQsU4zL9m6Z96"
+            href={BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
             onClick={closeMenu}

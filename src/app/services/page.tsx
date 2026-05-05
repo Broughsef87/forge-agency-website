@@ -50,7 +50,7 @@ const services = [
       'Lead routing and qualification pipelines',
       'Client onboarding and fulfillment flows',
     ],
-    outcome: 'No more copy-pasting between tools. No more dropped handoffs. Just clean, reliable signal.',
+    outcome: 'Clean handoffs, reliable signal, no work lost in the gaps between tools.',
   },
   {
     num: '03',
@@ -73,6 +73,29 @@ const services = [
     ],
     outcome: 'Think of it as hiring a tireless, expert operator — one that works 24/7 and costs a fraction of a headcount.',
   },
+  {
+    num: '04',
+    icon: (
+      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+    title: 'Website Design & Build',
+    tagline: 'Sites that sell, not sites that decorate.',
+    description:
+      'Most agencies build sites that look good. We build sites that move pipeline. Every page, every section, every word is engineered around one question — does this make a qualified buyer take action? We use AI tooling to ship faster than traditional agencies, but the strategy is human: your offer, your audience, your conversion goals. The output is a website that does work, not one that wins design awards.',
+    bullets: [
+      'Conversion-architected page structure (every section has a job)',
+      'Custom design aligned to your brand and your buyer\'s expectations',
+      'Modern, fast technical foundation — Next.js, Tailwind, deployed on Vercel',
+      'AI and automation integrations where they earn their keep (lead routing, intake automation, embedded chat)',
+      'Copy written for your audience, not for SEO bots',
+      'Analytics, conversion tracking, and schema wired in from day one',
+    ],
+    outcome: 'Pages that pay for themselves in qualified leads or signed deals — usually before the next quarter ends.',
+    detailHref: '/services/web',
+  },
 ];
 
 export default function ServicesPage() {
@@ -88,8 +111,22 @@ export default function ServicesPage() {
           <span className="italic text-[#E8572A]" style={{ fontVariationSettings: '"SOFT" 50' }}>sleep</span>.
         </h1>
         <p className="text-xl text-stone-500 font-light leading-relaxed max-w-2xl">
-          We build three types of intelligent systems — each one designed to remove a specific class of operational drag from your business.
+          We build four kinds of intelligent systems — each one designed to remove a specific class of operational drag from your business.
         </p>
+      </section>
+
+      {/* Orientation — how the four practices relate */}
+      <section className="max-w-6xl mx-auto px-6 pb-16">
+        <div className="bg-white rounded-3xl border border-stone-200 p-10 md:p-14">
+          <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">How it fits together</p>
+          <p className="text-lg text-stone-700 font-light leading-relaxed max-w-4xl">
+            We build four kinds of intelligent systems for businesses that take the next decade seriously:{' '}
+            <Link href="/services/web" className="text-stone-900 font-medium hover:text-[#E8572A] transition-colors">websites that convert</Link>,{' '}
+            <span className="text-stone-900 font-medium">automation that eliminates manual work</span>,{' '}
+            <span className="text-stone-900 font-medium">AI agents that operate autonomously</span>, and{' '}
+            <Link href="/services/geo" className="text-stone-900 font-medium hover:text-[#E8572A] transition-colors">GEO programs that get you cited by AI search</Link>. Most clients start with one and ladder into the rest.
+          </p>
+        </div>
       </section>
 
       {/* Services — alternating layouts, editorial numbers, orange outcome bands */}
@@ -124,6 +161,17 @@ export default function ServicesPage() {
                   <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-stone-900 mb-3 leading-[1.05]">{s.title}</h2>
                   <p className="text-[#E8572A] font-medium italic mb-6 font-display" style={{ fontVariationSettings: '"SOFT" 50' }}>{s.tagline}</p>
                   <p className="text-stone-500 font-light leading-relaxed">{s.description}</p>
+                  {s.detailHref && (
+                    <Link
+                      href={s.detailHref}
+                      className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-[#E8572A] hover:text-stone-900 transition-colors"
+                    >
+                      See pricing & tiers
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
 
                 {/* Right (or Left when flipped) — What's included */}
@@ -252,14 +300,15 @@ export default function ServicesPage() {
               </p>
             </div>
             <div>
-              <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Navigate</p>
+              <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Practice Areas</p>
               <ul className="space-y-2 text-sm">
+                <li><Link href="/services/web" className="text-stone-600 hover:text-[#E8572A] transition-colors">Websites</Link></li>
                 <li><Link href="/services" className="text-stone-600 hover:text-[#E8572A] transition-colors">AI Agents</Link></li>
                 <li><Link href="/services/geo" className="text-stone-600 hover:text-[#E8572A] transition-colors">GEO</Link></li>
                 <li><Link href="/services/seo" className="text-stone-600 hover:text-[#E8572A] transition-colors">SEO</Link></li>
+                <li><a href="https://compass.the-forge-agency.com" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Forge Compass — Free Audit</a></li>
                 <li><Link href="/#demo" className="text-stone-600 hover:text-[#E8572A] transition-colors">Live Demo</Link></li>
                 <li><Link href="/about" className="text-stone-600 hover:text-[#E8572A] transition-colors">About Us</Link></li>
-                <li><a href="https://compass.the-forge-agency.com" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Forge Compass — Free Audit</a></li>
                 <li><a href="https://calendar.app.google/kmAtXQsU4zL9m6Z96" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
               </ul>
             </div>
