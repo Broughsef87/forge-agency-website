@@ -110,14 +110,14 @@ export default function NavBar() {
                 <ChevronDown size={14} strokeWidth={2} className="opacity-70 group-hover:opacity-100 transition-opacity" />
               </Link>
 
-              {/* Dropdown panel — warm cream, slightly darker than body so it lifts off. */}
+              {/* Dropdown panel — neutral stone-100, cool and quiet against the cream body. */}
               <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-[340px] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
-                <div className="bg-[#EFE9E0] rounded-2xl border border-stone-300/60 shadow-[0_30px_80px_-20px_rgba(60,45,25,0.22)] p-2 backdrop-blur-sm">
+                <div className="bg-stone-100 rounded-2xl border border-stone-200 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.18)] p-2 backdrop-blur-sm">
                   {SERVICES.map((s) => (
                     <Link
                       key={s.href}
                       href={s.href}
-                      className="block px-4 py-3 rounded-xl hover:bg-white/60 transition-colors group/item"
+                      className="block px-4 py-3 rounded-xl hover:bg-white transition-colors group/item"
                     >
                       <div className="text-sm font-medium text-stone-900 group-hover/item:text-[#E8572A] transition-colors">
                         {s.name}
@@ -129,14 +129,14 @@ export default function NavBar() {
                   ))}
 
                   {/* Divider */}
-                  <div className="h-px bg-stone-300/60 my-2 mx-3" />
+                  <div className="h-px bg-stone-200 my-2 mx-3" />
 
                   {/* Forge Compass — external */}
                   <a
                     href={COMPASS_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block px-4 py-3 rounded-xl hover:bg-white/60 transition-colors group/item"
+                    className="block px-4 py-3 rounded-xl hover:bg-white transition-colors group/item"
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-medium text-stone-900 group-hover/item:text-[#E8572A] transition-colors">
