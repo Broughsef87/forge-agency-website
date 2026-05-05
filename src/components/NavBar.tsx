@@ -292,7 +292,7 @@ export default function NavBar() {
             Book a Call →
           </a>
           <p className="text-center text-xs text-stone-400 font-light mt-4">
-            hello@the-forge-agency.com
+            info@forge-automations.com
           </p>
         </div>
       </div>

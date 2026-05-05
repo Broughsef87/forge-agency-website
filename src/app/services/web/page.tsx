@@ -551,7 +551,7 @@ export default function WebsitesServicePage() {
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
               <ul className="space-y-2 text-sm">
-                <li><a href="mailto:hello@the-forge-agency.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">hello@the-forge-agency.com</a></li>
+                <li><a href="mailto:info@forge-automations.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">info@forge-automations.com</a></li>
                 <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Build Brief</a></li>
                 <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
               </ul>
