@@ -154,6 +154,7 @@ const tiers = [
       'GA4 + conversion event instrumentation',
       'Email-deliverability hardening (SPF, DKIM, DMARC)',
       'Optional CMS for blog or case studies',
+      'Optional AI integration (lead qualifier, intake bot, or content agent) wired into your CRM',
     ],
     cta: 'Build with Business',
     href: BOOKING_URL,
@@ -169,13 +170,13 @@ const tiers = [
     term: '6+ week engagement',
     bestFor: 'Companies treating their site as a real revenue surface — not a brochure.',
     outcome:
-      'Multi-page architecture with custom backend behavior, AI/automation baked in, and a project-managed delivery cadence.',
+      "A site that doesn't just inform — it qualifies, books, sells, and supports. AI agents and automations baked into the experience, not bolted on after launch.",
     caveat:
       'Scoped against actual hours at quote time. Examples: gated portals, AI-assisted product pages, multi-site architecture, deep CRM/ERP integration.',
     includes: [
+      'AI / automation embedded in the site experience (qualifying, booking, support, content)',
       'Multi-page or multi-site architecture',
       'Custom backend behavior or app-style interactions',
-      'AI / automation embedded in the site experience',
       'Project-managed sprints with weekly checkpoints',
       'Dedicated post-launch optimization retainer (optional)',
     ],
@@ -208,10 +209,14 @@ export default function WebsitesServicePage() {
           <span className="italic text-[#E8572A]" style={{ fontVariationSettings: '"SOFT" 50' }}>
             sell
           </span>
+          . Agents that{' '}
+          <span className="italic text-[#E8572A]" style={{ fontVariationSettings: '"SOFT" 50' }}>
+            scale
+          </span>
           .
         </h1>
         <p className="text-xl text-stone-500 font-light leading-relaxed max-w-2xl mb-8">
-          Not sites that decorate. Conversion-engineered websites built fast with AI tooling — designed for buyers, deployed on infrastructure that scales, priced in fixed tiers so you know what you&apos;re paying for.
+          AI-native website builds. Conversion-engineered, agent-ready, deployed in days. Sites that sell — and a stack that lets us bake intelligence directly into them when you&apos;re ready.
         </p>
         <div className="flex flex-wrap gap-3">
           <a
@@ -460,6 +465,50 @@ export default function WebsitesServicePage() {
         <p className="text-sm text-stone-400 font-light italic text-center mt-10 max-w-2xl mx-auto">
           50% deposit at engagement, balance on launch. Express invoiced flat. Custom Build scoped against actual hours and quoted before contract — no surprises.
         </p>
+      </section>
+
+      {/* AI Inside — explicit niche callout */}
+      <section className="max-w-6xl mx-auto px-6 pb-32">
+        <div className="relative overflow-hidden bg-stone-900 rounded-3xl p-12 md:p-20">
+          <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-[#E8572A] opacity-[0.08] blur-3xl pointer-events-none" />
+          <div className="relative">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-[#FF7A3F] uppercase mb-4">
+              AI Inside
+            </p>
+            <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-[1.05] max-w-3xl">
+              Every Forge site can be wired with{' '}
+              <span className="italic text-[#FF7A3F]" style={{ fontVariationSettings: '"SOFT" 50' }}>
+                intelligence
+              </span>
+              .
+            </h2>
+            <p className="text-stone-300 font-light text-lg leading-relaxed max-w-3xl mb-10">
+              Lead-qualification chatbots. Customer-support agents. Content engines that generate and publish. Internal copilots that brief your team. We build the AI agent practice — your website is just one of the surfaces it can live on.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#FF7A3F] mb-2">Business Website tier</p>
+                <p className="text-white font-light leading-relaxed">One AI integration included — typically a lead qualifier or intake bot wired into your CRM.</p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#FF7A3F] mb-2">Custom Build tier</p>
+                <p className="text-white font-light leading-relaxed">Unlimited AI/automation integrations. The website becomes a delivery surface for your agent stack.</p>
+              </div>
+            </div>
+            <p className="text-stone-400 font-light text-sm italic mb-8 max-w-3xl">
+              Not available on Express or Custom Landing Page — those are focused conversion surfaces, not platforms for ongoing intelligence.
+            </p>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#E8572A] text-white rounded-full font-medium hover:bg-[#FF7A3F] hover:shadow-[0_0_40px_-5px_rgba(232,87,42,0.6)] transition-all duration-300 text-sm"
+            >
+              See the AI Agents practice
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* Compass cross-link */}
