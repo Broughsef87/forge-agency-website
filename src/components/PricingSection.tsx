@@ -2,50 +2,50 @@ export default function PricingSection() {
   const tiers = [
     {
       name: 'Starter Agent',
-      badge: 'Most Popular',
-      subtitle: 'One agent, defined scope, fast delivery.',
-      price: 'From $4,997',
-      maintenance: '$997 / mo',
-      includes: [
-        '1 bespoke AI agent (Lead-Gen, RevOps, or CS)',
-        '72-hour deployment',
-        'Tool integrations (up to 3)',
-        'Handoff documentation',
-        '30-day support window',
-      ],
-      cta: 'Get Started →',
-      href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
-      highlight: true,
-    },
-    {
-      name: 'Growth System',
       badge: null,
-      subtitle: 'Multi-agent workflow replacing a full operational function.',
-      price: 'From $14,997',
-      maintenance: '$1,997 / mo',
+      subtitle: 'One agent. One workflow. Prove the ROI before you scale.',
+      price: 'From $1,500',
+      priceNote: 'Optional $250 / mo · no commitment',
       includes: [
-        '3–5 connected AI agents',
-        'Full workflow architecture',
-        'Unlimited tool integrations',
-        'Team training session',
-        '60-day support + iteration window',
+        '1 productized AI agent (Lead-Gen, Content, Support, or RevOps)',
+        'Fast deployment — typically under a week',
+        'Tool integrations (1–2)',
+        'Handoff documentation',
+        'Optional monthly tuning at $250 / mo',
       ],
-      cta: 'Book a Scoping Call →',
+      cta: 'Start with Starter →',
       href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
       highlight: false,
     },
     {
-      name: 'Enterprise',
-      badge: null,
-      subtitle: 'Bespoke intelligence layer for your entire operation.',
-      price: 'Custom',
-      maintenance: null,
+      name: 'Bespoke Workflow Agent',
+      badge: 'Recommended',
+      subtitle: 'End-to-end workflow automation, wired into your stack.',
+      price: 'From $10,000',
+      priceNote: '+ $2,000 – $3,000 / mo · 6-month minimum',
       includes: [
-        'Unlimited agents and workflows',
-        'Dedicated build sprint',
-        'Custom model fine-tuning',
-        'Ongoing management retainer',
-        'Priority support + SLA',
+        '3–5 connected agents running an end-to-end workflow',
+        'Full pipeline architecture (RevOps, onboarding, content engine, etc.)',
+        'Deep integrations across CRM, ERP, and comms',
+        'Iteration, monitoring, and tuning included in retainer',
+        'Monthly performance review',
+      ],
+      cta: 'Scope a Workflow →',
+      href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
+      highlight: true,
+    },
+    {
+      name: 'Multi-Agent System',
+      badge: null,
+      subtitle: 'A real intelligence layer for your entire operation.',
+      price: 'From $35,000',
+      priceNote: '+ $5,000 – $15,000 / mo · 6-month minimum',
+      includes: [
+        'Interconnected agent swarms across functions',
+        'Deep internal tool integration',
+        'High-volume data reasoning + custom model fine-tuning',
+        'Dedicated team + priority SLA',
+        'Treated as core infrastructure — not a single workflow',
       ],
       cta: 'Talk to Andrew →',
       href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
@@ -62,7 +62,7 @@ export default function PricingSection() {
         Simple, transparent pricing.
       </h2>
       <p data-reveal className="text-lg text-stone-500 font-light leading-relaxed max-w-2xl mb-12">
-        Every engagement starts with a free strategy call. No retainers until you&apos;ve seen results.
+        Every engagement starts with a free strategy call. Start with Starter to prove the ROI on a single agent, then ladder into the larger tiers when you&apos;re ready to make AI core infrastructure.
       </p>
 
       <div className="grid md:grid-cols-3 gap-6">
@@ -91,8 +91,8 @@ export default function PricingSection() {
             {/* Price */}
             <div className="mb-8 pb-6 border-b border-stone-100">
               <span className="font-display text-4xl font-medium tracking-tight text-stone-900">{tier.price}</span>
-              {tier.maintenance && (
-                <span className="block mt-1 font-mono text-[11px] tracking-wider text-stone-400">then {tier.maintenance} maintenance</span>
+              {tier.priceNote && (
+                <span className="block mt-1 font-mono text-[11px] tracking-wider text-stone-400">{tier.priceNote}</span>
               )}
             </div>
 
