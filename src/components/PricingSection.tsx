@@ -4,8 +4,8 @@ export default function PricingSection() {
       name: 'Starter Agent',
       badge: null,
       subtitle: 'One agent. One workflow. Prove the ROI before you scale.',
-      price: 'From $1,500',
-      priceNote: 'Optional $250 / mo · no commitment',
+      price: '$1,500 – $3,500',
+      priceNote: 'One-time · optional $250 / mo monitoring (not required)',
       includes: [
         '1 productized AI agent (Lead-Gen, Content, Support, or RevOps)',
         'Fast deployment — typically under a week',
@@ -21,8 +21,8 @@ export default function PricingSection() {
       name: 'Bespoke Workflow Agent',
       badge: 'Recommended',
       subtitle: 'End-to-end workflow automation, wired into your stack.',
-      price: 'From $10,000',
-      priceNote: '+ $2,000 – $3,000 / mo · 6-month minimum',
+      price: 'From $7,500',
+      priceNote: '+ $2,000 – $3,000 / mo retainer · 6-month minimum',
       includes: [
         '3–5 connected agents running an end-to-end workflow',
         'Full pipeline architecture (RevOps, onboarding, content engine, etc.)',
@@ -38,8 +38,8 @@ export default function PricingSection() {
       name: 'Multi-Agent System',
       badge: null,
       subtitle: 'A real intelligence layer for your entire operation.',
-      price: 'From $35,000',
-      priceNote: '+ $5,000 – $15,000 / mo · 6-month minimum',
+      price: 'From $20,000',
+      priceNote: '+ $5,000 – $15,000 / mo retainer · 6-month minimum',
       includes: [
         'Interconnected agent swarms across functions',
         'Deep internal tool integration',
@@ -127,6 +127,10 @@ export default function PricingSection() {
           </div>
         ))}
       </div>
+
+      <p className="text-sm text-stone-400 font-light italic text-center mt-10 max-w-3xl mx-auto leading-relaxed">
+        Tier 2 and Tier 3 are quoted after a free 30-minute discovery call. Tier 1 is fixed-price productized scope. Setup invoiced at signature, due net 15. Monthly retainers invoiced on the 1st, due net 15.
+      </p>
     </section>
   );
 }
