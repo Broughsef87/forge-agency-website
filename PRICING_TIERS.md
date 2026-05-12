@@ -1,19 +1,19 @@
 # Forge Agency Pricing Tiers (2026-05)
 _Industry standard for ROI-focused bespoke AI agencies_
 
-## Starter Agent
+## Spark — Starter Agent
 *   **One-Time Build:** $1,500 – $3,500
 *   **Optional Monitoring:** $250 / mo (not required)
 *   **Commitment:** None — fixed-price productized scope
 *   **Scope:** Single-purpose agents (e.g., Lead Qualification, Content Ingestion, Support Triage). Productized scope, fast deployment, designed to prove value before any retainer.
 
-## Bespoke Workflow Agent ⭐ Recommended
+## Forge — Bespoke Workflow Agent ⭐ Recommended
 *   **Build:** From $7,500
 *   **Monthly Retainer:** $2,000 – $3,000
 *   **Commitment:** 6-month minimum
 *   **Scope:** End-to-end workflow automation (e.g., Full RevOps Pipeline, Automated Customer Onboarding, Content Production Engine). Multi-step agents wired into your stack with iteration, monitoring, and tuning included in the retainer.
 
-## Multi-Agent System
+## Foundry — Multi-Agent System
 *   **Build:** From $20,000
 *   **Monthly Retainer:** $5,000 – $15,000
 *   **Commitment:** 6-month minimum

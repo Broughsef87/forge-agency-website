@@ -84,6 +84,7 @@ const services = [
 
 const tiers = [
   {
+    brandName: 'Spark',
     name: 'Starter Agent',
     badge: null,
     subtitle: 'One agent. One job. Live in two weeks.',
@@ -107,6 +108,7 @@ const tiers = [
     highlight: false,
   },
   {
+    brandName: 'Forge',
     name: 'Bespoke Workflow Agent',
     badge: 'Recommended',
     subtitle: 'A teammate that runs an entire workflow.',
@@ -130,6 +132,7 @@ const tiers = [
     highlight: true,
   },
   {
+    brandName: 'Foundry',
     name: 'Multi-Agent System',
     badge: null,
     subtitle: 'Replace a function. Run a department.',
@@ -306,7 +309,13 @@ export default function ServicesPage() {
                 )}
               </div>
 
-              <h3 className="font-display text-xl font-medium tracking-tight text-stone-900 mb-1">
+              <p
+                className="font-display text-3xl italic font-medium tracking-tight text-[#E8572A] leading-none mb-2"
+                style={{ fontVariationSettings: '"SOFT" 50' }}
+              >
+                {tier.brandName}
+              </p>
+              <h3 className="font-display text-lg font-medium tracking-tight text-stone-700 mb-1">
                 {tier.name}
               </h3>
               <p className="text-sm text-stone-400 font-light mb-6 leading-relaxed">{tier.subtitle}</p>
