@@ -88,6 +88,7 @@ const workstreams = [
 const tiers = [
   {
     name: 'Spark',
+    descriptiveName: 'Foundation Audit',
     badge: null,
     subtitle: 'Foundation only. Stop bleeding attribution.',
     price: '$1,000',
@@ -111,6 +112,7 @@ const tiers = [
   },
   {
     name: 'Forge',
+    descriptiveName: 'Operating Program',
     badge: null,
     subtitle: 'Show up where it matters. Validate the channel.',
     price: '$3,000',
@@ -134,6 +136,7 @@ const tiers = [
   },
   {
     name: 'Foundry',
+    descriptiveName: 'Authority Program',
     badge: 'Recommended',
     subtitle: 'Win the category. Challenge the leaders.',
     price: '$5,000',
@@ -376,8 +379,14 @@ export default function GeoServicePage() {
                 )}
               </div>
 
-              <h3 className="font-display text-2xl font-medium tracking-tight text-stone-900 mb-1">
+              <p
+                className="font-display text-3xl italic font-medium tracking-tight text-[#E8572A] leading-none mb-2"
+                style={{ fontVariationSettings: '"SOFT" 50' }}
+              >
                 {tier.name}
+              </p>
+              <h3 className="font-display text-lg font-medium tracking-tight text-stone-700 mb-1">
+                {tier.descriptiveName}
               </h3>
               <p className="text-sm text-stone-400 font-light mb-6 leading-relaxed">{tier.subtitle}</p>
 
