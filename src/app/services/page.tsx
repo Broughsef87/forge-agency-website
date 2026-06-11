@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Services — The Forge Agency',
   description:
-    'AI automation, custom workflows, and bespoke AI agents built for enterprises who move fast. Deployed in 72 hours.',
+    'AI automation, custom workflows, and bespoke AI agents for construction-trades businesses. Deployed in 72 hours.',
 };
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
@@ -196,7 +196,7 @@ export default function ServicesPage() {
           <span className="italic text-[#E8572A]" style={{ fontVariationSettings: '"SOFT" 50' }}>sleep</span>.
         </h1>
         <p className="text-xl text-stone-500 font-light leading-relaxed max-w-2xl">
-          Forge&apos;s core practice: bespoke AI agents and automation systems built for businesses that want a teammate, not a tool. Three engagement tiers, from productized starter agents to multi-agent enterprise operations. Adjacent practices in GEO, SEO, and Website Design — see below.
+          Forge&apos;s core practice: bespoke AI agents and automation systems for construction-trades businesses that want a teammate, not a tool. Three engagement tiers, from productized starter agents to multi-agent systems that run a department. Adjacent practices in GEO, SEO, and Website Design — see below.
         </p>
       </section>
 
@@ -288,7 +288,7 @@ export default function ServicesPage() {
           </span>
         </h2>
         <p className="text-lg text-stone-500 font-light leading-relaxed max-w-2xl mb-12">
-          We engage at three altitudes — from a productized starter agent that ships in two weeks, to multi-agent enterprise systems that take six months. The right tier depends on whether you want a tool, a teammate, or an operations layer.
+          We engage at three altitudes — from a productized starter agent that ships in two weeks, to multi-agent systems that take six months. The right tier depends on whether you want a tool, a teammate, or an operations layer.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -517,7 +517,7 @@ export default function ServicesPage() {
                 <span className="font-semibold tracking-tight text-sm text-stone-900">THE FORGE AGENCY</span>
               </Link>
               <p className="text-sm text-stone-500 font-light leading-relaxed max-w-xs">
-                A B2B AI automation firm. We architect and deploy the intelligence layer inside modern enterprises.
+                AI automation, dashboards, and search visibility for builders, contractors, and building-products companies.
               </p>
             </div>
             <div>
@@ -528,6 +528,7 @@ export default function ServicesPage() {
                 <li><Link href="/services/seo" className="text-stone-600 hover:text-[#E8572A] transition-colors">SEO</Link></li>
                 <li><Link href="/services/web" className="text-stone-600 hover:text-[#E8572A] transition-colors">Websites</Link></li>
                 <li><a href={COMPASS_URL} target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Forge Compass — Free Audit</a></li>
+                <li><Link href="/insights" className="text-stone-600 hover:text-[#E8572A] transition-colors">Insights</Link></li>
                 <li><Link href="/#demo" className="text-stone-600 hover:text-[#E8572A] transition-colors">Live Demo</Link></li>
                 <li><Link href="/about" className="text-stone-600 hover:text-[#E8572A] transition-colors">About Us</Link></li>
                 <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>

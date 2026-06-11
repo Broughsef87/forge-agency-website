@@ -24,14 +24,14 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Forge Agency — AI Automation for Modern Enterprises",
+  title: "The Forge Agency — AI Automation, SEO & GEO for Construction Trades",
   description:
-    "Forge Agency builds autonomous AI agent systems that scale enterprise revenue without scaling headcount. Bespoke AI workflows and productized automation, deployed in 72 hours.",
+    "AI automation, SEO & GEO for construction and building-products companies. We build the dashboards, AI agents, and search visibility that win work for builders, contractors, and distributors.",
   metadataBase: new URL("https://the-forge-agency.com"),
   openGraph: {
-    title: "Forge Agency — AI Automation for Modern Enterprises",
+    title: "The Forge Agency — AI Automation, SEO & GEO for Construction Trades",
     description:
-      "Forge Agency builds autonomous AI agent systems that scale enterprise revenue without scaling headcount. Deployed in 72 hours.",
+      "AI automation, SEO & GEO for construction and building-products companies. Dashboards, AI agents, and search visibility — live in days, not quarters.",
     url: "https://the-forge-agency.com",
     siteName: "The Forge Agency",
     images: [
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "The Forge Agency — AI Automation Agency",
+        alt: "The Forge Agency — AI & Search for Construction Trades",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forge Agency — AI Automation for Modern Enterprises",
+    title: "The Forge Agency — AI Automation, SEO & GEO for Construction Trades",
     description:
-      "Bespoke AI workflows and autonomous agent systems, deployed in 72 hours.",
+      "Dashboards, AI agents, and search visibility for construction-trades companies — live in days, not quarters.",
     images: ["/og-image.png"],
   },
 };
