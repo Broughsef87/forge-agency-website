@@ -96,7 +96,7 @@ export default function AboutPage() {
           <div className="group bg-white rounded-3xl border border-stone-200 p-10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)]">
             <div className="flex items-start gap-6 mb-8">
               <div className="w-28 h-28 bg-stone-100 rounded-2xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 shrink-0">
-                <div className="w-full h-full bg-[url('https://github.com/broughsef.png')] bg-cover bg-center" />
+                <div className="w-full h-full bg-[url('/images/andrew.jpg')] bg-cover bg-center" />
               </div>
               <div>
                 <h3 className="font-display text-2xl font-medium tracking-tight text-stone-900">Andrew</h3>
