@@ -1,52 +1,60 @@
+import Link from 'next/link';
+
 export default function PricingSection() {
   const tiers = [
     {
-      name: 'Starter Agent',
+      name: 'Visibility',
       badge: null,
-      subtitle: 'One agent. One workflow. Prove the ROI before you scale.',
-      price: '$1,500 – $3,500',
-      priceNote: 'One-time · optional $250 / mo monitoring (not required)',
+      subtitle: 'Get found by buyers — and cited by AI engines — in your market.',
+      price: '$1,500 / mo',
+      priceNote: '3-month minimum · delivered by the Forge team, low-touch for you',
+      payback: null,
       includes: [
-        '1 productized AI agent (Lead-Gen, Content, Support, or RevOps)',
-        'Fast deployment — typically under a week',
-        'Tool integrations (1–2)',
-        'Handoff documentation',
-        'Optional monthly tuning at $250 / mo',
+        'Technical SEO done right — site health, schema, local signals',
+        'GEO — get cited by ChatGPT, Perplexity, Gemini, and Claude for your trade and region',
+        'Local / market-level optimization',
+        'Monthly report: where you showed up, what changed, what’s next',
       ],
-      cta: 'Start with Starter →',
+      proofHref: null,
+      proofLabel: null,
+      cta: 'Start with Visibility →',
       href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
       highlight: false,
     },
     {
-      name: 'Bespoke Workflow Agent',
+      name: 'Automation Build',
       badge: 'Recommended',
-      subtitle: 'End-to-end workflow automation, wired into your stack.',
+      subtitle: 'A custom system that turns the tools and spreadsheets you already use into something your whole team can actually use.',
       price: 'From $7,500',
-      priceNote: '+ $2,000 – $3,000 / mo retainer · 6-month minimum',
+      priceNote: 'build + $1,500 / mo · 6-month minimum',
+      payback: 'Replaces manual hours. Gives your team visibility. Gets you paid faster.',
       includes: [
-        '3–5 connected agents running an end-to-end workflow',
-        'Full pipeline architecture (RevOps, onboarding, content engine, etc.)',
-        'Deep integrations across CRM, ERP, and comms',
-        'Iteration, monitoring, and tuning included in retainer',
-        'Monthly performance review',
+        'One bespoke workflow or dashboard built on your existing data — like a live sales/ops dashboard',
+        'Wired into the tools you already run — spreadsheets, CRM, email',
+        'Training + handoff, so your team actually uses it',
+        'Retainer covers tuning, monitoring, and a monthly review',
       ],
-      cta: 'Scope a Workflow →',
+      proofHref: '/insights/roi-salesperson-dashboard',
+      proofLabel: 'See the ROI Metal Buildings case study',
+      cta: 'Scope an Automation Build →',
       href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
       highlight: true,
     },
     {
-      name: 'Multi-Agent System',
+      name: 'Operating System',
       badge: null,
-      subtitle: 'A real intelligence layer for your entire operation.',
+      subtitle: 'Automation across your whole operation — sales, ops, and delivery.',
       price: 'From $20,000',
-      priceNote: '+ $5,000 – $15,000 / mo retainer · 6-month minimum',
+      priceNote: 'build · custom monthly retainer',
+      payback: null,
       includes: [
-        'Interconnected agent swarms across functions',
-        'Deep internal tool integration',
-        'High-volume data reasoning + custom model fine-tuning',
-        'Dedicated team + priority SLA',
-        'Treated as core infrastructure — not a single workflow',
+        'Multiple connected workflows — sales, ops, and delivery talking to each other',
+        'Deep integration across your stack',
+        'Priority support',
+        'Built for multi-location operators and manufacturers',
       ],
+      proofHref: null,
+      proofLabel: null,
       cta: 'Talk to Andrew →',
       href: 'https://calendar.app.google/kmAtXQsU4zL9m6Z96',
       highlight: false,
@@ -62,7 +70,7 @@ export default function PricingSection() {
         Simple, transparent pricing.
       </h2>
       <p data-reveal className="text-lg text-stone-500 font-light leading-relaxed max-w-2xl mb-12">
-        Every engagement starts with a free strategy call. Start with Starter to prove the ROI on a single agent, then ladder into the larger tiers when you&apos;re ready to make AI core infrastructure.
+        Every engagement starts with a free strategy call. Start with Visibility to get found, then add an Automation Build when you&apos;re ready to get hours back — the system is scoped to pay for itself in saved time.
       </p>
 
       <div className="grid md:grid-cols-3 gap-6">
@@ -89,12 +97,19 @@ export default function PricingSection() {
             <p className="text-sm text-stone-400 font-light mb-6 leading-relaxed">{tier.subtitle}</p>
 
             {/* Price */}
-            <div className="mb-8 pb-6 border-b border-stone-100">
+            <div className="mb-6 pb-6 border-b border-stone-100">
               <span className="font-display text-4xl font-medium tracking-tight text-stone-900">{tier.price}</span>
               {tier.priceNote && (
                 <span className="block mt-1 font-mono text-[11px] tracking-wider text-stone-400">{tier.priceNote}</span>
               )}
             </div>
+
+            {/* Payback anchor */}
+            {tier.payback && (
+              <p className="font-display italic text-[#E8572A] text-sm mb-6 leading-relaxed" style={{ fontVariationSettings: '"SOFT" 50' }}>
+                {tier.payback}
+              </p>
+            )}
 
             {/* Includes */}
             <div className="flex-1">
@@ -109,6 +124,17 @@ export default function PricingSection() {
                   </li>
                 ))}
               </ul>
+              {tier.proofHref && (
+                <Link
+                  href={tier.proofHref}
+                  className="inline-flex items-center gap-2 mt-4 text-xs font-medium text-[#E8572A] hover:text-stone-900 transition-colors"
+                >
+                  {tier.proofLabel}
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              )}
             </div>
 
             {/* CTA */}
@@ -129,7 +155,7 @@ export default function PricingSection() {
       </div>
 
       <p className="text-sm text-stone-400 font-light italic text-center mt-10 max-w-3xl mx-auto leading-relaxed">
-        Tier 2 and Tier 3 are quoted after a free 30-minute discovery call. Tier 1 is fixed-price productized scope. Setup invoiced at signature, due net 15. Monthly retainers invoiced on the 1st, due net 15.
+        Automation Build and Operating System are quoted after a free 30-minute discovery call. Visibility is fixed-price. Setup invoiced at signature, due net 15. Monthly retainers invoiced on the 1st, due net 15.
       </p>
     </section>
   );
