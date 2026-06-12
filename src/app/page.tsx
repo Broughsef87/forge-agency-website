@@ -1,9 +1,8 @@
 import NavBar from '@/components/NavBar';
 import ScrollVideoHero from '@/components/ScrollVideoHero';
 import ForgeLogo from '@/components/ForgeLogo';
-import ChatDemo from '@/components/ChatDemo';
-import RevOpsDemo from '@/components/RevOpsDemo';
-import CSAgentDemo from '@/components/CSAgentDemo';
+import DashboardDemo from '@/components/DashboardDemo';
+import AutomationScoper from '@/components/AutomationScoper';
 import PricingSection from '@/components/PricingSection';
 import LogoStrip from '@/components/LogoStrip';
 import CountUp from '@/components/CountUp';
@@ -217,14 +216,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Lead-Gen Agent Demo */}
-        <ChatDemo />
+        {/* Hero demo — salesperson dashboard, synthetic data */}
+        <DashboardDemo />
 
-        {/* RevOps Agent Demo */}
-        <RevOpsDemo />
-
-        {/* Customer Success Agent Demo */}
-        <CSAgentDemo />
+        {/* Automation Scoper agent */}
+        <AutomationScoper />
 
         {/* About / Process */}
         <section id="about" className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: '80px' }}>
