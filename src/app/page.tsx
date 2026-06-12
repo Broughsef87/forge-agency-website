@@ -23,29 +23,29 @@ export default function Home() {
 
       <main className="pb-24">
 
-        {/* Stats bar — editorial scale */}
+        {/* Stats bar — real numbers from the ROI Metal Buildings build */}
         <section className="max-w-6xl mx-auto px-6 mb-32">
           <div className="border-t border-stone-300/70 pt-10 pb-4">
             <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-10">
-              The numbers
+              Receipts — from a live client build
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
               <div data-reveal>
                 <div className="font-display font-medium tracking-tight text-stone-900 leading-none text-[96px] md:text-[128px] lg:text-[148px]">
-                  <CountUp value={10} suffix="×" />
+                  <CountUp value={7} />
                 </div>
                 <div className="mt-4 max-w-[16rem]">
-                  <div className="text-sm font-semibold text-stone-700 mb-1">Operational throughput</div>
-                  <div className="text-xs text-stone-500 font-light leading-relaxed">Measured across first-90-day engagements — vs. pre-automation baseline.</div>
+                  <div className="text-sm font-semibold text-stone-700 mb-1">Sales reps on one private dashboard</div>
+                  <div className="text-xs text-stone-500 font-light leading-relaxed">ROI Metal Buildings — each rep logs in and sees their own projects, delivery dates, and commissions. Nobody else&apos;s.</div>
                 </div>
               </div>
               <div data-reveal data-delay="150">
                 <div className="font-display font-medium tracking-tight leading-none text-[96px] md:text-[128px] lg:text-[148px] text-[#E8572A]">
-                  <CountUp value={72} suffix="h" />
+                  <CountUp value={15} suffix="m" />
                 </div>
                 <div className="mt-4 max-w-[16rem]">
-                  <div className="text-sm font-semibold text-stone-700 mb-1">Average deployment window</div>
-                  <div className="text-xs text-stone-500 font-light leading-relaxed">Scope → production. Industry median for comparable builds: 6–12 weeks.</div>
+                  <div className="text-sm font-semibold text-stone-700 mb-1">From sheet edit to live dashboard</div>
+                  <div className="text-xs text-stone-500 font-light leading-relaxed">The ops manager keeps working in the same master spreadsheet she already maintains. The dashboard syncs itself.</div>
                 </div>
               </div>
               <div data-reveal data-delay="300">
@@ -53,10 +53,59 @@ export default function Home() {
                   <CountUp value={0} />
                 </div>
                 <div className="mt-4 max-w-[16rem]">
-                  <div className="text-sm font-semibold text-stone-700 mb-1">Additional headcount required</div>
-                  <div className="text-xs text-stone-500 font-light leading-relaxed">Systems replace operational drag — not the operators who run your business.</div>
+                  <div className="text-sm font-semibold text-stone-700 mb-1">New data entry required</div>
+                  <div className="text-xs text-stone-500 font-light leading-relaxed">Nobody types anything twice. A private window onto the spreadsheet the business already trusts.</div>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Proof — case studies */}
+        <section id="proof" className="max-w-6xl mx-auto px-6 mb-32" style={{ scrollMarginTop: '80px' }}>
+          <p data-reveal className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-3">Proof</p>
+          <h2 data-reveal data-delay="100" className="font-display text-3xl md:text-5xl font-medium tracking-tight text-stone-900 mb-12 max-w-2xl leading-[1.05]">
+            Real builds for real construction companies.
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* ROI Metal Buildings — named, live */}
+            <Link
+              href="/insights/roi-salesperson-dashboard"
+              data-reveal
+              data-delay="150"
+              className="group relative p-8 md:p-10 bg-white rounded-3xl border border-stone-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)] hover:border-stone-300 flex flex-col"
+            >
+              <p className="font-mono text-[10px] tracking-[0.3em] text-[#E8572A] uppercase mb-4">Case Study · Metal Buildings</p>
+              <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-stone-900 mb-4 leading-tight group-hover:text-[#E8572A] transition-colors">
+                ROI Metal Buildings — the salesperson dashboard
+              </h3>
+              <p className="text-stone-500 font-light leading-relaxed mb-6 flex-1">
+                Seven salespeople ran blind off one 50-column spreadsheet only the ops manager could read. We built a private dashboard — one login per rep, reading the master sheet automatically. Estimated dates lock in once; actuals update live within 15 minutes. Zero new data entry.
+              </p>
+              <span className="inline-flex items-center gap-2 text-sm font-medium text-[#E8572A]">
+                Read the build
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Link>
+
+            {/* Anonymized GC — slot reserved until results land */}
+            <div
+              data-reveal
+              data-delay="300"
+              className="relative p-8 md:p-10 bg-white/60 rounded-3xl border border-dashed border-stone-300 flex flex-col"
+            >
+              <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Case Study · General Contracting</p>
+              <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight text-stone-700 mb-4 leading-tight">
+                A Pacific Northwest general contractor — SEO &amp; AI visibility
+              </h3>
+              <p className="text-stone-500 font-light leading-relaxed mb-6 flex-1">
+                Technical SEO foundations plus AI-search visibility for a regional GC. Results are landing now — the full write-up publishes once the numbers are real, not projected.
+              </p>
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] tracking-[0.2em] uppercase text-stone-400">
+                In progress
+              </span>
             </div>
           </div>
         </section>
@@ -79,20 +128,20 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl font-medium tracking-tight text-stone-900 mb-3 group-hover:text-[#E8572A] transition-colors">AI Automation</h3>
               <p className="text-stone-500 font-light leading-relaxed mb-6 text-[15px]">
-                Replace the highest-cost manual work in your operation with intelligent, self-running systems.
+                Replace the office work that eats your week — delivery notices, pay triggers, invoicing, follow-up.
               </p>
               <ul className="space-y-2.5 text-sm text-stone-600 font-light">
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Data & document pipelines
+                  Delivery & ship notices
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Email & inbox triage
+                  Commission & payment triggers
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Reporting & dashboards
+                  Live dashboards from your spreadsheets
                 </li>
               </ul>
             </div>
@@ -107,20 +156,20 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl font-medium tracking-tight text-stone-900 mb-3 group-hover:text-[#E8572A] transition-colors">Custom Workflows</h3>
               <p className="text-stone-500 font-light leading-relaxed mb-6 text-[15px]">
-                Your existing tools, wired together into a single automated operating layer.
+                Your spreadsheet, CRM, and accounting tools wired together — so jobs flow without re-typing.
               </p>
               <ul className="space-y-2.5 text-sm text-stone-600 font-light">
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Cross-platform integrations
+                  Contract-signed → accounting handoffs
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Trigger-based chains
+                  Spreadsheet → CRM → invoice wiring
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Lead routing & qualification
+                  Lead routing & follow-up
                 </li>
               </ul>
             </div>
@@ -135,16 +184,16 @@ export default function Home() {
               </div>
               <h3 className="font-display text-2xl font-medium tracking-tight text-stone-900 mb-3 group-hover:text-[#E8572A] transition-colors">Bespoke AI Agents</h3>
               <p className="text-stone-500 font-light leading-relaxed mb-6 text-[15px]">
-                A custom intelligence trained on your data and wired to your tools — acting autonomously 24/7.
+                A custom intelligence trained on your business — qualifying leads and answering customers 24/7.
               </p>
               <ul className="space-y-2.5 text-sm text-stone-600 font-light">
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Sales & outreach agents
+                  Lead qualification agents
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
-                  Support & escalation
+                  Customer update & follow-up agents
                 </li>
                 <li className="flex items-center gap-3">
                   <div className="w-1 h-1 rounded-full bg-[#E8572A] shrink-0" />
@@ -183,13 +232,13 @@ export default function Home() {
             <div data-reveal>
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-3">Our Approach</p>
               <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight text-stone-900 mb-6 leading-[1.05]">
-                Built for enterprises who think in systems.
+                Built for builders, contractors, and building-products companies.
               </h2>
               <p className="text-stone-500 font-light leading-relaxed mb-5">
-                Forge Agency is a high-ticket B2B AI automation firm. We don&apos;t sell software — we build the intelligence layer that sits inside your operations and produces value around the clock.
+                The Forge Agency builds AI automation and search visibility for construction-trades businesses — metal buildings, self-storage, general contractors, HVAC, plumbing, electrical, roofing, concrete, and the distributors who supply them.
               </p>
               <p className="text-stone-500 font-light leading-relaxed">
-                Every engagement starts with a deep audit of your workflow, identifying the human bottlenecks costing you the most. Then we architect, build, and deploy the exact systems to remove them.
+                Every engagement starts with how your business actually runs — usually a master spreadsheet, a CRM nobody loves, and a lot of re-typing. We find the worst of it, then build the exact system that removes it. Not ripping out what works — putting a clean, private, always-current window onto it.
               </p>
             </div>
             <div className="space-y-4">
@@ -315,7 +364,7 @@ export default function Home() {
                 <span className="font-semibold tracking-tight text-sm text-stone-900">THE FORGE AGENCY</span>
               </Link>
               <p className="text-sm text-stone-500 font-light leading-relaxed max-w-xs">
-                A B2B AI automation firm. We architect and deploy the intelligence layer inside modern enterprises.
+                AI automation, dashboards, and search visibility for builders, contractors, and building-products companies.
               </p>
             </div>
             <div>
@@ -331,6 +380,7 @@ export default function Home() {
                     <span className="font-mono text-[8px] tracking-[0.2em] uppercase font-semibold bg-[#E8572A] text-white px-1.5 py-0.5 rounded-full">Free</span>
                   </a>
                 </li>
+                <li><Link href="/insights" className="text-stone-600 hover:text-[#E8572A] transition-colors">Insights</Link></li>
                 <li><Link href="/#demo" className="text-stone-600 hover:text-[#E8572A] transition-colors">Live Demo</Link></li>
                 <li><Link href="/about" className="text-stone-600 hover:text-[#E8572A] transition-colors">About Us</Link></li>
               </ul>

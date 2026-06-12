@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About Us — The Forge Agency',
   description:
-    'The Forge Agency is a high-ticket B2B AI automation firm. Meet the team building the intelligence layer inside modern enterprises.',
+    'Meet the team building AI automation, dashboards, and search visibility for construction-trades businesses — builders, contractors, and building-products companies.',
 };
 
 const values = [
@@ -42,7 +42,7 @@ export default function AboutPage() {
           inside your business.
         </h1>
         <p className="text-xl text-stone-500 font-light leading-relaxed max-w-2xl">
-          The Forge Agency is a high-ticket B2B AI automation firm. We don&apos;t sell software — we architect, build, and deploy the autonomous systems that let enterprises scale revenue without scaling headcount.
+          The Forge Agency is an AI automation and search-visibility firm for construction-trades businesses. We don&apos;t sell software — we architect, build, and deploy the systems that let builders, contractors, and building-products companies grow without drowning in office work.
         </p>
       </section>
 
@@ -63,7 +63,7 @@ export default function AboutPage() {
               Most businesses are running the same manual processes they were running five years ago — just with more headcount. The tools to automate those processes now exist. The barrier isn&apos;t technology; it&apos;s knowing what to build and having the technical depth to build it right.
             </p>
             <p>
-              That&apos;s the gap we fill. We work with operators, founders, and enterprise teams to identify exactly where AI can do the heavy lifting — then we build it, deploy it, and hand it over.
+              That&apos;s the gap we fill. We work with the owners and operators of construction-trades businesses to identify exactly where AI can do the heavy lifting — then we build it, deploy it, and hand it over.
             </p>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function AboutPage() {
                 <span className="font-semibold tracking-tight text-sm text-stone-900">THE FORGE AGENCY</span>
               </Link>
               <p className="text-sm text-stone-500 font-light leading-relaxed max-w-xs">
-                A B2B AI automation firm. We architect and deploy the intelligence layer inside modern enterprises.
+                AI automation, dashboards, and search visibility for builders, contractors, and building-products companies.
               </p>
             </div>
             <div>
