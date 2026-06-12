@@ -37,9 +37,8 @@ export default function AboutPage() {
       <section className="pt-40 pb-24 max-w-6xl mx-auto px-6">
         <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">About Us</p>
         <h1 className="font-display text-5xl md:text-7xl font-medium tracking-tight text-stone-900 leading-[1.02] mb-8 max-w-4xl">
-          We build the{' '}
-          <span className="italic text-[#E8572A]" style={{ fontVariationSettings: '"SOFT" 50' }}>intelligence layer</span>{' '}
-          inside your business.
+          We turn your spreadsheets into{' '}
+          <span className="italic text-[#E8572A]" style={{ fontVariationSettings: '"SOFT" 50' }}>systems</span>.
         </h1>
         <p className="text-xl text-stone-500 font-light leading-relaxed max-w-2xl">
           The Forge Agency is an AI automation and search-visibility firm for construction-trades businesses. We don&apos;t sell software — we architect, build, and deploy the systems that let builders, contractors, and building-products companies grow without drowning in office work.

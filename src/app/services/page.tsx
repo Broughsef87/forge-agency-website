@@ -436,7 +436,7 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-3 gap-6 relative">
             {[
               { num: '01', title: 'Audit', desc: 'We map your current operations in a 30-minute strategy call and identify the 2–3 highest-leverage automation opportunities.' },
-              { num: '02', title: 'Architect', desc: 'We design the exact systems — agent swarms, workflow automations, or integrations — tailored to your tools and business model.' },
+              { num: '02', title: 'Architect', desc: 'We design the exact systems — dashboards, workflow automations, or integrations — tailored to your tools and business model.' },
               { num: '03', title: 'Deploy', desc: 'We build, integrate, test, and hand over a fully working autonomous system. Typical turnaround: 72 hours.' },
             ].map((step) => (
               <div
