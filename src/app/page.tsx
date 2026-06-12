@@ -284,7 +284,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-stone-500 font-light leading-relaxed">
-                Andrew starts every system the same way he started this company: by getting fed up with doing something by hand. He runs every engagement personally — from the first call to the system that&apos;s still quietly working a year later.
+                Andrew is the founder of The Forge Agency, where he builds the automation and search systems that win work for construction-trades businesses — usually with his own hands.
               </p>
             </div>
             {/* Lisa */}
