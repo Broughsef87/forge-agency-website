@@ -109,10 +109,13 @@ export default function AboutPage() {
               </div>
             </div>
             <p className="text-stone-500 font-light leading-relaxed mb-6">
-              10-year Olympic weightlifter turned automation architect. Andrew built his first automation stack to solve operational problems in his own business — and hasn&apos;t stopped since. He bridges high-level business strategy with deep technical implementation, ensuring every system scales without friction.
+              Andrew starts every system the same way he started this company: by getting fed up with doing something by hand. He built his first automations to clear the operational mess out of his own work, got his time back, and saw the same trap all over the construction trades — million-dollar operations run on spreadsheets, sticky notes, and the one person who knows how it all fits together.
+            </p>
+            <p className="text-stone-500 font-light leading-relaxed mb-6">
+              He&apos;s the rare builder who speaks both sides. He&apos;ll sit with an owner and map how the business actually runs, then go build the fix himself — no account managers, no hand-offs, no jargon. A longtime competitive weightlifter, he brings the same approach to the work: build it right, load-test it, get a little better every rep.
             </p>
             <p className="text-stone-500 font-light leading-relaxed">
-              His background in elite sport means he understands what it takes to build systems that perform under pressure and improve with repetition. He brings that same discipline to every client engagement.
+              Andrew runs every engagement personally — from the first call to the system that&apos;s still quietly working a year later.
             </p>
           </div>
 

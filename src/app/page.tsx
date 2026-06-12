@@ -284,7 +284,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="text-stone-500 font-light leading-relaxed">
-                10-year Olympic weightlifter turned automation architect. Andrew bridges high-level business strategy with deep technical implementation — ensuring every system we build scales without friction.
+                Andrew starts every system the same way he started this company: by getting fed up with doing something by hand. He runs every engagement personally — from the first call to the system that&apos;s still quietly working a year later.
               </p>
             </div>
             {/* Lisa */}
