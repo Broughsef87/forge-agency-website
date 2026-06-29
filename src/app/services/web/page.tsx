@@ -2,6 +2,29 @@ import NavBar from '@/components/NavBar';
 import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import Faq from '@/components/Faq';
+import { serviceSchema } from '@/lib/schema';
+
+// SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
+const WEB_FAQ = [
+  {
+    q: 'How much does a website cost?',
+    a: 'Express landing pages from $1,500, custom landing pages from $3,500, business websites from $7,500, and custom builds from $15,000+. Every engagement starts with a free build-brief call.',
+  },
+  {
+    q: 'How long does a build take?',
+    a: 'Express pages ship in about 3–5 days, custom landing pages in 1–2 weeks, business websites in 3–4 weeks, and custom builds in 6+ weeks.',
+  },
+  {
+    q: 'What are the sites built on?',
+    a: 'Next.js and Tailwind, deployed on Vercel — fast by default, with technical SEO foundations, analytics, and conversion tracking wired in from day one.',
+  },
+  {
+    q: 'Can you build AI into the site?',
+    a: 'Yes. The Business Website tier includes one AI integration — like a lead qualifier or intake bot wired into your CRM — and Custom Build supports unlimited AI and automation integrations.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Website Design & Build | The Forge Agency',
@@ -197,6 +220,15 @@ const traditionalVsForge = [
 export default function WebsitesServicePage() {
   return (
     <div className="min-h-screen bg-[#F5F1EA] text-stone-900 font-sans">
+      <JsonLd
+        data={serviceSchema({
+          name: 'Website Design & Build',
+          serviceType: 'Website design and development',
+          description:
+            'Conversion-engineered websites with AI baked in for construction-trades businesses. Built on Next.js and Tailwind, deployed on Vercel. Express landing pages from $1,500 to custom builds at $15,000+.',
+          path: '/services/web',
+        })}
+      />
       <NavBar />
 
       {/* Hero */}
@@ -568,6 +600,9 @@ export default function WebsitesServicePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ — visible + FAQPage schema (FOR-112) */}
+      <Faq items={WEB_FAQ} />
 
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-white">

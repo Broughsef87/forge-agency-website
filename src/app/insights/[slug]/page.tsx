@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getPost, posts, type PostBlock } from '@/lib/insights';
+import JsonLd from '@/components/JsonLd';
+import { articleSchema } from '@/lib/schema';
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';
@@ -83,6 +85,14 @@ export default async function InsightPostPage({
 
   return (
     <div className="min-h-screen bg-[#F5F1EA] text-stone-900 font-sans">
+      <JsonLd
+        data={articleSchema({
+          title: post.title,
+          description: post.dek,
+          path: `/insights/${post.slug}`,
+          datePublished: post.date,
+        })}
+      />
       <NavBar />
 
       <article className="pt-40 pb-24 px-6">
