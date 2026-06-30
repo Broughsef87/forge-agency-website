@@ -127,13 +127,38 @@ export function articleSchema({
     '@type': 'Article',
     headline: title,
     description,
+    image: `${SITE_URL}/og-image.png`,
     url: `${SITE_URL}${path}`,
     datePublished,
+    dateModified: datePublished,
     author: {
       '@type': 'Person',
       name: authorName,
+      url: `${SITE_URL}/about`,
     },
     publisher: { '@id': ORG_ID },
-    mainEntityOfPage: `${SITE_URL}${path}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}${path}`,
+    },
+    articleSection: 'Insights',
+  };
+}
+
+export interface BreadcrumbItem {
+  name: string;
+  path: string; // absolute path from site root, e.g. "/" or "/insights/some-slug"
+}
+
+export function breadcrumbSchema(items: BreadcrumbItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: item.path === '/' ? `${SITE_URL}/` : `${SITE_URL}${item.path}`,
+    })),
   };
 }
