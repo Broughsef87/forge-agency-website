@@ -48,31 +48,47 @@ function formatDate(iso: string) {
   });
 }
 
+// Links only the FIRST occurrence of the earliest-matching term — a
+// paragraph that says "GEO" five times (because it's defining GEO) should
+// not turn into five identical links. Each post block carries at most one
+// `links` entry in practice; if a block ever needs more than one, this
+// still degrades safely (later terms simply aren't linked in that block).
 function renderTextWithLinks(text: string, links?: { match: string; href: string }[]) {
   if (!links || links.length === 0) return text;
-  const sorted = [...links].sort((a, b) => b.match.length - a.match.length);
-  const escaped = sorted.map((l) => l.match.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-  const pattern = new RegExp(`(${escaped.join('|')})`);
-  const parts = text.split(pattern);
 
-  return parts.map((part, i) => {
-    const found = sorted.find((l) => l.match === part);
-    if (!found) return part;
-    const isExternal = /^https?:\/\//.test(found.href);
-    const linkClass = 'text-stone-900 font-medium underline underline-offset-2 hover:text-[#E8572A] transition-colors';
-    if (isExternal) {
-      return (
-        <a key={i} href={found.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
-          {part}
-        </a>
-      );
+  let best: { index: number; link: { match: string; href: string } } | null = null;
+  for (const link of links) {
+    const idx = text.indexOf(link.match);
+    if (idx !== -1 && (best === null || idx < best.index)) {
+      best = { index: idx, link };
     }
-    return (
-      <Link key={i} href={found.href} className={linkClass}>
-        {part}
-      </Link>
-    );
-  });
+  }
+  if (!best) return text;
+
+  const { index, link } = best;
+  const before = text.slice(0, index);
+  const matched = text.slice(index, index + link.match.length);
+  const after = text.slice(index + link.match.length);
+  const isExternal = /^https?:\/\//.test(link.href);
+  const linkClass = 'text-stone-900 font-medium underline underline-offset-2 hover:text-[#E8572A] transition-colors';
+
+  const anchor = isExternal ? (
+    <a href={link.href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+      {matched}
+    </a>
+  ) : (
+    <Link href={link.href} className={linkClass}>
+      {matched}
+    </Link>
+  );
+
+  return (
+    <>
+      {before}
+      {anchor}
+      {after}
+    </>
+  );
 }
 
 function Block({ block }: { block: PostBlock }) {
@@ -86,6 +102,9 @@ function Block({ block }: { block: PostBlock }) {
     case 'p':
       return (
         <p className="text-lg text-stone-600 font-light leading-relaxed mb-6">
+          {block.lead && (
+            <strong className="block text-stone-900 font-medium mb-1">{block.lead}</strong>
+          )}
           {renderTextWithLinks(block.text, block.links)}
         </p>
       );
@@ -129,6 +148,21 @@ function Block({ block }: { block: PostBlock }) {
         </a>
       );
     }
+    case 'related':
+      return (
+        <Link
+          href={block.href}
+          className="group flex items-center justify-between gap-4 mb-8 px-6 py-4 bg-white border border-stone-200 rounded-2xl hover:border-stone-300 hover:shadow-[0_10px_30px_-15px_rgba(0,0,0,0.15)] transition-all duration-300"
+        >
+          <span className="text-sm">
+            <span className="font-mono text-[10px] tracking-[0.2em] text-stone-400 uppercase block mb-1">Related reading</span>
+            <span className="font-medium text-stone-900 group-hover:text-[#E8572A] transition-colors">{block.label}</span>
+          </span>
+          <svg className="w-4 h-4 text-stone-400 group-hover:text-[#E8572A] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </Link>
+      );
   }
 }
 
