@@ -4,9 +4,37 @@ import ForgeLogo from '@/components/ForgeLogo';
 import DashboardDemo from '@/components/DashboardDemo';
 import AutomationScoper from '@/components/AutomationScoper';
 import PricingSection from '@/components/PricingSection';
+import Faq from '@/components/Faq';
 import LogoStrip from '@/components/LogoStrip';
 import CountUp from '@/components/CountUp';
 import Link from 'next/link';
+
+const HOME_FAQ = [
+  {
+    q: 'What does The Forge Agency do?',
+    a: 'We build AI automation, dashboards, and search visibility (SEO + GEO) for construction-trades and building-products companies — turning the spreadsheets and tools you already use into systems your whole team can actually use.',
+  },
+  {
+    q: 'Who do you work with?',
+    a: 'Builders, contractors, and building-products companies: metal buildings, self-storage, general contractors, HVAC, plumbing, electrical, roofing, concrete, and the distributors who supply them.',
+  },
+  {
+    q: 'What is GEO, and do you offer it?',
+    a: 'GEO (Generative Engine Optimization) means getting your business cited by AI answer engines — ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews — when buyers ask them for recommendations. Yes — it’s part of our Visibility service, alongside technical SEO.',
+  },
+  {
+    q: 'How fast can you deploy?',
+    a: 'Most automation builds go live within about 72 hours of scoping. Visibility (SEO/GEO) is an ongoing monthly engagement.',
+  },
+  {
+    q: 'What does it cost?',
+    a: 'Visibility starts at $1,500/mo (3-month minimum). Automation builds from $7,500 + $1,500/mo. Larger operating-system engagements from $20,000. Every engagement starts with a free strategy call.',
+  },
+  {
+    q: 'Where are you based?',
+    a: 'Colorado — working with clients nationwide.',
+  },
+];
 
 export default function Home() {
   return (
@@ -316,6 +344,9 @@ export default function Home() {
         </section>
 
         <PricingSection />
+
+        {/* FAQ — visible + FAQPage schema (FOR-112) */}
+        <Faq items={HOME_FAQ} />
 
         {/* CTA Block */}
         <section id="contact" className="max-w-6xl mx-auto px-6">

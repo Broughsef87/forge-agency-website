@@ -2,6 +2,29 @@ import NavBar from '@/components/NavBar';
 import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import Faq from '@/components/Faq';
+import { serviceSchema } from '@/lib/schema';
+
+// SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
+const GEO_FAQ = [
+  {
+    q: 'What is GEO?',
+    a: 'Generative Engine Optimization: getting your business cited by AI answer engines — ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews — when buyers ask them to recommend vendors in your category.',
+  },
+  {
+    q: 'How is GEO different from SEO?',
+    a: 'SEO optimizes for ranking on a search results page. GEO optimizes for being named inside an AI-generated answer. They share foundations but track different signals — position vs. mention frequency and share of voice.',
+  },
+  {
+    q: 'What does GEO cost?',
+    a: 'Three retainer tiers: Spark from $1,000/mo, Forge from $3,000/mo, and Foundry from $5,000/mo, each with a setup fee and minimum term. Every engagement starts with a free strategy call.',
+  },
+  {
+    q: 'How do you measure GEO results?',
+    a: 'We track how often AI engines mention you, the sentiment of those mentions, and your share of voice against named competitors across the major engines.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'GEO — Generative Engine Optimization | The Forge Agency',
@@ -180,6 +203,15 @@ const seoVsGeo = [
 export default function GeoServicePage() {
   return (
     <div className="min-h-screen bg-[#F5F1EA] text-stone-900 font-sans">
+      <JsonLd
+        data={serviceSchema({
+          name: 'Generative Engine Optimization (GEO)',
+          serviceType: 'Generative Engine Optimization',
+          description:
+            'Get cited by AI answer engines — ChatGPT, Perplexity, Gemini, Claude, and Google AI Overviews — when buyers research vendors in your category. Three retainer tiers for construction-trades businesses.',
+          path: '/services/geo',
+        })}
+      />
       <NavBar />
 
       {/* Hero */}
@@ -504,6 +536,9 @@ export default function GeoServicePage() {
           </div>
         </div>
       </section>
+
+      {/* FAQ — visible + FAQPage schema (FOR-112) */}
+      <Faq items={GEO_FAQ} />
 
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-white">

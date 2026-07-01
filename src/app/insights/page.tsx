@@ -2,7 +2,7 @@ import NavBar from '@/components/NavBar';
 import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { posts } from '@/lib/insights';
+import { getPublishedPosts } from '@/lib/insights';
 
 export const metadata: Metadata = {
   title: 'Insights — The Forge Agency',
@@ -22,6 +22,7 @@ function formatDate(iso: string) {
 }
 
 export default function InsightsIndexPage() {
+  const posts = getPublishedPosts();
   return (
     <div className="min-h-screen bg-[#F5F1EA] text-stone-900 font-sans">
       <NavBar />

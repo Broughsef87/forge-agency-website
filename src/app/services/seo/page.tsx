@@ -2,6 +2,29 @@ import NavBar from '@/components/NavBar';
 import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import Faq from '@/components/Faq';
+import { serviceSchema } from '@/lib/schema';
+
+// SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
+const SEO_FAQ = [
+  {
+    q: 'What does the SEO offering include?',
+    a: 'Technical SEO foundations: a full audit, on-page fixes, site structure and speed, and the groundwork search engines and AI engines need to find, crawl, and trust your site.',
+  },
+  {
+    q: 'How much does it cost?',
+    a: 'One foundation tier at $1,500/mo with a 3-month minimum. Every engagement starts with a free strategy call.',
+  },
+  {
+    q: 'How is SEO different from GEO?',
+    a: 'SEO gets you ranked in traditional search results; GEO gets you cited inside AI answers. Most trades businesses need both — we offer them together under our Visibility service.',
+  },
+  {
+    q: 'Is there a long contract?',
+    a: 'A 3-month minimum to give the work time to compound, then month-to-month. No long lock-in.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'SEO — Foundation Tier | The Forge Agency',
@@ -53,6 +76,15 @@ const wontDo = [
 export default function SeoServicePage() {
   return (
     <div className="min-h-screen bg-[#F5F1EA] text-stone-900 font-sans">
+      <JsonLd
+        data={serviceSchema({
+          name: 'Technical SEO Foundations',
+          serviceType: 'Search Engine Optimization',
+          description:
+            'Technical SEO foundations for construction-trades businesses — audit, on-page optimization, site speed, and the groundwork search and AI engines need to find and trust your site. One foundation tier at $1,500/mo.',
+          path: '/services/seo',
+        })}
+      />
       <NavBar />
 
       {/* Hero */}
@@ -259,6 +291,9 @@ export default function SeoServicePage() {
           </a>
         </div>
       </section>
+
+      {/* FAQ — visible + FAQPage schema (FOR-112) */}
+      <Faq items={SEO_FAQ} />
 
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-white">

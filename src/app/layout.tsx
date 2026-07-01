@@ -3,6 +3,8 @@ import { Inter, JetBrains_Mono, Fraunces } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import AnimationObserver from "@/components/AnimationObserver";
+import JsonLd from "@/components/JsonLd";
+import { ORGANIZATION, WEBSITE } from "@/lib/schema";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +66,8 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} ${fraunces.variable} scroll-smooth`}
     >
       <body className="antialiased bg-[#F5F1EA] text-stone-900">
+        <JsonLd data={ORGANIZATION} />
+        <JsonLd data={WEBSITE} />
         <AnimationObserver />
         {children}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-C86WSS08BH" strategy="afterInteractive" />

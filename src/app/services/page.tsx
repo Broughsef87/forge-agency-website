@@ -2,6 +2,29 @@ import NavBar from '@/components/NavBar';
 import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import Faq from '@/components/Faq';
+import { serviceSchema } from '@/lib/schema';
+
+// SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
+const AGENTS_FAQ = [
+  {
+    q: 'What can an AI agent do for a trades business?',
+    a: 'Common builds: qualify inbound leads, send delivery and pay-status updates, answer customer questions, and surface live job status to your crew — all built on the spreadsheets and tools you already run.',
+  },
+  {
+    q: 'What is the difference between the three tiers?',
+    a: 'Spark (Starter Agent) is one productized agent for a single job. Forge (Bespoke Workflow Agent) is a multi-step agent that runs an entire workflow. Foundry (Multi-Agent System) connects several agents across a whole operations function. The line is scope, not dollars.',
+  },
+  {
+    q: 'What does it cost?',
+    a: 'Starter Agent runs $1,500–$3,500 one-time, Bespoke Workflow Agent from $7,500 build plus a monthly retainer, and Multi-Agent System from $20,000. Tiers 2 and 3 are quoted after a free 30-minute discovery call.',
+  },
+  {
+    q: 'How fast can an agent go live?',
+    a: 'Most builds go live within about 72 hours of scoping. Larger multi-agent systems run on a project-managed schedule with weekly checkpoints.',
+  },
+];
 
 export const metadata: Metadata = {
   title: 'Services — The Forge Agency',
@@ -184,6 +207,15 @@ const adjacentPractices = [
 export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-[#F5F1EA] text-stone-900 font-sans">
+      <JsonLd
+        data={serviceSchema({
+          name: 'AI Agents & Automation',
+          serviceType: 'AI automation and AI agents',
+          description:
+            'Bespoke AI agents and automation systems for construction-trades businesses — from a single productized starter agent to multi-agent systems that run an entire operations function. Most builds live within about 72 hours of scoping.',
+          path: '/services',
+        })}
+      />
       <NavBar />
 
       {/* Hero */}
@@ -506,6 +538,9 @@ export default function ServicesPage() {
           </a>
         </div>
       </section>
+
+      {/* FAQ — visible + FAQPage schema (FOR-112) */}
+      <Faq items={AGENTS_FAQ} />
 
       {/* Footer */}
       <footer className="border-t border-stone-200 bg-white">
