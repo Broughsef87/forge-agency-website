@@ -29,7 +29,7 @@ const SEO_FAQ = [
 export const metadata: Metadata = {
   title: 'SEO — Foundation Tier | The Forge Agency',
   description:
-    'Technical SEO and search hygiene for businesses that need foundations done right. $1,500/month, 3-month minimum. Honest about what SEO does and doesn\'t do in 2026.',
+    'Technical SEO and search hygiene for businesses that need the foundation done right. $1,500/mo, 3-month minimum — honest about what SEO does.',
 };
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';

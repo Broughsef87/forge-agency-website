@@ -28,14 +28,14 @@ export async function generateMetadata({
     // Route resolves (so direct links don't 404) but stays out of search —
     // body copy hasn't been voice-passed yet. See src/lib/insights.ts.
     return {
-      title: `${post.title} — The Forge Agency`,
+      title: post.metaTitle,
       robots: { index: false, follow: false },
     };
   }
 
   return {
-    title: `${post.title} — The Forge Agency`,
-    description: post.dek,
+    title: post.metaTitle,
+    description: post.metaDescription ?? post.dek,
     openGraph: { title: post.title, description: post.dek, type: 'article' },
   };
 }

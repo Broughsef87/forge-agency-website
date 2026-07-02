@@ -58,7 +58,14 @@ export interface ClosingCta {
 export interface InsightPost {
   slug: string;
   title: string;
+  /** SEO <title> tag — must stay ≤60 chars. Distinct from `title` (the H1),
+   * which runs longer for readability. See generateMetadata in
+   * app/insights/[slug]/page.tsx — this is the only thing it drives. */
+  metaTitle: string;
   dek: string;
+  /** Optional <meta name="description"> override, ≤155 chars. Falls back to
+   * `dek` when absent — set this only when `dek` itself runs long. */
+  metaDescription?: string;
   category: string;
   date: string; // ISO yyyy-mm-dd
   readMinutes: number;
@@ -74,6 +81,7 @@ export const posts: InsightPost[] = [
   {
     slug: 'roi-salesperson-dashboard',
     title: 'One spreadsheet, seven salespeople: the ROI Metal Buildings dashboard',
+    metaTitle: 'One Spreadsheet, Seven Salespeople — ROI Dashboard | Forge',
     dek: 'How a metal-building manufacturer gave seven reps a private window into their own deals — without changing the spreadsheet that runs the business.',
     category: 'Case Study',
     date: '2026-06-11',
@@ -141,6 +149,7 @@ export const posts: InsightPost[] = [
   {
     slug: 'show-up-in-chatgpt',
     title: 'Is Your Construction Business Showing Up in ChatGPT?',
+    metaTitle: 'How to Show Up in ChatGPT (for Contractors & Builders)',
     dek: 'Buyers are asking ChatGPT and Google AI for recommendations. Here\'s how to check if your construction business shows up — and what to do if it doesn\'t.',
     category: 'GEO',
     date: '2026-06-30',
@@ -262,7 +271,9 @@ export const posts: InsightPost[] = [
   {
     slug: 'what-is-geo',
     title: 'What Is GEO (Generative Engine Optimization)?',
+    metaTitle: 'What Is GEO? Generative Engine Optimization Explained',
     dek: 'GEO is how your business gets recommended by AI engines like ChatGPT, Perplexity, and Gemini. Here\'s what it is, how it differs from SEO, and why it matters for construction businesses.',
+    metaDescription: 'GEO is how your business gets recommended by AI engines like ChatGPT, Perplexity, and Gemini — what it is, how it differs from SEO, and why it matters.',
     category: 'GEO',
     date: '2026-07-01',
     readMinutes: 5,
@@ -397,6 +408,7 @@ export const posts: InsightPost[] = [
   {
     slug: 'ai-automation-construction',
     title: 'AI Automation for Construction: What to Automate First',
+    metaTitle: 'AI Automation for Construction: What to Automate First',
     dek: 'Not everything is worth automating. Here\'s what actually saves time for builders, manufacturers, and contractors — and what to leave for later.',
     category: 'Automation',
     date: '2026-07-01',
@@ -510,6 +522,7 @@ export const posts: InsightPost[] = [
   {
     slug: 'spam-backlinks-what-they-mean',
     title: 'We Found 200+ Spam Backlinks on a Client\'s Site. Here\'s What It Actually Means.',
+    metaTitle: 'Found 200+ Spam Backlinks? Here\'s What It Actually Means',
     dek: 'Spam backlinks pointing at your site are alarming in a report. They\'re usually not a problem. Here\'s what\'s actually happening — and what to do about it.',
     category: 'SEO',
     date: '2026-07-01',
@@ -656,6 +669,7 @@ export const posts: InsightPost[] = [
   {
     slug: 'what-real-seo-looks-like',
     title: 'What Real SEO Looks Like (vs. What Gets Sold to Small Businesses)',
+    metaTitle: 'What Real SEO Looks Like (vs. What Gets Sold to You)',
     dek: 'Most SEO sold to small businesses doesn\'t move anything. Here\'s what actually works — and three questions that cut through the noise when evaluating a provider.',
     category: 'SEO',
     date: '2026-07-01',

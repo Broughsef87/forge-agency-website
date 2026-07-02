@@ -29,7 +29,7 @@ const WEB_FAQ = [
 export const metadata: Metadata = {
   title: 'Website Design & Build | The Forge Agency',
   description:
-    'Conversion-engineered websites built fast with AI tooling. Express landing pages from $1,500. Bespoke business sites from $7,500. Built on Next.js + Tailwind, deployed on Vercel.',
+    'Conversion-engineered websites built fast with AI tooling. Express pages from $1,500, business sites from $7,500. Next.js + Tailwind on Vercel.',
 };
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
