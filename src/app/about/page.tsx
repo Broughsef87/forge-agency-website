@@ -6,7 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About Us — The Forge Agency',
   description:
-    'Meet the team building AI automation, dashboards, and search visibility for construction-trades businesses — builders, contractors, and building-products companies.',
+    'The team building AI automation, dashboards, and search visibility for construction-trades and building-products companies.',
 };
 
 const values = [

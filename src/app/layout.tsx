@@ -26,9 +26,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "The Forge Agency — AI Automation, SEO & GEO for Construction Trades",
+  title: "The Forge Agency — AI, SEO & GEO for Construction Trades",
   description:
-    "AI automation, SEO & GEO for construction and building-products companies. We build the dashboards, AI agents, and search visibility that win work for builders, contractors, and distributors.",
+    "AI automation, SEO & GEO for construction and building-products companies — the dashboards, AI agents, and search visibility that win more work.",
   metadataBase: new URL("https://the-forge-agency.com"),
   openGraph: {
     title: "The Forge Agency — AI Automation, SEO & GEO for Construction Trades",
