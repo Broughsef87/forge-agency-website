@@ -8,6 +8,20 @@ import Faq from '@/components/Faq';
 import LogoStrip from '@/components/LogoStrip';
 import CountUp from '@/components/CountUp';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
+
+// Homepage metadata lives here (not the root layout) so its canonical is
+// self-referential and not inherited by other routes. See FOR-131.
+export const metadata: Metadata = pageMetadata({
+  path: '',
+  title: 'The Forge Agency — AI, SEO & GEO for Construction Trades',
+  description:
+    'AI automation, SEO & GEO for construction and building-products companies — the dashboards, AI agents, and search visibility that win more work.',
+  socialTitle: 'The Forge Agency — AI Automation, SEO & GEO for Construction Trades',
+  socialDescription:
+    'AI automation, SEO & GEO for construction and building-products companies. Dashboards, AI agents, and search visibility — live in days, not quarters.',
+});
 
 const HOME_FAQ = [
   {

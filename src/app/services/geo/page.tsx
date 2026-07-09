@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { serviceSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
 
 // SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
 const GEO_FAQ = [
@@ -26,11 +27,12 @@ const GEO_FAQ = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/services/geo',
   title: 'GEO — Generative Engine Optimization | The Forge Agency',
   description:
     'When buyers ask ChatGPT, Perplexity, Gemini, or Claude to recommend vendors in your category, we make sure your name comes back. From $1,000/mo.',
-};
+});
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';

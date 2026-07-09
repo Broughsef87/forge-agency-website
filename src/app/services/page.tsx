@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { serviceSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
 
 // SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
 const AGENTS_FAQ = [
@@ -26,11 +27,12 @@ const AGENTS_FAQ = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/services',
   title: 'Services — The Forge Agency',
   description:
     'AI automation, custom workflows, and bespoke AI agents for construction-trades businesses. Deployed in 72 hours.',
-};
+});
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';

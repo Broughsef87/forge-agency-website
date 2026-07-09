@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { serviceSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
 
 // SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
 const WEB_FAQ = [
@@ -26,11 +27,12 @@ const WEB_FAQ = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/services/web',
   title: 'Website Design & Build | The Forge Agency',
   description:
     'Conversion-engineered websites built fast with AI tooling. Express pages from $1,500, business sites from $7,500. Next.js + Tailwind on Vercel.',
-};
+});
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';

@@ -2,12 +2,14 @@ import NavBar from '@/components/NavBar';
 import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/about',
   title: 'About Us — The Forge Agency',
   description:
     'The team building AI automation, dashboards, and search visibility for construction-trades and building-products companies.',
-};
+});
 
 const values = [
   {

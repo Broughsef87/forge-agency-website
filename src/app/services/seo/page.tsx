@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { serviceSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
 
 // SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
 const SEO_FAQ = [
@@ -26,11 +27,12 @@ const SEO_FAQ = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/services/seo',
   title: 'SEO — Foundation Tier | The Forge Agency',
   description:
     'Technical SEO and search hygiene for businesses that need the foundation done right. $1,500/mo, 3-month minimum — honest about what SEO does.',
-};
+});
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';

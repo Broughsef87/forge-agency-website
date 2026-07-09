@@ -7,6 +7,7 @@ import { getPost, posts, type PostBlock } from '@/lib/insights';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { articleSchema, breadcrumbSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';
@@ -33,11 +34,17 @@ export async function generateMetadata({
     };
   }
 
-  return {
+  // Self-referential www canonical + og:url, article-specific og:/twitter:
+  // (both derived from the same source — the long headline + dek — so the
+  // Twitter card no longer falls back to homepage boilerplate). FOR-131.
+  return pageMetadata({
+    path: `/insights/${post.slug}`,
     title: post.metaTitle,
     description: post.metaDescription ?? post.dek,
-    openGraph: { title: post.title, description: post.dek, type: 'article' },
-  };
+    socialTitle: post.title,
+    socialDescription: post.dek,
+    ogType: 'article',
+  });
 }
 
 function formatDate(iso: string) {

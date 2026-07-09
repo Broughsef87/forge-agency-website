@@ -3,12 +3,14 @@ import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getPublishedPosts } from '@/lib/insights';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/insights',
   title: 'Insights — The Forge Agency',
   description:
     'Case studies and field notes on AI automation, SEO, and GEO for construction-trades businesses — real builds, real numbers, no theory.',
-};
+});
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';
