@@ -136,6 +136,19 @@ export default function SeoServicePage() {
             <p>
               That&apos;s what this tier is for. One offering, predictable price, foundation-focused work. If we can&apos;t honestly say it&apos;ll move the needle for you, we&apos;ll tell you up front.
             </p>
+            {/* FOR-132: contextual inbound link to the spam-backlinks article,
+                varied anchor. On-voice for this page's "honest scope" pitch.
+                Connective sentence is CC-authored — flagged for voice-pass. */}
+            <p>
+              That honesty runs both ways — we&apos;ll also tell you what <em>not</em> to pay to fix. If a report has you alarmed about{' '}
+              <Link
+                href="/insights/spam-backlinks-what-they-mean"
+                className="text-stone-900 font-medium underline underline-offset-2 hover:text-[#E8572A] transition-colors"
+              >
+                what spam backlinks actually mean
+              </Link>{' '}
+              for a healthy site, the honest answer is usually nothing.
+            </p>
           </div>
         </div>
       </section>
