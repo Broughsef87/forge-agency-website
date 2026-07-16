@@ -21,11 +21,15 @@
  *   ❌ facebook.com/TheForgeAgency         — NOT ours. Never list.
  *   ⏳ Clutch                              — omitted until the URL is confirmed.
  *
- * ADDRESS (FOR-140): Forge is a service-area business — Andrew's call is no
- * public street address and no public phone (there isn't one). The
- * region-level PostalAddress below is deliberate and is NOT a street
- * address: it binds the entity to Colorado, which is the name→niche→place
- * binding FOR-133 needs. Do not add `telephone` or a street address.
+ * ADDRESS (FOR-140/FOR-141): Forge is a service-area business — no public
+ * street address and no public phone (there isn't one). The PostalAddress
+ * below is city+region only and is deliberate: it is NOT a street address,
+ * and it carries the "place" half of the name→niche→place binding FOR-133
+ * needs. Locality is Castle Rock so the entity agrees with every other
+ * surface — GBP service area, chamber listing, and /castle-rock-seo (the
+ * one local term we can win: 150/mo, KD 0). City-level is not private;
+ * Andrew is a public Castle Rock chamber member. Do NOT add `telephone` or
+ * a street address, and do not "tidy" the locality/region away.
  */
 import { SITE_URL } from '@/lib/seo';
 
@@ -69,6 +73,7 @@ export const ORGANIZATION = {
   },
   address: {
     '@type': 'PostalAddress',
+    addressLocality: 'Castle Rock',
     addressRegion: 'Colorado',
     addressCountry: 'US',
   },
