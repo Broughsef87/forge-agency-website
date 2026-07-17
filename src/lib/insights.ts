@@ -535,6 +535,24 @@ export const posts: InsightPost[] = [
         type: 'p',
         text: 'This comes up more often than people think. And it\'s almost never as bad as it looks. Here\'s what\'s actually happening, why Google mostly doesn\'t care, and what you should do — which is usually nothing.',
       },
+      // FOR-132: definitional block (Sage's prose, pending Andrew voice-pass).
+      // Ranks for the head term but never defined it; a crisp definition is
+      // the most citable unit for AI engines. Inline **bold**/*italic* from
+      // the dispatch markdown is rendered as plain text — the 'p' block model
+      // has no inline emphasis; words are verbatim.
+      { type: 'h2', text: 'What is a spam backlink?' },
+      {
+        type: 'p',
+        text: 'A spam backlink is a link pointing to your website from a low-quality site that exists to distribute links rather than serve readers — auto-generated directories, link farms, scraped template sites, and private blog networks. You didn\'t request it, you didn\'t pay for it, and in most cases you\'ve never heard of the site.',
+      },
+      {
+        type: 'p',
+        text: 'The distinguishing feature isn\'t that the link is bad. It\'s that you didn\'t build it. Spam links you didn\'t create are ambient noise on the internet — a normal byproduct of having a domain. Google\'s systems identify and discount them automatically. Spam links a site deliberately buys to manipulate rankings are a different thing entirely, and that\'s what penalties are actually for.',
+      },
+      {
+        type: 'p',
+        text: 'So the question worth asking isn\'t "do I have spam backlinks?" Almost every site does. It\'s "did anyone build them on purpose?" — and for the overwhelming majority of businesses, the answer is no.',
+      },
       { type: 'h2', text: 'Where spam backlinks come from' },
       {
         type: 'p',
@@ -651,6 +669,18 @@ export const posts: InsightPost[] = [
         q: 'What should I actually do to build real backlink authority?',
         a: 'Earn links from real sources. Consistent citations in legitimate local and industry directories. Mentions in regional or trade press. Links from suppliers, associations, and partners who genuinely vouch for you. One real link from a trusted source outweighs hundreds of spam links — and unlike spam, it compounds.',
       },
+      // FOR-132: two appended FAQs (Sage's prose, pending Andrew voice-pass).
+      // Target adjacent queries "what are spam backlinks" / "how to check
+      // spam backlinks". This `faq` array drives BOTH the visible <Faq> block
+      // and the FAQPage JSON-LD, so visible + schema stay in lockstep.
+      {
+        q: 'What are spam backlinks?',
+        a: 'Links pointing at your site from low-quality domains that exist to distribute links rather than serve readers — link farms, scraped directories, auto-generated template sites. They typically appear without your involvement. Google discounts them automatically, and they\'re rarely a problem unless you built them deliberately.',
+      },
+      {
+        q: 'How do I check my site for spam backlinks?',
+        a: 'Pull your backlink profile in a tool like Ahrefs, Semrush, or Google Search Console\'s Links report and look at the referring domains. Ignore the raw count — it\'s alarming and mostly meaningless. Check three things instead: is there a manual action in Search Console, is your organic traffic healthy, and is a large share of your anchor text the same exact-match keyword? If it\'s no, yes, and no — you\'re fine.',
+      },
     ],
     closingCta: {
       heading: 'Want an honest read on where your site actually stands?',
@@ -734,6 +764,14 @@ export const posts: InsightPost[] = [
         text: 'Not hundreds. A handful. From real sites: your industry directory, your local chamber of commerce, a regional newspaper, a supplier, a trade association. One real link from a site with an actual audience and a real reputation is worth more than a thousand bulk-bought directory links.',
       },
       { type: 'p', text: 'This work compounds over months and years. There\'s no shortcut. Anyone telling you otherwise is selling graffiti.' },
+      // FOR-132: reciprocal in-body link INTO the spam-backlinks article with a
+      // varied anchor (not the related-card label). Connective sentence is
+      // CC-authored to carry the anchor — flagged for Andrew's voice-pass.
+      {
+        type: 'p',
+        text: 'It cuts both ways. Junk links pointed at your site are ambient noise, not a threat — we broke down the 200+ spam links we found on a client\'s site, and Google had already discounted every one. The fix was to do nothing.',
+        links: [{ match: 'the 200+ spam links we found on a client\'s site', href: '/insights/spam-backlinks-what-they-mean' }],
+      },
       { type: 'h2', text: 'What a realistic SEO timeline looks like' },
       { type: 'p', text: 'If someone starts SEO work on your site today, here\'s an honest picture of when results show up:' },
       {
