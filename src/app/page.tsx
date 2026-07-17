@@ -16,12 +16,15 @@ import { PHONE_DISPLAY, PHONE_TEL_HREF } from '@/lib/contact';
 // self-referential and not inherited by other routes. See FOR-131.
 export const metadata: Metadata = pageMetadata({
   path: '',
-  title: 'The Forge Agency — AI, SEO & GEO for Construction Trades',
+  title: 'The Forge Agency — AI SEO for Builders, Realtors & Lenders',
   description:
-    'AI automation, SEO & GEO for construction and building-products companies — the dashboards, AI agents, and search visibility that win more work.',
-  socialTitle: 'The Forge Agency — AI Automation, SEO & GEO for Construction Trades',
-  socialDescription:
-    'AI automation, SEO & GEO for construction and building-products companies. Dashboards, AI agents, and search visibility — live in days, not quarters.',
+    'The dashboards, AI agents, traditional SEO, and AI SEO (GEO) that win more work — for the people who build, sell, and finance buildings.',
+  socialTitle: 'The Forge Agency — Automation & AI SEO (GEO), Builders/Realtors/Lenders',
+  // socialDescription: PENDING — Quill. Deliberately omitted rather than left
+  // at the old value: pageMetadata falls back to `description` above, so og:
+  // and twitter: carry the new positioning instead of the retired
+  // "SEO & GEO / construction and building-products" line. Fill in when Quill
+  // delivers.
 });
 
 const HOME_FAQ = [

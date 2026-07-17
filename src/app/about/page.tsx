@@ -9,7 +9,7 @@ export const metadata: Metadata = pageMetadata({
   path: '/about',
   title: 'About Us — The Forge Agency',
   description:
-    'The team building AI automation, dashboards, and search visibility for construction-trades and building-products companies.',
+    'The team building AI automation, dashboards, and search visibility for the people who build, sell, and finance buildings.',
 });
 
 const values = [

@@ -30,7 +30,8 @@ const GEO_FAQ = [
 
 export const metadata: Metadata = pageMetadata({
   path: '/services/geo',
-  title: 'GEO — Generative Engine Optimization | The Forge Agency',
+  // On-page language only — the /services/geo URL stays as-is (live + indexed).
+  title: 'AI SEO Agency (GEO) in Castle Rock | The Forge Agency',
   description:
     'When buyers ask ChatGPT, Perplexity, Gemini, or Claude to recommend vendors in your category, we make sure your name comes back. From $1,000/mo.',
 });

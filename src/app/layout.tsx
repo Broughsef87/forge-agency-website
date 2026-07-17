@@ -32,9 +32,12 @@ const fraunces = Fraunces({
 // image) resolve to the same host the non-www 301 lands on. See FOR-131.
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.the-forge-agency.com"),
-  title: "The Forge Agency — AI, SEO & GEO for Construction Trades",
+  // Fallback only — every content route sets its own via pageMetadata(). Kept
+  // in sync with the homepage so a route that ever misses the helper can't
+  // resurrect the retired "SEO & GEO / construction trades" positioning.
+  title: "The Forge Agency — AI SEO for Builders, Realtors & Lenders",
   description:
-    "AI automation, SEO & GEO for construction and building-products companies — the dashboards, AI agents, and search visibility that win more work.",
+    "The dashboards, AI agents, traditional SEO, and AI SEO (GEO) that win more work — for the people who build, sell, and finance buildings.",
 };
 
 export default function RootLayout({

@@ -32,7 +32,7 @@ export const metadata: Metadata = pageMetadata({
   path: '/services',
   title: 'Services — The Forge Agency',
   description:
-    'AI automation, custom workflows, and bespoke AI agents for construction-trades businesses. Deployed in 72 hours.',
+    'AI automation, custom workflows, and bespoke AI agents for the people who build, sell, and finance buildings. Deployed in 72 hours.',
 });
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';

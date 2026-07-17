@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMetadata({
   path: '/insights',
   title: 'Insights — The Forge Agency',
   description:
-    'Case studies and field notes on AI automation, SEO, and GEO for construction-trades businesses — real builds, real numbers, no theory.',
+    'Real builds, real numbers, no theory — AI automation, traditional SEO, and AI SEO (GEO) for the people who build, sell, and finance buildings.',
 });
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
