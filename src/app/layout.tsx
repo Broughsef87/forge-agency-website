@@ -25,34 +25,19 @@ const fraunces = Fraunces({
   axes: ["SOFT", "opsz"],
 });
 
+// Sitewide defaults only. Per-page title/description/canonical/OG/Twitter are
+// built via pageMetadata() (src/lib/seo.ts) on each route — including the
+// homepage (src/app/page.tsx) — so canonical is always self-referential and
+// never inherited from here. metadataBase = www so relative asset URLs (OG
+// image) resolve to the same host the non-www 301 lands on. See FOR-131.
 export const metadata: Metadata = {
-  title: "The Forge Agency — AI, SEO & GEO for Construction Trades",
+  metadataBase: new URL("https://www.the-forge-agency.com"),
+  // Fallback only — every content route sets its own via pageMetadata(). Kept
+  // in sync with the homepage so a route that ever misses the helper can't
+  // resurrect the retired "SEO & GEO / construction trades" positioning.
+  title: "The Forge Agency — AI SEO for Builders, Realtors & Lenders",
   description:
-    "AI automation, SEO & GEO for construction and building-products companies — the dashboards, AI agents, and search visibility that win more work.",
-  metadataBase: new URL("https://the-forge-agency.com"),
-  openGraph: {
-    title: "The Forge Agency — AI Automation, SEO & GEO for Construction Trades",
-    description:
-      "AI automation, SEO & GEO for construction and building-products companies. Dashboards, AI agents, and search visibility — live in days, not quarters.",
-    url: "https://the-forge-agency.com",
-    siteName: "The Forge Agency",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "The Forge Agency — AI & Search for Construction Trades",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "The Forge Agency — AI Automation, SEO & GEO for Construction Trades",
-    description:
-      "Dashboards, AI agents, and search visibility for construction-trades companies — live in days, not quarters.",
-    images: ["/og-image.png"],
-  },
+    "The dashboards, AI agents, traditional SEO, and AI SEO (GEO) that win more work — for the people who build, sell, and finance buildings.",
 };
 
 export default function RootLayout({

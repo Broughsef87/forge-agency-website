@@ -8,6 +8,24 @@ import Faq from '@/components/Faq';
 import LogoStrip from '@/components/LogoStrip';
 import CountUp from '@/components/CountUp';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
+import { PHONE_DISPLAY, PHONE_TEL_HREF, EMAIL } from '@/lib/contact';
+
+// Homepage metadata lives here (not the root layout) so its canonical is
+// self-referential and not inherited by other routes. See FOR-131.
+export const metadata: Metadata = pageMetadata({
+  path: '',
+  title: 'The Forge Agency — AI SEO for Builders, Realtors & Lenders',
+  description:
+    'The dashboards, AI agents, traditional SEO, and AI SEO (GEO) that win more work — for the people who build, sell, and finance buildings.',
+  socialTitle: 'The Forge Agency — Automation & AI SEO (GEO), Builders/Realtors/Lenders',
+  // socialDescription: PENDING — Quill. Deliberately omitted rather than left
+  // at the old value: pageMetadata falls back to `description` above, so og:
+  // and twitter: carry the new positioning instead of the retired
+  // "SEO & GEO / construction and building-products" line. Fill in when Quill
+  // delivers.
+});
 
 const HOME_FAQ = [
   {
@@ -415,7 +433,8 @@ export default function Home() {
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
               <ul className="space-y-2 text-sm">
-                <li><a href="mailto:info@forge-automations.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">info@forge-automations.com</a></li>
+                <li><a href={`mailto:${EMAIL}`} className="text-stone-600 hover:text-[#E8572A] transition-colors">{EMAIL}</a></li>
+                <li><a href={PHONE_TEL_HREF} className="text-stone-600 hover:text-[#E8572A] transition-colors">{PHONE_DISPLAY}</a></li>
                 <li><a href="https://calendar.app.google/kmAtXQsU4zL9m6Z96" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
                 <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
               </ul>

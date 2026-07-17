@@ -69,14 +69,14 @@ export default function ScrollVideoHero() {
         {/* Center content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase mb-8">
-            AI Automation · SEO · GEO — Construction Trades
+            AI Automation · Traditional SEO · AI SEO (GEO) — Castle Rock, CO
           </p>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[0.95] text-white max-w-5xl">
-            Stop running million-dollar jobs on a{' '}
+            Your next customer is asking AI who to call. Are you{' '}
             <span className="italic text-[#FF7A3F]" style={{ fontVariationSettings: '"SOFT" 50' }}>
-              spreadsheet
+              the answer
             </span>
-            .
+            ?
           </h1>
           <p className="text-lg md:text-xl text-white/65 font-light max-w-2xl mx-auto mt-8 leading-relaxed">
             We build the dashboards, AI agents, and search visibility that win work for builders, contractors, and building-products companies — live in days, not quarters.

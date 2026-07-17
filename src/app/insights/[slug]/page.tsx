@@ -7,6 +7,8 @@ import { getPost, posts, type PostBlock } from '@/lib/insights';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { articleSchema, breadcrumbSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
+import { PHONE_DISPLAY, PHONE_TEL_HREF, EMAIL } from '@/lib/contact';
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';
@@ -33,11 +35,17 @@ export async function generateMetadata({
     };
   }
 
-  return {
+  // Self-referential www canonical + og:url, article-specific og:/twitter:
+  // (both derived from the same source — the long headline + dek — so the
+  // Twitter card no longer falls back to homepage boilerplate). FOR-131.
+  return pageMetadata({
+    path: `/insights/${post.slug}`,
     title: post.metaTitle,
     description: post.metaDescription ?? post.dek,
-    openGraph: { title: post.title, description: post.dek, type: 'article' },
-  };
+    socialTitle: post.title,
+    socialDescription: post.dek,
+    ogType: 'article',
+  });
 }
 
 function formatDate(iso: string) {
@@ -195,7 +203,8 @@ function SiteFooter() {
           <div>
             <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
             <ul className="space-y-2 text-sm">
-              <li><a href="mailto:info@forge-automations.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">info@forge-automations.com</a></li>
+              <li><a href={`mailto:${EMAIL}`} className="text-stone-600 hover:text-[#E8572A] transition-colors">{EMAIL}</a></li>
+              <li><a href={PHONE_TEL_HREF} className="text-stone-600 hover:text-[#E8572A] transition-colors">{PHONE_DISPLAY}</a></li>
               <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
               <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
             </ul>

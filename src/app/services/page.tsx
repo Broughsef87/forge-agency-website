@@ -5,6 +5,8 @@ import type { Metadata } from 'next';
 import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { serviceSchema } from '@/lib/schema';
+import { pageMetadata } from '@/lib/seo';
+import { PHONE_DISPLAY, PHONE_TEL_HREF, EMAIL } from '@/lib/contact';
 
 // SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
 const AGENTS_FAQ = [
@@ -26,11 +28,12 @@ const AGENTS_FAQ = [
   },
 ];
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: '/services',
   title: 'Services — The Forge Agency',
   description:
-    'AI automation, custom workflows, and bespoke AI agents for construction-trades businesses. Deployed in 72 hours.',
-};
+    'AI automation, custom workflows, and bespoke AI agents for the people who build, sell, and finance buildings. Deployed in 72 hours.',
+});
 
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
 const COMPASS_URL = 'https://compass.the-forge-agency.com';
@@ -572,7 +575,8 @@ export default function ServicesPage() {
             <div>
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
               <ul className="space-y-2 text-sm">
-                <li><a href="mailto:info@forge-automations.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">info@forge-automations.com</a></li>
+                <li><a href={`mailto:${EMAIL}`} className="text-stone-600 hover:text-[#E8572A] transition-colors">{EMAIL}</a></li>
+                <li><a href={PHONE_TEL_HREF} className="text-stone-600 hover:text-[#E8572A] transition-colors">{PHONE_DISPLAY}</a></li>
                 <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
               </ul>
             </div>

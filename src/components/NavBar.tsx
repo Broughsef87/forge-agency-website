@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import ForgeLogo from './ForgeLogo';
+import { EMAIL } from '@/lib/contact';
 
 const COMPASS_URL = 'https://compass.the-forge-agency.com';
 const BOOKING_URL = 'https://calendar.app.google/kmAtXQsU4zL9m6Z96';
@@ -292,7 +293,7 @@ export default function NavBar() {
             Book a Call →
           </a>
           <p className="text-center text-xs text-stone-400 font-light mt-4">
-            info@forge-automations.com
+            {EMAIL}
           </p>
         </div>
       </div>
