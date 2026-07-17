@@ -69,7 +69,7 @@ export default function ScrollVideoHero() {
         {/* Center content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <p className="font-mono text-[11px] tracking-[0.28em] text-white/55 uppercase mb-8">
-            AI Automation · SEO · GEO — Construction Trades
+            AI Automation · Traditional SEO · AI SEO (GEO) — Castle Rock, CO
           </p>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight leading-[0.95] text-white max-w-5xl">
             Stop running million-dollar jobs on a{' '}
