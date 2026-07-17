@@ -34,10 +34,14 @@ export const PHONE_E164 = '+13039193187';
 /**
  * Public contact email — the consolidated public identity (FOR-133).
  *
- * ⚠️ DIVERGENCE, pending Sage: the eight footers and NavBar.tsx still
- * hardcode the retired info@forge-automations.com, so the entity schema and
- * the visible pages currently disagree. When that switch is approved they
- * should import this constant rather than hardcode a tenth copy — same
- * reason as PHONE_* above.
+ * the-forge-agency.com is the canonical public domain. forge-automations.com
+ * is retired from public use (it survives as the legal entity name, see
+ * ORGANIZATION.legalName) — do not surface it anywhere user-facing.
+ *
+ * Delivery confirmed 2026-07-09: info@ and andrew@the-forge-agency.com both
+ * tested and delivering, send-as configured.
+ *
+ * Every surface imports this — Organization.contactPoint, all eight footers,
+ * and the NavBar mobile menu. Don't hardcode an eleventh copy.
  */
 export const EMAIL = 'info@the-forge-agency.com';
