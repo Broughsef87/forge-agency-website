@@ -30,3 +30,14 @@ export const PHONE_TEL_HREF = 'tel:3039193187';
 
 /** E.164 — the form schema.org/GBP expect. Used by ORGANIZATION.telephone. */
 export const PHONE_E164 = '+13039193187';
+
+/**
+ * Public contact email — the consolidated public identity (FOR-133).
+ *
+ * ⚠️ DIVERGENCE, pending Sage: the eight footers and NavBar.tsx still
+ * hardcode the retired info@forge-automations.com, so the entity schema and
+ * the visible pages currently disagree. When that switch is approved they
+ * should import this constant rather than hardcode a tenth copy — same
+ * reason as PHONE_* above.
+ */
+export const EMAIL = 'info@the-forge-agency.com';

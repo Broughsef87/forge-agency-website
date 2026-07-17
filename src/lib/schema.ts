@@ -40,7 +40,7 @@
  * Phone values come from src/lib/contact.ts — never hardcode the number.
  */
 import { SITE_URL } from '@/lib/seo';
-import { PHONE_E164 } from '@/lib/contact';
+import { PHONE_E164, EMAIL } from '@/lib/contact';
 
 const ORG_NAME = 'The Forge Agency';
 const ORG_LEGAL_NAME = 'Forge Automations LLC';
@@ -51,15 +51,18 @@ export const ORGANIZATION = {
   '@type': 'Organization',
   '@id': ORG_ID,
   name: ORG_NAME,
-  // Binds the trading name to the legal entity — also explains the
-  // the-forge-agency.com / info@forge-automations.com split to engines
-  // resolving us (FOR-133 domain fragmentation).
+  // Binds the trading name to the legal entity behind it, so engines
+  // resolving "Forge Automations LLC" in business records land on the same
+  // node as "The Forge Agency" (FOR-133).
   legalName: ORG_LEGAL_NAME,
   url: SITE_URL,
   logo: `${SITE_URL}/brand/forge-icon.svg`,
   image: `${SITE_URL}/og-image.png`,
+  // THE sentence AI reads to decide what Forge is (FOR-133). Names the three
+  // legs explicitly — specificity helps entity resolution — and carries
+  // name→niche→place, consistent with addressLocality below.
   description:
-    'AI automation, dashboards, and search visibility (SEO + GEO) for construction-trades and building-products companies.',
+    'AI automation, dashboards, traditional SEO, and AI SEO (GEO) for the people who build, sell, and finance buildings — contractors and trades, realtors, and mortgage brokers. Based in Castle Rock, Colorado.',
   founder: {
     '@type': 'Person',
     name: 'Andrew Brough',
@@ -68,17 +71,23 @@ export const ORGANIZATION = {
     '@type': 'Country',
     name: 'United States',
   },
+  // knowsAbout is an EXPERTISE CLAIM — only list what we can actually stand
+  // behind. Deliberately no 'real estate marketing' / 'mortgage marketing':
+  // we sell those services but have never had a client in either, and
+  // claiming a track record we don't have is the one thing that breaks trust
+  // with both engines and buyers. Sell the service, don't claim the record.
   knowsAbout: [
     'AI automation',
     'AI agents',
     'SEO',
+    'AI SEO',
     'Generative Engine Optimization',
-    'construction technology',
+    'local SEO',
   ],
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
-    email: 'info@forge-automations.com',
+    email: EMAIL,
   },
   telephone: PHONE_E164,
   address: {
@@ -124,9 +133,12 @@ export function serviceSchema({ name, serviceType, description, path }: ServiceS
       '@type': 'Country',
       name: 'United States',
     },
+    // Emitted by /services, /services/seo, /services/geo, /services/web — the
+    // structured field built specifically to declare who we serve, so it has
+    // to match the widened vertical rather than restate the old one 4×.
     audience: {
       '@type': 'BusinessAudience',
-      name: 'Construction-trades and building-products businesses',
+      name: 'Builders, contractors, realtors, and mortgage brokers',
     },
   };
 }
