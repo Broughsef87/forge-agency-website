@@ -3,6 +3,7 @@ import ForgeLogo from '@/components/ForgeLogo';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/seo';
+import { PHONE_DISPLAY, PHONE_TEL_HREF } from '@/lib/contact';
 
 export const metadata: Metadata = pageMetadata({
   path: '/about',
@@ -230,6 +231,7 @@ export default function AboutPage() {
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
               <ul className="space-y-2 text-sm">
                 <li><a href="mailto:info@forge-automations.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">info@forge-automations.com</a></li>
+                <li><a href={PHONE_TEL_HREF} className="text-stone-600 hover:text-[#E8572A] transition-colors">{PHONE_DISPLAY}</a></li>
                 <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
               </ul>
             </div>

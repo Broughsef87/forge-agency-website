@@ -21,17 +21,26 @@
  *   ❌ facebook.com/TheForgeAgency         — NOT ours. Never list.
  *   ⏳ Clutch                              — omitted until the URL is confirmed.
  *
- * ADDRESS (FOR-140/FOR-141): Forge is a service-area business — no public
- * street address and no public phone (there isn't one). The PostalAddress
- * below is city+region only and is deliberate: it is NOT a street address,
- * and it carries the "place" half of the name→niche→place binding FOR-133
- * needs. Locality is Castle Rock so the entity agrees with every other
- * surface — GBP service area, chamber listing, and /castle-rock-seo (the
- * one local term we can win: 150/mo, KD 0). City-level is not private;
- * Andrew is a public Castle Rock chamber member. Do NOT add `telephone` or
- * a street address, and do not "tidy" the locality/region away.
+ * NAP (FOR-131/FOR-140/FOR-141): Forge is a service-area business. The
+ * city+region PostalAddress and the telephone below are both real and both
+ * deliberate — together they are the "place" half of the name→niche→place
+ * binding FOR-133 needs, and NAP (Name/Address/Phone) is what the local
+ * pack verifies against. Because the street address is deliberately
+ * withheld, the phone carries most of that weight: GBP and the site must
+ * agree exactly.
+ *
+ * Locality is Castle Rock so the entity agrees with every other surface —
+ * GBP service area, chamber listing, and /castle-rock-seo (the one local
+ * term we can win: 150/mo, KD 0). City-level is not private; Andrew is a
+ * public Castle Rock chamber member.
+ *
+ * The line is NO streetAddress. The phone and the locality/region are
+ * correct — do not "tidy" them away as leftover PII.
+ *
+ * Phone values come from src/lib/contact.ts — never hardcode the number.
  */
 import { SITE_URL } from '@/lib/seo';
+import { PHONE_E164 } from '@/lib/contact';
 
 const ORG_NAME = 'The Forge Agency';
 const ORG_LEGAL_NAME = 'Forge Automations LLC';
@@ -71,6 +80,7 @@ export const ORGANIZATION = {
     contactType: 'sales',
     email: 'info@forge-automations.com',
   },
+  telephone: PHONE_E164,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Castle Rock',

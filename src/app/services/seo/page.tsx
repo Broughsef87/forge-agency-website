@@ -6,6 +6,7 @@ import JsonLd from '@/components/JsonLd';
 import Faq from '@/components/Faq';
 import { serviceSchema } from '@/lib/schema';
 import { pageMetadata } from '@/lib/seo';
+import { PHONE_DISPLAY, PHONE_TEL_HREF } from '@/lib/contact';
 
 // SEED FAQs (FOR-112) — factual, from this page's own copy. Sage/Quill to finalize.
 const SEO_FAQ = [
@@ -324,6 +325,7 @@ export default function SeoServicePage() {
               <p className="font-mono text-[10px] tracking-[0.3em] text-stone-400 uppercase mb-4">Contact</p>
               <ul className="space-y-2 text-sm">
                 <li><a href="mailto:info@forge-automations.com" className="text-stone-600 hover:text-[#E8572A] transition-colors">info@forge-automations.com</a></li>
+                <li><a href={PHONE_TEL_HREF} className="text-stone-600 hover:text-[#E8572A] transition-colors">{PHONE_DISPLAY}</a></li>
                 <li><a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-[#E8572A] transition-colors">Book a Call</a></li>
                 <li className="text-stone-500 font-light">Based in Colorado · Working globally</li>
               </ul>
