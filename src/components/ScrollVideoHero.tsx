@@ -79,7 +79,7 @@ export default function ScrollVideoHero() {
             ?
           </h1>
           <p className="text-lg md:text-xl text-white/65 font-light max-w-2xl mx-auto mt-8 leading-relaxed">
-            We build the dashboards, AI agents, and search visibility that win work for builders, contractors, and building-products companies — live in days, not quarters.
+            We build the dashboards, AI agents, and search visibility that win work for the people who build, sell, and finance buildings — live in days, not quarters.
           </p>
 
           {/* Hero CTAs */}
